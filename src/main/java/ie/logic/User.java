@@ -103,7 +103,4 @@ public class User {
         return null;
     }
 
-    public Loghme.Status deleteFromCart(Resturant resturant, Food food){
-        return currentCart.deleteFromCart(resturant, food);
-    }
 }

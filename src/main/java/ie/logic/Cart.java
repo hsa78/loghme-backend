@@ -46,32 +46,17 @@ public class Cart {
             System.out.println("You can not order from two different restaurant");
             return Loghme.Status.BAD_REQUEST;
         }
-        int orderIndex = fineOrderIndex(food.getName());
-        if(orderIndex == NOT_FOUND)
-            orders.add(new Order(food, count));
+        Order foundOrder = DataManager.getInstance().findOrder(food.getName(), this);
+        if (foundOrder == null)
+            DataManager.getInstance().addOrder(new Order(food, count), this);
         else{
-            Order order = orders.get(orderIndex);
-            int prevCount = order.getNumOfFoods();
-            order.addNumOfFoods(count);
-            if(!order.isValid()) {
-                order.setNumOfFoods(prevCount);
+            if(foundOrder.getFood().isAvailable(foundOrder.getNumOfFoods() + count))
+                DataManager.getInstance().changeOrderCount(foundOrder, count);
+            else
                 return Loghme.Status.BAD_REQUEST;
-            }
         }
         totalPrice += (food.getPrice() * count);
         return Loghme.Status.OK;
-    }
-
-    public ArrayList<HashMap<String, Object>> getOrdersProperties(){
-        ArrayList<HashMap<String,Object>> ordersProperties = new ArrayList<HashMap<String, Object>>();
-
-        for (Order order : orders) {
-            HashMap<String, Object> orderProperites = new HashMap<String, Object>();
-            orderProperites.put("foodName", order.getFoodName());
-            orderProperites.put("numOfFood", order.getNumOfFoods());
-            ordersProperties.add(orderProperites);
-        }
-        return ordersProperties;
     }
 
     public Loghme.Status finalizeOrder(){
@@ -149,24 +134,17 @@ public class Cart {
         return currentStatus;
     }
 
-    public Loghme.Status deleteFromCart(Resturant resturant, Food food){
-        if(!resturant.getId().equals(restaurantId)){
+    public Loghme.Status deleteFromCart(String restaurantId, Food food){
+        if(!restaurantId.equals(this.restaurantId)){
             System.out.println("You have ordered from a different restaurant");
             return Loghme.Status.BAD_REQUEST;
         }
-        int orderIndex = fineOrderIndex(food.getName());
-        if(orderIndex == NOT_FOUND){
+        Order foundOrder = DataManager.getInstance().findOrder(food.getName(), this);
+        if(foundOrder == null){
             System.out.println("You did not ordered this food");
             return Loghme.Status.BAD_REQUEST;
         }
-        else {
-            Order order = orders.get(orderIndex);
-            if (order.getNumOfFoods() == 1)
-                orders.remove(orderIndex);
-            else
-                order.decreaseNumOfFoods();
-            totalPrice -= order.getFood().getPrice();
-        }
+        DataManager.getInstance().deleteFromCart(foundOrder, this);
         return Loghme.Status.OK;
     }
 

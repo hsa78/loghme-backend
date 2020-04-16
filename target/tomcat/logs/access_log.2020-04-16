@@ -1,2 +1,6 @@
 127.0.0.1 - - [16/Apr/2020:14:45:06 +0430] "GET / HTTP/1.1" 200 52 http-bio-8080-exec-1 2644
 127.0.0.1 - - [16/Apr/2020:14:45:18 +0430] "GET /user/info HTTP/1.1" 202 105 http-bio-8080-exec-2 2078
+127.0.0.1 - - [16/Apr/2020:15:02:21 +0430] "GET /restaurant/all HTTP/1.1" 202 599 http-bio-8080-exec-1 2096
+127.0.0.1 - - [16/Apr/2020:15:02:36 +0430] "GET /foodParty HTTP/1.1" 404 949 http-bio-8080-exec-2 2033
+127.0.0.1 - - [16/Apr/2020:15:02:39 +0430] "GET /favicon.ico HTTP/1.1" 404 949 http-bio-8080-exec-3 2003
+127.0.0.1 - - [16/Apr/2020:15:02:43 +0430] "GET /foodParty/view HTTP/1.1" 500 4029 http-bio-8080-exec-5 2037
