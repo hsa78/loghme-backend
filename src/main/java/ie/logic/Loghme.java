@@ -141,20 +141,13 @@ public class Loghme {
         return DataManager.getInstance().getUserCurrentCart("").addOrder(order, count);
     }
 
-    //TODO
     public Status deleteFromCart(String foodName, String restaurantId){
-        int foodRestaurantIndex = findRestaurantIndex(restaurantId);
-        if(foodRestaurantIndex == NOT_FOUND){
-            System.out.println("Restaurant with id " + restaurantId + " does not exist.");
-            return Status.NOT_FOUND;
-        }
-        Resturant resturant = resturants.get(foodRestaurantIndex);
-        Food order = resturant.hasFood(foodName);
+        Food order = DataManager.getInstance().findFoodAllType(foodName, restaurantId);
         if(order == null){
             System.out.println("Food with name " + foodName + "in restaurant with id " + restaurantId + " does not exist.");
             return Status.NOT_FOUND;
         }
-        return loginnedUser.deleteFromCart(resturant, order);
+        return DataManager.getInstance().getUserCurrentCart("").deleteFromCart(restaurantId, order);
     }
 
     public Status finalizeOrder(){

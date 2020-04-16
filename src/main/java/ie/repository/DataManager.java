@@ -190,6 +190,12 @@ public class DataManager {
         }
     }
 
+    public Food findFoodAllType(String foodName, String restaurantId){
+        Resturant resturant = findRestaurantById(restaurantId);
+        Food food = resturant.hasFood(foodName);
+        return food;
+    }
+
     public String getRestaurantName(String restaurantId){
         return findRestaurantById(restaurantId).getName();
     }
@@ -197,4 +203,29 @@ public class DataManager {
     public Cart getUserCurrentCart(String userId){
         return loginnedUser.getCart();
     }
+
+    public Order findOrder(String foodName, Cart currentCart){
+        ArrayList<Order> orders = currentCart.getOrders();
+        for(Order order: orders){
+            if(order.getFoodName().equals(foodName))
+                return order;
+        }
+        return null;
+    }
+
+    public void addOrder(Order order, Cart currentCart){
+        currentCart.getOrders().add(order);
+    }
+
+    public void changeOrderCount(Order order, int count){
+        order.addNumOfFoods(count);
+    }
+
+    public void deleteFromCart(Order order, Cart currentCart){
+        if (order.getNumOfFoods() == 1)
+            currentCart.getOrders().remove(order);
+        else
+            order.decreaseNumOfFoods();
+    }
+
 }
