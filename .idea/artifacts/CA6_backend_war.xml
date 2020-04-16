@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="CA6_backend:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>CA6_backend</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="CA6_backend.war">
+      <element id="artifact" artifact-name="CA6_backend:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,193 @@
+package ie.logic;
+
+import ie.repository.DataManager;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class Cart {
+    private String restaurantId;
+    private String restaurantName;
+    private ArrayList<Order> orders = new ArrayList<Order>();
+    private long totalPrice;
+    private int id;
+    private Delivery assignedDelivery;
+    private CartStatus currentStatus;
+    private float timeToDelivery = 0;
+
+    public enum CartStatus {OnProgress, SearchingForDelivery, DeliveryIsOnTheWay, Delivered};
+
+    private static int NOT_FOUND = -1;
+
+    public Cart(int id_){
+        restaurantId = null;
+        totalPrice = 0;
+        id = id_;
+        currentStatus = CartStatus.OnProgress;
+    }
+
+    public int fineOrderIndex(String foodName){
+        for(int i = 0; i < orders.size(); i++){
+            if(orders.get(i).getFoodName().equals(foodName))
+                return i;
+        }
+        return NOT_FOUND;
+    }
+
+    //TODO
+    public Loghme.Status addOrder(Food food, int count){
+        if(restaurantId == null){
+            restaurantName = DataManager.getInstance().getRestaurantName(food.getRestaurantId());
+            restaurantId = food.getRestaurantId();
+        }
+        else if(!food.getRestaurantId().equals(restaurantId)){
+            System.out.println("You can not order from two different restaurant");
+            return Loghme.Status.BAD_REQUEST;
+        }
+        int orderIndex = fineOrderIndex(food.getName());
+        if(orderIndex == NOT_FOUND)
+            orders.add(new Order(food, count));
+        else{
+            Order order = orders.get(orderIndex);
+            int prevCount = order.getNumOfFoods();
+            order.addNumOfFoods(count);
+            if(!order.isValid()) {
+                order.setNumOfFoods(prevCount);
+                return Loghme.Status.BAD_REQUEST;
+            }
+        }
+        totalPrice += (food.getPrice() * count);
+        return Loghme.Status.OK;
+    }
+
+    public ArrayList<HashMap<String, Object>> getOrdersProperties(){
+        ArrayList<HashMap<String,Object>> ordersProperties = new ArrayList<HashMap<String, Object>>();
+
+        for (Order order : orders) {
+            HashMap<String, Object> orderProperites = new HashMap<String, Object>();
+            orderProperites.put("foodName", order.getFoodName());
+            orderProperites.put("numOfFood", order.getNumOfFoods());
+            ordersProperties.add(orderProperites);
+        }
+        return ordersProperties;
+    }
+
+    public Loghme.Status finalizeOrder(){
+        if(orders.size() == 0)
+            return Loghme.Status.BAD_REQUEST;
+
+        Loghme.Status orderStatus = Loghme.Status.OK;
+        ArrayList<Order> toBeRemovedOrders = new ArrayList<Order>();
+        for(Order order: orders){
+            if(! order.isValid()) {
+                System.out.println("Orderet is valid nist");
+                toBeRemovedOrders.add(order);
+                if(orderStatus.equals(Loghme.Status.OK))
+                    orderStatus = Loghme.Status.CONFLICT;
+            }
+        }
+        for (Order order: toBeRemovedOrders){
+            orders.remove(order);
+            totalPrice -= order.getOrderPrice();
+        }
+        if(orders.size() == 0){
+            restaurantName = null;
+            restaurantId = null;
+        }
+
+        if(! orderStatus.equals(Loghme.Status.OK))
+            return orderStatus;
+        for(Order order: orders){
+            Loghme.Status status = order.finalizeOrder();
+            if (status != Loghme.Status.OK)
+                return status;
+        }
+        currentStatus = CartStatus.SearchingForDelivery;
+        return Loghme.Status.OK;
+    }
+
+    public ArrayList<Order> getOrders() {
+        return orders;
+    }
+
+    public String getRestaurantId() {
+        return restaurantId;
+    }
+
+    public String getRestaurantName() {
+        return restaurantName;
+    }
+
+    public long getTotalPrice() {
+        return totalPrice;
+    }
+
+    public Delivery getAssignedDelivery() {
+        return assignedDelivery;
+    }
+
+    public void setAssignedDelivery(Delivery assignedDelivery) {
+        this.assignedDelivery = assignedDelivery;
+        this.timeToDelivery = assignedDelivery.getTimeToDest();
+        currentStatus = CartStatus.DeliveryIsOnTheWay;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getTotalNumOfOrders(){
+        int result = 0;
+        for(Order order: orders)
+            result += order.getNumOfFoods();
+        return result;
+    }
+
+    public CartStatus getCurrentStatus() {
+        return currentStatus;
+    }
+
+    public Loghme.Status deleteFromCart(Resturant resturant, Food food){
+        if(!resturant.getId().equals(restaurantId)){
+            System.out.println("You have ordered from a different restaurant");
+            return Loghme.Status.BAD_REQUEST;
+        }
+        int orderIndex = fineOrderIndex(food.getName());
+        if(orderIndex == NOT_FOUND){
+            System.out.println("You did not ordered this food");
+            return Loghme.Status.BAD_REQUEST;
+        }
+        else {
+            Order order = orders.get(orderIndex);
+            if (order.getNumOfFoods() == 1)
+                orders.remove(orderIndex);
+            else
+                order.decreaseNumOfFoods();
+            totalPrice -= order.getFood().getPrice();
+        }
+        return Loghme.Status.OK;
+    }
+
+    public void startDelivering(){
+        System.out.println("Should change to delivered after: " + timeToDelivery + " seconds.");
+        Timer newTimer = new Timer();
+        TimerTask scheduledTask = new ChangeStatusToDeliveredTask(newTimer);
+        newTimer.schedule(scheduledTask, (int)timeToDelivery * 1000, (10 * 1000));
+    }
+
+    class ChangeStatusToDeliveredTask extends TimerTask {
+        private Timer timer;
+        public ChangeStatusToDeliveredTask(Timer timer){
+            this.timer = timer;
+        }
+        @Override
+        public void run() {
+            currentStatus = CartStatus.Delivered;
+            timer.cancel();
+            timer.purge();
+        }
+    }
+
+}

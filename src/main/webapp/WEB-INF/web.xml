@@ -1,0 +1,58 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+
+  <filter-mapping>
+    <filter-name>CorsFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter>
+    <filter-name>CorsFilter</filter-name>
+    <filter-class>ie.Filter.CORSFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>CorsFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <filter>
+    <filter-name>DelayFilter</filter-name>
+    <filter-class>ie.Filter.DelayFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>DelayFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <servlet>
+    <servlet-name>dispatcher</servlet-name>
+    <servlet-class>
+      org.springframework.web.servlet.DispatcherServlet
+    </servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>no-name.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>dispatcher</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <listener>
+    <listener-class>ie.controllers.FoodPartyTimerListener</listener-class>
+  </listener>
+  <servlet>
+    <servlet-name>Initializer</servlet-name>
+    <servlet-class>ie.controllers.Initializer</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>Initializer</servlet-name>
+    <url-pattern>/init</url-pattern>
+  </servlet-mapping>
+</web-app>
