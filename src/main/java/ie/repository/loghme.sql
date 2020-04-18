@@ -10,10 +10,9 @@ ALTER DATABASE
 
 
 CREATE table User (
-        id                  INT AUTO_INCREMENT PRIMARY KEY,
         firstName           VARCHAR(255) NOT NULL,
         lastName			VARCHAR(255) NOT NULL,
-        email               VARCHAR(255) UNIQUE NOT NULL,
+        email               VARCHAR(255) primary key NOT NULL,
         phone				VARCHAR(20) NOT NULL,
         credit				bigint NOT NULL default 0,
         x					int,
@@ -37,27 +36,29 @@ CREATE TABLE Restaurant (
 );
 
 CREATE TABLE Food (
-	foodName			VARCHAR(255) NOT NULL,
+	foodName		VARCHAR(255) NOT NULL,
     restaurantId	VARCHAR(255) NOT NULL references Restaurant(id),
 	image			VARCHAR(255) NOT NULL,
     price			bigint NOT NULL,
-    oldPrice		bigint default 0,
+    oldPrice		bigint default NULL,
     type			CHAR(20) NOT NULL default 'ordinary',
     description		VARCHAR(255),
     popularity		float,
     count			int default null,
-    PRIMARY KEY		(foodName, restaurantId)
+    unique (foodName, restaurantId, type),
+    id				bigint auto_increment,
+    PRIMARY KEY		(id)
 );
 
 CREATE TABLE Cart (
 	id				int NOT NULL,
-    userId			int NOT NULL references User(id),
+    userEmail		varchar(255) NOT NULL references User(email),
     totalPrice		bigint default 0,
     restaurantId	VARCHAR(255) references Restaurant(id),
     restaurantName	VARCHAR(255),
     status			VARCHAR(255) default 'OnProgress',
     deliveryId				VARCHAR(255) references Delivery(id),
-    PRIMARY KEY(id, userId)
+    PRIMARY KEY(id, userEmail)
 );
 
 CREATE TABLE Delivery (
@@ -75,9 +76,8 @@ CREATE TABLE cartOrder(
     cartId		int,
     count		int default 0,
     price		bigint default 0,
-    foodName	VARCHAR(255),
-    restaurantId VARCHAR(255),
-    foreign key (foodName, restaurantId) references Food(foodName, restaurantId),
+    foodId		BIGINT NOT NULL,
+    foreign key (foodId) references Food(id),
     foreign key (cartId, userId) references Cart(id, userId),
     PRIMARY KEY(id, userId, cartId)
 );
@@ -89,9 +89,12 @@ SELECT *
 FROM Location Loc;
 
 INSERT into Food (foodName, restaurantId, image, price, popularity, description)
-values ("a", "b", "c", 5, 1, "d");
+values ("ac", "b", "c", 5, 1, "d");
 
 SELECT *
 FROM Food food;
+
+SELECT *
+FROM User u;
 
 
