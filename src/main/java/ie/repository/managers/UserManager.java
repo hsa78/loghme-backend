@@ -92,6 +92,7 @@ public class UserManager {
             statement.setString(1, userEmail);
             ResultSet result = statement.executeQuery();
             if(result.next()){
+                user = new UserDAO();
                 HashMap<String, Integer> loc = new HashMap<>();
                 user.setCredit(result.getLong("credit"));
                 user.setEmail(result.getString("email"));
@@ -110,5 +111,22 @@ public class UserManager {
             e.printStackTrace();
         }
         return user;
+    }
+
+    public void updateCredit(long plusCredit, String email){
+        Connection connection = null;
+        try {
+            connection = dataSource.getConnection();
+            PreparedStatement statement = connection.prepareStatement(
+                    "update User set credit = credit + ? where email = ?"
+            );
+            statement.setLong(1, plusCredit);
+            statement.setString(2, email);
+            statement.executeUpdate();
+            statement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

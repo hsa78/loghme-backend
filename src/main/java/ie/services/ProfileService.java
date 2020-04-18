@@ -13,12 +13,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class ProfileService {
 
-    @RequestMapping(value = "/bea", method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<TestResponse> testResponse(){
-        return new ResponseEntity<TestResponse>(new TestResponse("Fatemeh"), HttpStatus.ACCEPTED);
-    }
-
     @RequestMapping(value = "/user/info", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<UserInfo> getUserInfo() {

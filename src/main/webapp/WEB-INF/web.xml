@@ -17,15 +17,15 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
 
-  <filter>
-    <filter-name>DelayFilter</filter-name>
-    <filter-class>ie.Filter.DelayFilter</filter-class>
-  </filter>
+<!--  <filter>-->
+<!--    <filter-name>DelayFilter</filter-name>-->
+<!--    <filter-class>ie.Filter.DelayFilter</filter-class>-->
+<!--  </filter>-->
 
-  <filter-mapping>
-    <filter-name>DelayFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
+<!--  <filter-mapping>-->
+<!--    <filter-name>DelayFilter</filter-name>-->
+<!--    <url-pattern>/*</url-pattern>-->
+<!--  </filter-mapping>-->
 
   <servlet>
     <servlet-name>dispatcher</servlet-name>

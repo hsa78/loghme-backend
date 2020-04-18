@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
 
 public class DataManager {
 
@@ -28,9 +29,9 @@ public class DataManager {
     private ArrayList<Resturant> resturants;
     private ArrayList<Delivery> deliveries;//REMOVE
     private User loginnedUser;
-    private FoodParty foodParty = null;
     static public ObjectMapper mapper;
     private static ComboPooledDataSource dataSource;
+    private Date foodPartyStartTime;
 
     public static DataManager getInstance(){
         if(instance == null){
@@ -49,7 +50,7 @@ public class DataManager {
         dataSource = new ComboPooledDataSource();
         dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/loghme");
         dataSource.setUser("root");
-        dataSource.setPassword("hena1378");
+        dataSource.setPassword("MFfm3722119@");
 
         dataSource.setInitialPoolSize(5);
         dataSource.setMinPoolSize(5);
@@ -83,10 +84,6 @@ public class DataManager {
 
     public User getLoginnedUser() {
         return loginnedUser;
-    }
-
-    public FoodParty getFoodParty() {
-        return foodParty;
     }
 
     public Resturant findRestaurantById(String restaurantId){
@@ -188,10 +185,9 @@ public class DataManager {
 
     public void startFoodParty(){
         String foodPartyJson = loadFoodPartyJson();
-        foodParty = new FoodParty();
         try {
             System.out.println("start food party");
-            foodParty.removeDiscount();
+//            foodParty.removeDiscount();
             ArrayList<Resturant> disRestaurants;//Remove
             ArrayList<RestaurantDAO> discountRestaurants;
             ArrayList<Resturant> foodPartyRestaurants = new ArrayList<Resturant>();//Remove
@@ -212,11 +208,10 @@ public class DataManager {
                     foundRestaurant.setRestaurantIdForFoods();
                 }
             }
-            foodParty.setDiscountedRestaurants(foodPartyRestaurants);
         } catch (Exception  e) {
             System.out.println("Exception in start foodParty");
         }
-        foodParty.setStartTime(new Date());
+        this.foodPartyStartTime = new Date();
     }
 
     public HashMap<String, Integer> getRestaurantLocation(String restaurantId){
@@ -295,14 +290,6 @@ public class DataManager {
         delivery.setTimeToDest(timeToDelivery);
     }
 
-    public Loghme.Status increaseCredit(long plusCredit) {
-        return loginnedUser.increaseCredit(plusCredit);
-    }
-
-    public ArrayList<Resturant> getDiscountRestaurants() {
-        return foodParty.getDiscountedRestaurants();
-    }
-
     public ArrayList<Cart> getUserCartHistory() {
         return loginnedUser.getCartsHistory();
     }
@@ -312,6 +299,9 @@ public class DataManager {
     }
 
     public long getFoodPartyRemainedTime() {
-        return foodParty.getRemainedTime(new Date());
+        Date currentTime = new Date();
+        long diffInMilliSec = currentTime.getTime() - foodPartyStartTime.getTime();
+        TimeUnit timeUnit = TimeUnit.SECONDS;
+        return timeUnit.convert(diffInMilliSec, TimeUnit.MILLISECONDS);
     }
 }

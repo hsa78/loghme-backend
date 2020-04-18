@@ -36,7 +36,7 @@ CREATE TABLE Restaurant (
 );
 
 CREATE TABLE Food (
-	foodName		VARCHAR(255) NOT NULL,
+	name		VARCHAR(255) NOT NULL,
     restaurantId	VARCHAR(255) NOT NULL references Restaurant(id),
 	image			VARCHAR(255) NOT NULL,
     price			bigint NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE Food (
     description		VARCHAR(255),
     popularity		float,
     count			int default null,
-    unique (foodName, restaurantId, type),
+    unique (name, restaurantId, type),
     id				bigint auto_increment,
     PRIMARY KEY		(id)
 );

@@ -33,7 +33,7 @@ public class FoodManager {
             connection = dataSource.getConnection();
             connection.setAutoCommit(false);
             PreparedStatement pStatFood = connection.prepareStatement(
-                    "insert ignore into Food (foodName, restaurantId, image, price, description, popularity)" +
+                    "insert ignore into Food (name, restaurantId, image, price, description, popularity)" +
                        " values (?, ?, ?, ?, ?, ?)"
             );
             for(FoodDAO food: foods) {
@@ -62,7 +62,7 @@ public class FoodManager {
             connection = dataSource.getConnection();
             connection.setAutoCommit(false);
             PreparedStatement pStatFood = connection.prepareStatement(
-                    "insert ignore into Food (foodName, restaurantId, image, price, description, popularity, type, oldPrice, count)" +
+                    "insert ignore into Food (name, restaurantId, image, price, description, popularity, type, oldPrice, count)" +
                             " values (?, ?, ?, ?, ?, ?, ?, ?, ?)"
             );
             for(FoodDAO food: foods) {
@@ -193,6 +193,37 @@ public class FoodManager {
             e.printStackTrace();
         }
         return food;
+    }
+
+    public ArrayList<FoodDAO> retrieveDiscountFood(){
+        ArrayList<FoodDAO> menu = new ArrayList<>();
+        Connection connection = null;
+        try {
+            connection = dataSource.getConnection();
+            PreparedStatement queryStatement = connection.prepareStatement(
+                    "select * from Food f where f.type = 'discount'"
+            );
+            ResultSet result = queryStatement.executeQuery();
+            while (result.next()){
+                FoodDAO food = new FoodDAO();
+                food.setDescription(result.getString("description"));
+                food.setImage(result.getString("image"));
+                food.setName(result.getString("name"));
+                food.setPopularity(result.getFloat("popularity"));
+                food.setPrice(result.getLong("price"));
+                food.setRestaurantId(result.getString("restaurantId"));
+                food.setType(result.getString("type"));
+                food.setOldPrice(result.getLong("oldPrice"));
+                food.setCount(result.getInt("count"));
+                menu.add(food);
+            }
+            result.close();
+            queryStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return menu;
     }
 
     public void deleteDiscountFoods(){

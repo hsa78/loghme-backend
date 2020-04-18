@@ -19,8 +19,7 @@ public class RestaurantService {
     @RequestMapping(value = "/restaurant/brief/{id}", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<RestaurantInfo> getRestaurantSummaryInfo(@PathVariable(value = "id") String id){
-        int restaurantIndex = Loghme.getInstance().findRestaurantIndex(id);
-        Resturant resturant = Loghme.getInstance().getRestaurantByIndex(restaurantIndex);
+        Resturant resturant = Loghme.getInstance().getRestaurantById(id);
         if(resturant == null)
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         RestaurantInfo response = new RestaurantInfo(resturant);
@@ -30,8 +29,7 @@ public class RestaurantService {
     @RequestMapping(value = "/restaurant/detail/{id}", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Resturant> getRestaurantCompleteInfo(@PathVariable(value = "id") String id){
-        int restaurantIndex = Loghme.getInstance().findRestaurantIndex(id);
-        Resturant resturant = Loghme.getInstance().getRestaurantByIndex(restaurantIndex);
+        Resturant resturant = Loghme.getInstance().getRestaurantById(id);
         if(resturant == null)
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(resturant, HttpStatus.ACCEPTED);

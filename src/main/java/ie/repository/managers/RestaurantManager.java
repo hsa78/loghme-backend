@@ -96,6 +96,34 @@ public class RestaurantManager {
         return restaurants;
     }
 
+    public RestaurantDAO retrieveById(String restaurantId){
+        RestaurantDAO restaurant = null;
+        Connection connection = null;
+        try {
+            connection = dataSource.getConnection();
+            PreparedStatement pStatRestaurant = connection.prepareStatement(
+                    "select * from Restaurant r where r.id=?");
+            pStatRestaurant.setString(1, restaurantId);
+            ResultSet result = pStatRestaurant.executeQuery();
+            if (result.next()){
+                restaurant = new RestaurantDAO();
+                HashMap<String, Integer> restaurantLoc = new HashMap<>();
+                restaurant.setId(result.getString("id"));
+                restaurant.setLogo(result.getString("logo"));
+                restaurant.setName(result.getString("name"));
+                restaurantLoc.put("x", result.getInt("x"));
+                restaurantLoc.put("y", result.getInt("y"));
+                restaurant.setLocation(restaurantLoc);
+            }
+            result.close();
+            pStatRestaurant.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return restaurant;
+    }
+
     public static void checkUpdateCounts(int[] updateCounts) {
         for (int i = 0; i < updateCounts.length; i++) {
             if (updateCounts[i] >= 0) {

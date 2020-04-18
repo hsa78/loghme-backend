@@ -20,10 +20,6 @@ public class Resturant {
     @JsonProperty(required = true)
     private String logo;
 
-    private float popularity;
-    private float averageFoodPopularity;
-    private float distanceFromUser;
-
     static int NOT_FOUND = -1;
 
     public String getName() {
@@ -51,23 +47,15 @@ public class Resturant {
         this.name = name;
     }
 
-    public float getPopularity() {
-        return popularity;
-    }
-
     public void setLocation(HashMap<String, Integer> location) {
 
         this.location = location;
-        distanceFromUser = (float)(Math.sqrt(Math.pow(location.get("x"),2) + Math.pow((location.get("y")), 2)));
     }
 
     public void setMenu(List<Food> menu) {
         this.menu = menu;
     }
 
-    public void setPopularity(int popularity) {
-        this.popularity = popularity;
-    }
 
     public void setId(String id) {
         this.id = id;

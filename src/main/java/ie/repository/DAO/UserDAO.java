@@ -1,5 +1,7 @@
 package ie.repository.DAO;
 
+import org.w3c.dom.UserDataHandler;
+
 import java.util.HashMap;
 
 public class UserDAO {
@@ -10,6 +12,10 @@ public class UserDAO {
     private long credit;
     private HashMap<String, Integer> location;
     private String password;
+
+    public UserDAO(){
+
+    }
 
     public UserDAO(String firstName, String lastName, String email, String phone, String password) {
         this.firstName = firstName;

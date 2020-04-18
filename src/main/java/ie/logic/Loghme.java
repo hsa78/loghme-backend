@@ -5,7 +5,13 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import ie.logic.Cart;
 import ie.logic.Delivery;
+import ie.repository.DAO.FoodDAO;
+import ie.repository.DAO.RestaurantDAO;
+import ie.repository.DAO.UserDAO;
 import ie.repository.DataManager;
+import ie.repository.managers.FoodManager;
+import ie.repository.managers.RestaurantManager;
+import ie.repository.managers.UserManager;
 
 import javax.xml.crypto.Data;
 import java.io.IOException;
@@ -22,7 +28,6 @@ public class Loghme {
     private ArrayList<Resturant> resturants;
     private Resturant[] mostPopularRestaurants;
     private User loginnedUser;
-    private FoodParty foodParty = null;
     static public ObjectMapper mapper;
 
     public static Loghme getInstance(){
@@ -38,24 +43,59 @@ public class Loghme {
         loginnedUser = new User("Hosna","Azarmsa", "hsazarmsa@gmail.com", "09123456789");
     }
 
+    public Resturant convertDAOToRestaurant(RestaurantDAO restaurantDAO){
+        Resturant resturant = new Resturant();
+        resturant.setName(restaurantDAO.getName());
+        resturant.setId(restaurantDAO.getId());
+        resturant.setLogo(restaurantDAO.getLogo());
+        resturant.setLocation(restaurantDAO.getLocation());
+        return resturant;
+    }
+
+    public User convertDAOToUser(UserDAO userDAO){
+        User user = new User();
+        user.setFirstName(userDAO.getFirstName());
+        user.setLastName(userDAO.getLastName());
+        user.setEmail(userDAO.getEmail());
+        user.setPhoneNum(userDAO.getPhone());
+        user.setLocation(userDAO.getLocation());
+        user.setCredit(userDAO.getCredit());
+        user.setPassword(userDAO.getPassword());
+        return user;
+    }
+
+    public DiscountFood convertDAOTODiscountFood(FoodDAO foodDAO){
+        DiscountFood food = new DiscountFood();
+        food.setName(foodDAO.getName());
+        food.setImage(foodDAO.getImage());
+        food.setDescription(foodDAO.getDescription());
+        food.setPopularity(foodDAO.getPopularity());
+        food.setCount(foodDAO.getCount());
+        food.setOldPrice(foodDAO.getOldPrice());
+        food.setPrice(foodDAO.getPrice());
+        food.setRestaurantId(foodDAO.getRestaurantId());
+        return food;
+    }
+
     public ArrayList<Resturant> getNearResturants() {
         ArrayList<Resturant> nearRestaurants = new ArrayList<Resturant>();
-        ArrayList<Resturant> allRestaurants = DataManager.getInstance().getResturants();
-        System.out.println("restaurantsSizeInLoghme:" + allRestaurants.size());
-        HashMap<String, Integer> userLoc = DataManager.getInstance().getLoginnedUser().getLocation();
+        ArrayList<RestaurantDAO> allRestaurants = RestaurantManager.getInstance().retrieve();
+        HashMap<String, Integer> userLoc = UserManager.getInstance().retrieveLocation("hsazarmsa@gmail.com");
         HashMap<String, Integer> restaurantLoc;
-        for(Resturant resturant: allRestaurants){
-            restaurantLoc = resturant.getLocation();
+        for(RestaurantDAO restaurant: allRestaurants){
+            restaurantLoc = restaurant.getLocation();
             if(isNear(userLoc,restaurantLoc))
-                nearRestaurants.add(resturant);
+                nearRestaurants.add(convertDAOToRestaurant(restaurant));
         }
         return nearRestaurants;
     }
 
     private boolean isNear(HashMap<String, Integer> userLoc, HashMap<String, Integer> restaurantLoc) {
+        System.out.println("X: " + restaurantLoc.get("x"));
+        System.out.println("Y: " + restaurantLoc.get("y"));
         float distance = (float) Math.sqrt(Math.pow(restaurantLoc.get("x") - userLoc.get("x"), 2) +
                                            Math.pow(restaurantLoc.get("y") - userLoc.get("y"), 2));
-        return distance < STANDARD_DISTANCE;
+        return distance < 50;
     }
 
     public Map<String,String> convertJsonToMap(String jsonString){
@@ -88,40 +128,10 @@ public class Loghme {
         return true;
     }
 
-    public int findRestaurantIndex(String restaurantId){
-        ArrayList<Resturant> allRestaurants = DataManager.getInstance().getResturants();
-        for(int i = 0; i < allRestaurants.size(); i++){
-            if(allRestaurants.get(i).getId().equals(restaurantId))
-                return i;
-        }
-        return NOT_FOUND;
+    public Resturant getRestaurantById(String restaurantId){
+        RestaurantDAO restaurantDAO = RestaurantManager.getInstance().retrieveById(restaurantId);
+        return convertDAOToRestaurant(restaurantDAO);
     }
-
-    public Resturant getRestaurantByIndex(int index){
-        ArrayList<Resturant> allRestaurants = DataManager.getInstance().getResturants();
-        if(index == NOT_FOUND)
-            return null;
-        if(index < allRestaurants.size())
-            return allRestaurants.get(index);
-        return null;
-    }
-
-//    public int findProperIndexToAdd(float newPopularity){
-//        ArrayList<Resturant> allRestaurants = DataManager.getInstance().getResturants();
-//        for(int i = 0; i < allRestaurants.size(); i++){
-//            if(allRestaurants.get(i).getPopularity() < newPopularity)
-//                return i;
-//        }
-//        return allRestaurants.size();
-//    }
-
-//    public void updateRestaurantList(int restaurantIndex){
-//        Resturant updatedRestaurant = resturants.get(restaurantIndex);
-//        float newPopularity = updatedRestaurant.getPopularity();
-//        resturants.remove(restaurantIndex);
-//        int newIndex = findProperIndexToAdd(newPopularity);
-//        resturants.add(newIndex, updatedRestaurant);
-//    }
 
     public Status addToCart(String foodInfo, boolean isFoodParty, int count){
         Map<String,String> foodInfoMap = convertJsonToMap(foodInfo);
@@ -192,15 +202,21 @@ public class Loghme {
     }
 
     public User getLoginnedUser() {
-        return DataManager.getInstance().getLoginnedUser();
+        UserDAO userDAO = UserManager.getInstance().retrieve("hsazarmsa@gmail.com");
+        return convertDAOToUser(userDAO);
     }
 
     public Status increaseCredit(long plusCredit) {
-        return DataManager.getInstance().increaseCredit(plusCredit);
+        User user = getLoginnedUser();
+        return user.increaseCredit(plusCredit);
     }
 
-    public ArrayList<Resturant> getDiscountRestaurants(){
-        return DataManager.getInstance().getDiscountRestaurants();
+    public ArrayList<DiscountFood> getDiscountFoods(){
+        ArrayList<DiscountFood> foods = new ArrayList<>();
+        ArrayList<FoodDAO> foodDAOS = FoodManager.getInstance().retrieveDiscountFood();
+        for(FoodDAO foodDAO: foodDAOS)
+            foods.add(convertDAOTODiscountFood(foodDAO));
+        return foods;
     }
 
     public ArrayList<Cart> getLoginnedUserCartHistory() { return DataManager.getInstance().getUserCartHistory(); }

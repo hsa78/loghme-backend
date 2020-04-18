@@ -3,6 +3,7 @@ package ie.logic;
 import ie.logic.Cart;
 import ie.logic.Delivery;
 import ie.repository.DataManager;
+import ie.repository.managers.UserManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,6 +15,7 @@ public class User {
     private String lastName;
     private String email;
     private String phoneNum;
+    private String password;
     private long credit;
     private HashMap<String, Integer> location = new HashMap<String, Integer>();
 
@@ -95,8 +97,40 @@ public class User {
         if(credit + plusCredit < credit)
             return Loghme.Status.INTERNAL_ERROR;
 
-        credit += plusCredit;
+        UserManager.getInstance().updateCredit(plusCredit, email);
         return Loghme.Status.OK;
+    }
+
+    public void setCartsHistory(ArrayList<Cart> cartsHistory) {
+        this.cartsHistory = cartsHistory;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
+    }
+
+    public void setCredit(long credit) {
+        this.credit = credit;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setLocation(HashMap<String, Integer> location) {
+        this.location = location;
     }
 
     public Cart findCartById(int id){

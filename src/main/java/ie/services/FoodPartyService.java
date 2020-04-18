@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import sun.rmi.runtime.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,12 +23,7 @@ public class FoodPartyService {
 
     @RequestMapping(value = "/foodParty/view", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ArrayList<DiscountFood>> getFoodPartyData(){
-        ArrayList<DiscountFood> foods = new ArrayList<DiscountFood>();
-        ArrayList<Resturant> discountRestaurants = Loghme.getInstance().getDiscountRestaurants();
-        for (Resturant restaurant: discountRestaurants){
-            List<DiscountFood> discountFoods = restaurant.getDiscountMenu();
-            foods.addAll(discountFoods);
-        }
+        ArrayList<DiscountFood> foods = Loghme.getInstance().getDiscountFoods();
         return new ResponseEntity<ArrayList<DiscountFood>>(foods, HttpStatus.ACCEPTED);
     }
 
