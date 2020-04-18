@@ -20,7 +20,6 @@ public class Loghme {
     public static enum Status {INTERNAL_ERROR, NOT_FOUND, ACCESS_DENIED,OK, BAD_REQUEST, CONFLICT};
 
     private ArrayList<Resturant> resturants;
-    private ArrayList<Delivery> deliveries;
     private Resturant[] mostPopularRestaurants;
     private User loginnedUser;
     private FoodParty foodParty = null;
@@ -35,7 +34,6 @@ public class Loghme {
 
     private Loghme(){
         resturants = new ArrayList<Resturant>();
-        deliveries = new ArrayList<Delivery>();
         mapper = new ObjectMapper();
         loginnedUser = new User("Hosna","Azarmsa", "hsazarmsa@gmail.com", "09123456789");
     }
@@ -43,6 +41,7 @@ public class Loghme {
     public ArrayList<Resturant> getNearResturants() {
         ArrayList<Resturant> nearRestaurants = new ArrayList<Resturant>();
         ArrayList<Resturant> allRestaurants = DataManager.getInstance().getResturants();
+        System.out.println("restaurantsSizeInLoghme:" + allRestaurants.size());
         HashMap<String, Integer> userLoc = DataManager.getInstance().getLoginnedUser().getLocation();
         HashMap<String, Integer> restaurantLoc;
         for(Resturant resturant: allRestaurants){
@@ -151,31 +150,17 @@ public class Loghme {
     }
 
     public Status finalizeOrder(){
-        return loginnedUser.finalizeOrder();
+        return DataManager.getInstance().getLoginnedUser().finalizeOrder();
     }
-
-//    public ArrayList<String> getMostPopularRestaurants(){
-//        ArrayList<String> mostPopularRestaurants = new ArrayList<String>();
-//        for(int i = 0; i < Math.min(NUM_OF_POPULAR_RESTAURANTS, resturants.size()); i++)
-//            mostPopularRestaurants.add(resturants.get(i).getName());
-//        return mostPopularRestaurants;
-//    }
-//
-//    public Status getRecommendedRestaurants(){
-//        ArrayList<String> mostPopularRestaurants = getMostPopularRestaurants();
-//        for(int i = 0; i < mostPopularRestaurants.size(); i++){
-//            System.out.println((i + 1) + "-" + mostPopularRestaurants.get(i));
-//        }
-//        return Status.OK;
-//    }
 
     public Status assignDeliveriesToCart(Cart cart){
         float distance, timeToDelivery = Float.POSITIVE_INFINITY;
         HashMap<String, Integer> restaurantLoc, deliveryLoc, userLoc;
         Delivery assignedDelivery = null;
-        Resturant resturant = getRestaurantByIndex(findRestaurantIndex(cart.getRestaurantId()));
-        restaurantLoc = resturant.getLocation();
-        userLoc = loginnedUser.getLocation();
+        restaurantLoc = DataManager.getInstance().getRestaurantLocation(cart.getRestaurantId());
+        User loggedUser = DataManager.getInstance().getLoginnedUser();
+        userLoc = loggedUser.getLocation();
+        ArrayList<Delivery> deliveries = DataManager.getInstance().getDeliveries();
         for(Delivery delivery: deliveries){
             deliveryLoc = delivery.getLocation();
             distance = (float) (Math.sqrt(Math.pow((userLoc.get("x") - restaurantLoc.get("x")) , 2) +
@@ -192,8 +177,8 @@ public class Loghme {
         if(assignedDelivery == null || deliveries.size() == 0)
             return Status.NOT_FOUND;
 
-        assignedDelivery.setTimeToDest(timeToDelivery);
-        loginnedUser.assignDeliveryToCart(assignedDelivery, cart);
+        DataManager.getInstance().setTimeForDelivery(assignedDelivery, timeToDelivery);
+        DataManager.setAssignedDelivery(loggedUser, cart, assignedDelivery);
         return Status.OK;
     }
 
@@ -203,29 +188,29 @@ public class Loghme {
     }
 
     public Cart getLoginnedUserCart() {
-        return loginnedUser.getCart();
+        return DataManager.getInstance().getUserCurrentCart("");
     }
 
     public User getLoginnedUser() {
-        return loginnedUser;
+        return DataManager.getInstance().getLoginnedUser();
     }
 
     public Status increaseCredit(long plusCredit) {
-        return loginnedUser.increaseCredit(plusCredit);
+        return DataManager.getInstance().increaseCredit(plusCredit);
     }
 
     public ArrayList<Resturant> getDiscountRestaurants(){
-        return foodParty.getDiscountedRestaurants();
+        return DataManager.getInstance().getDiscountRestaurants();
     }
 
-    public ArrayList<Cart> getLoginnedUserCartHistory() { return loginnedUser.getCartsHistory(); }
+    public ArrayList<Cart> getLoginnedUserCartHistory() { return DataManager.getInstance().getUserCartHistory(); }
 
     public Cart getUserPastCartById(int id){
-        return loginnedUser.findCartById(id);
+        return DataManager.getInstance().getCart(id);
     }
 
     public long getFoodPartyRemainingTime(){
-        return foodParty.getRemainedTime(new Date());
+        return DataManager.getInstance().getFoodPartyRemainedTime();
     }
 
 }

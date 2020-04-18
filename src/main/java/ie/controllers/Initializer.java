@@ -19,6 +19,7 @@ import java.net.URL;
 public class Initializer extends HttpServlet {
     @Override
     public void init() throws ServletException{
+        System.out.println("in init");
         DataManager.getInstance().setListOfRestaurants();
         super.init();
     }

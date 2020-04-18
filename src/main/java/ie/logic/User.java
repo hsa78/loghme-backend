@@ -2,6 +2,7 @@ package ie.logic;
 
 import ie.logic.Cart;
 import ie.logic.Delivery;
+import ie.repository.DataManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,15 +38,17 @@ public class User {
     }
 
     public Loghme.Status finalizeOrder(){
-        if(credit < currentCart.getTotalPrice()) {
+        Cart currentCart = DataManager.getInstance().getUserCurrentCart("");
+        long totalPrice = currentCart.getTotalPrice();
+        if(credit < totalPrice) {
             System.out.println("Your credit is not enough");
             return Loghme.Status.BAD_REQUEST;
         }
         Loghme.Status result = currentCart.finalizeOrder();
         if(result.equals(Loghme.Status.OK)){
-            cartsHistory.add(currentCart);
-            credit -= currentCart.getTotalPrice();
-            currentCart = new Cart(cartsHistory.size() + 1);
+            DataManager.getInstance().addCartToHistory(currentCart, this);
+            credit -= totalPrice;
+            DataManager.getInstance().addNewCart(new Cart(cartsHistory.size() + 1), this);
             return Loghme.Status.OK;
         }
         else
@@ -103,4 +106,7 @@ public class User {
         return null;
     }
 
+    public void setCurrentCart(Cart cart) {
+        currentCart = cart;
+    }
 }

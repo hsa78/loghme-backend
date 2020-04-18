@@ -2,6 +2,13 @@ CREATE DATABASE loghme;
 
 USE loghme;
 
+ALTER DATABASE
+    loghme
+    CHARACTER SET = utf8
+    COLLATE = utf8_persian_ci;
+
+
+
 CREATE table User (
         id                  INT AUTO_INCREMENT PRIMARY KEY,
         firstName           VARCHAR(255) NOT NULL,
@@ -75,7 +82,10 @@ CREATE TABLE cartOrder(
     PRIMARY KEY(id, userId, cartId)
 );
 
+SELECT * 
+FROM Restaurant res;
 
-
+SELECT *
+FROM Location Loc;
 
 

@@ -1,7 +1,11 @@
 package ie.repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mchange.v2.c3p0.ComboPooledDataSource;
 import ie.logic.*;
+import ie.repository.DAO.FoodDAO;
+import ie.repository.DAO.RestaurantDAO;
+import ie.repository.managers.RestaurantManager;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -22,6 +26,7 @@ public class DataManager {
     private User loginnedUser;
     private FoodParty foodParty = null;
     static public ObjectMapper mapper;
+    private static ComboPooledDataSource dataSource;
 
     public static DataManager getInstance(){
         if(instance == null){
@@ -31,10 +36,35 @@ public class DataManager {
     }
 
     private DataManager(){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        dataSource = new ComboPooledDataSource();
+        dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/loghme");
+        dataSource.setUser("root");
+        dataSource.setPassword("hena1378");
+
+        dataSource.setInitialPoolSize(5);
+        dataSource.setMinPoolSize(5);
+        dataSource.setAcquireIncrement(5);
+        dataSource.setMaxPoolSize(20);
+        dataSource.setMaxStatements(100);
+
         resturants = new ArrayList<Resturant>();
         deliveries = new ArrayList<Delivery>();
         mapper = new ObjectMapper();
         loginnedUser = new User("Hosna","Azarmsa", "hsazarmsa@gmail.com", "09123456789");
+    }
+
+    public static void setAssignedDelivery(User loggedUser, Cart cart, Delivery assignedDelivery) {
+        loggedUser.assignDeliveryToCart(assignedDelivery, cart);
+    }
+
+    public static ComboPooledDataSource getDataSource() {
+        return dataSource;
     }
 
     public ArrayList<Resturant> getResturants() {
@@ -82,13 +112,19 @@ public class DataManager {
 
     public void setListOfRestaurants(){
         String restaurantsJson = loadRestaurantsJson();
-        ArrayList<Resturant> newRestaurants = new ArrayList<Resturant>();
+        ArrayList<RestaurantDAO> newRestaurants = new ArrayList<RestaurantDAO>();
+        ArrayList<Resturant> rest = new ArrayList<Resturant>();//REMOVE
         try {
-            newRestaurants.addAll(new ArrayList<ie.logic.Resturant>(Arrays.asList(mapper.readValue(restaurantsJson, Resturant[].class))));
+            newRestaurants.addAll(new ArrayList<RestaurantDAO>(Arrays.asList(mapper.readValue(restaurantsJson, RestaurantDAO[].class))));
+            rest.addAll(new ArrayList<Resturant>(Arrays.asList(mapper.readValue(restaurantsJson, Resturant[].class))));//REMOVE
+
         } catch (Exception  e) {
             System.out.println("Exception in set list of restaurants");
         }
-        for(Resturant resturant: newRestaurants){
+
+        RestaurantManager.getInstance().save(newRestaurants);
+
+        for(Resturant resturant: rest){//REMOVE
             if(findRestaurantById(resturant.getId()) == null)
                 resturants.add(resturant);
         }
@@ -228,4 +264,43 @@ public class DataManager {
             order.decreaseNumOfFoods();
     }
 
+    public void addCartToHistory(Cart currentCart, User user) {
+        user.getCartsHistory().add(currentCart);
+    }
+
+    public void addNewCart(Cart cart, User user) {
+        user.setCurrentCart(cart);
+    }
+
+    public void changeCartStatus(Cart cart, Cart.CartStatus cartStatus) {
+        cart.setStatus(cartStatus);
+    }
+
+    public void setFoodCount(Food food, int count) {
+        food.setCount(count);
+    }
+
+    public void setTimeForDelivery(Delivery delivery, float timeToDelivery) {
+        delivery.setTimeToDest(timeToDelivery);
+    }
+
+    public Loghme.Status increaseCredit(long plusCredit) {
+        return loginnedUser.increaseCredit(plusCredit);
+    }
+
+    public ArrayList<Resturant> getDiscountRestaurants() {
+        return foodParty.getDiscountedRestaurants();
+    }
+
+    public ArrayList<Cart> getUserCartHistory() {
+        return loginnedUser.getCartsHistory();
+    }
+
+    public Cart getCart(int id) {
+        return loginnedUser.findCartById(id);
+    }
+
+    public long getFoodPartyRemainedTime() {
+        return foodParty.getRemainedTime(new Date());
+    }
 }

@@ -9,6 +9,11 @@ public class OrdinaryFood extends Food {
     public boolean hasDiscount(){ return false;}
 
     @Override
+    public void setCount(int count) {
+        return;
+    }
+
+    @Override
     public Loghme.Status decreaseCount(int numOfFoods){
         return Loghme.Status.OK;
     }

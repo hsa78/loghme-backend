@@ -1,9 +1,11 @@
 package ie.logic;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import ie.logic.Food;
 import ie.logic.Loghme;
+import ie.repository.DataManager;
 
 @JsonDeserialize(using = JsonDeserializer.None.class)
 public class DiscountFood extends Food {
@@ -22,15 +24,12 @@ public class DiscountFood extends Food {
         this.oldPrice = oldPrice;
     }
 
-    public void setCount(int count) {
-        this.count = count;
-    }
 
     @Override
     public Loghme.Status decreaseCount(int numOfFoods) {
         if(count < numOfFoods)
             return Loghme.Status.BAD_REQUEST;
-        count -= numOfFoods;
+        DataManager.getInstance().setFoodCount(this, count - numOfFoods);
         return Loghme.Status.OK;
     }
 
@@ -42,5 +41,10 @@ public class DiscountFood extends Food {
     @Override
     public boolean hasDiscount() {
         return true;
+    }
+
+    @Override
+    public void setCount(int count){
+        this.count = count;
     }
 }

@@ -85,4 +85,5 @@ public abstract class Food {
 
     public abstract boolean hasDiscount() ;
 
+    public abstract void setCount(int count);
 }

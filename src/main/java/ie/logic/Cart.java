@@ -17,6 +17,10 @@ public class Cart {
     private CartStatus currentStatus;
     private float timeToDelivery = 0;
 
+    public void setStatus(CartStatus cartStatus) {
+        currentStatus = cartStatus;
+    }
+
     public enum CartStatus {OnProgress, SearchingForDelivery, DeliveryIsOnTheWay, Delivered};
 
     private static int NOT_FOUND = -1;
@@ -63,33 +67,12 @@ public class Cart {
         if(orders.size() == 0)
             return Loghme.Status.BAD_REQUEST;
 
-        Loghme.Status orderStatus = Loghme.Status.OK;
-        ArrayList<Order> toBeRemovedOrders = new ArrayList<Order>();
-        for(Order order: orders){
-            if(! order.isValid()) {
-                System.out.println("Orderet is valid nist");
-                toBeRemovedOrders.add(order);
-                if(orderStatus.equals(Loghme.Status.OK))
-                    orderStatus = Loghme.Status.CONFLICT;
-            }
-        }
-        for (Order order: toBeRemovedOrders){
-            orders.remove(order);
-            totalPrice -= order.getOrderPrice();
-        }
-        if(orders.size() == 0){
-            restaurantName = null;
-            restaurantId = null;
-        }
-
-        if(! orderStatus.equals(Loghme.Status.OK))
-            return orderStatus;
         for(Order order: orders){
             Loghme.Status status = order.finalizeOrder();
-            if (status != Loghme.Status.OK)
+            if (status.equals(Loghme.Status.OK))
                 return status;
         }
-        currentStatus = CartStatus.SearchingForDelivery;
+        DataManager.getInstance().changeCartStatus(this, CartStatus.SearchingForDelivery);
         return Loghme.Status.OK;
     }
 
@@ -106,6 +89,10 @@ public class Cart {
     }
 
     public long getTotalPrice() {
+        long totalPrice = 0;
+        for(Order order: orders){
+            totalPrice += order.getOrderPrice();
+        }
         return totalPrice;
     }
 

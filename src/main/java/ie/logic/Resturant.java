@@ -91,7 +91,6 @@ public class Resturant {
             return Loghme.Status.BAD_REQUEST;
         }
         menu.add(newFood);
-        updatePopularity(newFood.getPopularity(), menu.size());
         return Loghme.Status.OK;
     }
 
@@ -101,31 +100,6 @@ public class Resturant {
             return null;
         return menu.get(foodIndex);
 
-    }
-
-    public float calculateAverageOfFoodPopularity(){
-        if(menu.size() == 0)
-            return 0;
-        float sum = 0;
-        for (Food food : menu) sum += food.getPopularity();
-        return sum / (float) menu.size();
-    }
-
-    public void calculatePopularity(){
-        distanceFromUser = (float)(Math.sqrt(Math.pow(location.get("x"),2) + Math.pow((location.get("y")), 2)));
-        averageFoodPopularity = calculateAverageOfFoodPopularity();
-        if(distanceFromUser == 0)
-            popularity = Float.POSITIVE_INFINITY;
-        else
-            popularity = averageFoodPopularity / distanceFromUser;
-    }
-
-    public void updatePopularity(float newFoodPopularity, int newSize){
-        averageFoodPopularity = (averageFoodPopularity * (newSize - 1) + newFoodPopularity) / (float) newSize;
-        if(distanceFromUser == 0)
-            popularity = Float.POSITIVE_INFINITY;
-        else
-            popularity = averageFoodPopularity / distanceFromUser;
     }
 
     public void setRestaurantIdForFoods(){
