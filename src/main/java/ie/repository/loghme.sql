@@ -51,14 +51,13 @@ CREATE TABLE Food (
 );
 
 CREATE TABLE Cart (
-	id				int NOT NULL,
+	id				int auto_increment NULL,
     userEmail		varchar(255) NOT NULL references User(email),
-    totalPrice		bigint default 0,
     restaurantId	VARCHAR(255) references Restaurant(id),
     restaurantName	VARCHAR(255),
     status			VARCHAR(255) default 'OnProgress',
     deliveryId				VARCHAR(255) references Delivery(id),
-    PRIMARY KEY(id, userEmail)
+    PRIMARY KEY(id)
 );
 
 CREATE TABLE Delivery (
@@ -70,16 +69,14 @@ CREATE TABLE Delivery (
     foreign key(x, y) references Location(x, y)
 );
 
-CREATE TABLE cartOrder(
-	id			int NOT NULL,
-    userId		int,
-    cartId		int,
+CREATE TABLE CartOrder(
+	id			int auto_increment NOT NULL,
+    cartId		int NOT NULL,
     count		int default 0,
-    price		bigint default 0,
     foodId		BIGINT NOT NULL,
     foreign key (foodId) references Food(id),
-    foreign key (cartId, userId) references Cart(id, userId),
-    PRIMARY KEY(id, userId, cartId)
+    foreign key (cartId) references Cart(id),
+    PRIMARY KEY(id)
 );
 
 SELECT * 

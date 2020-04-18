@@ -13,7 +13,6 @@
 /home/fatemeh/IdeaProjects/CA6_backend/src/main/java/ie/logic/Loghme.java
 /home/fatemeh/IdeaProjects/CA6_backend/src/main/java/ie/services/responses/FoodPartyRemainedTime.java
 /home/fatemeh/IdeaProjects/CA6_backend/src/main/java/ie/logic/User.java
-/home/fatemeh/IdeaProjects/CA6_backend/src/main/java/ie/logic/FoodParty.java
 /home/fatemeh/IdeaProjects/CA6_backend/src/main/java/ie/services/FoodPartyService.java
 /home/fatemeh/IdeaProjects/CA6_backend/src/main/java/ie/Filter/CORSFilter.java
 /home/fatemeh/IdeaProjects/CA6_backend/src/main/java/ie/services/responses/TestResponse.java

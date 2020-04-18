@@ -3,13 +3,8 @@ package ie.repository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import ie.logic.*;
-import ie.repository.DAO.DeliveryDAO;
-import ie.repository.DAO.FoodDAO;
-import ie.repository.DAO.RestaurantDAO;
-import ie.repository.DAO.UserDAO;
-import ie.repository.managers.DeliveryManager;
-import ie.repository.managers.RestaurantManager;
-import ie.repository.managers.UserManager;
+import ie.repository.DAO.*;
+import ie.repository.managers.*;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -64,6 +59,7 @@ public class DataManager {
         loginnedUser = new User("Hosna","Azarmsa", "hsazarmsa@gmail.com", "09123456789");
         UserDAO loggedUser = new UserDAO("Hosna","Azarmsa", "hsazarmsa@gmail.com", "09123456789","1234");
         UserManager.getInstance().save(loggedUser);
+        CartManager.getInstance().save(new CartDAO("hsazarmsa@gmail.com"));
     }
 
     public static void setAssignedDelivery(User loggedUser, Cart cart, Delivery assignedDelivery) {
@@ -72,10 +68,6 @@ public class DataManager {
 
     public static ComboPooledDataSource getDataSource() {
         return dataSource;
-    }
-
-    public ArrayList<Resturant> getResturants() {
-        return resturants;
     }
 
     public ArrayList<Delivery> getDeliveries() {
@@ -187,31 +179,14 @@ public class DataManager {
         String foodPartyJson = loadFoodPartyJson();
         try {
             System.out.println("start food party");
-//            foodParty.removeDiscount();
-            ArrayList<Resturant> disRestaurants;//Remove
+            FoodManager.getInstance().deleteDiscountFoods();
             ArrayList<RestaurantDAO> discountRestaurants;
-            ArrayList<Resturant> foodPartyRestaurants = new ArrayList<Resturant>();//Remove
-            disRestaurants = new ArrayList<Resturant>(Arrays.asList(mapper.readValue(foodPartyJson, Resturant[].class)));
             discountRestaurants = new ArrayList<RestaurantDAO>(Arrays.asList(mapper.readValue(foodPartyJson, RestaurantDAO[].class)));
             RestaurantManager.getInstance().save(discountRestaurants, true);
-            for(Resturant resturant: disRestaurants) {
-                Resturant foundRestaurant = findRestaurantById(resturant.getId());
-                if (foundRestaurant == null){
-                    resturants.add(resturant);
-                    System.out.println("restaurant added with id " + resturant.getId());
-                    foodPartyRestaurants.add(resturant);
-                    resturant.setRestaurantIdForFoods();
-                }
-                else{
-                    foundRestaurant.addMenu(resturant.getMenu());
-                    foodPartyRestaurants.add(foundRestaurant);
-                    foundRestaurant.setRestaurantIdForFoods();
-                }
-            }
         } catch (Exception  e) {
             System.out.println("Exception in start foodParty");
         }
-        this.foodPartyStartTime = new Date();
+        foodPartyStartTime = new Date();
     }
 
     public HashMap<String, Integer> getRestaurantLocation(String restaurantId){
