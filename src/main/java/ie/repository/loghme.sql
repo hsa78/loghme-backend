@@ -45,7 +45,7 @@ CREATE TABLE Food (
     type			CHAR(20) NOT NULL default 'ordinary',
     description		VARCHAR(255),
     popularity		float,
-    count			int default 0,
+    count			int default null,
     PRIMARY KEY		(foodName, restaurantId)
 );
 
@@ -87,5 +87,11 @@ FROM Restaurant res;
 
 SELECT *
 FROM Location Loc;
+
+INSERT into Food (foodName, restaurantId, image, price, popularity, description)
+values ("a", "b", "c", 5, 1, "d");
+
+SELECT *
+FROM Food food;
 
 

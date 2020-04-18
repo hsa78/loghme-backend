@@ -3,9 +3,13 @@ package ie.repository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import ie.logic.*;
+import ie.repository.DAO.DeliveryDAO;
 import ie.repository.DAO.FoodDAO;
 import ie.repository.DAO.RestaurantDAO;
+import ie.repository.DAO.UserDAO;
+import ie.repository.managers.DeliveryManager;
 import ie.repository.managers.RestaurantManager;
+import ie.repository.managers.UserManager;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -22,7 +26,7 @@ public class DataManager {
 
     private static final int NOT_FOUND = -1;
     private ArrayList<Resturant> resturants;
-    private ArrayList<Delivery> deliveries;
+    private ArrayList<Delivery> deliveries;//REMOVE
     private User loginnedUser;
     private FoodParty foodParty = null;
     static public ObjectMapper mapper;
@@ -57,6 +61,8 @@ public class DataManager {
         deliveries = new ArrayList<Delivery>();
         mapper = new ObjectMapper();
         loginnedUser = new User("Hosna","Azarmsa", "hsazarmsa@gmail.com", "09123456789");
+        UserDAO loggedUser = new UserDAO("Hosna","Azarmsa", "hsazarmsa@gmail.com", "09123456789","1234");
+        UserManager.getInstance().save(loggedUser);
     }
 
     public static void setAssignedDelivery(User loggedUser, Cart cart, Delivery assignedDelivery) {
@@ -122,7 +128,7 @@ public class DataManager {
             System.out.println("Exception in set list of restaurants");
         }
 
-        RestaurantManager.getInstance().save(newRestaurants);
+        RestaurantManager.getInstance().save(newRestaurants, false);
 
         for(Resturant resturant: rest){//REMOVE
             if(findRestaurantById(resturant.getId()) == null)
@@ -152,8 +158,10 @@ public class DataManager {
     public void setListOfDeliveries(){
         String deliveriesJson = loadDeliveriesJson();
         try {
-            System.out.println(deliveriesJson);
-            deliveries = new ArrayList<Delivery>(Arrays.asList(mapper.readValue(deliveriesJson, Delivery[].class)));
+            deliveries = new ArrayList<Delivery>(Arrays.asList(mapper.readValue(deliveriesJson, Delivery[].class)));//REMOVE
+            ArrayList<DeliveryDAO> deliveries;
+            deliveries = new ArrayList<DeliveryDAO>(Arrays.asList(mapper.readValue(deliveriesJson, DeliveryDAO[].class)));
+            DeliveryManager.getInstance().save(deliveries);
         } catch (Exception  e) {
             System.out.println("Exception in addDeliveries");
         }
@@ -184,10 +192,13 @@ public class DataManager {
         try {
             System.out.println("start food party");
             foodParty.removeDiscount();
-            ArrayList<Resturant> discountRestaurants;
-            ArrayList<Resturant> foodPartyRestaurants = new ArrayList<Resturant>();
-            discountRestaurants = new ArrayList<Resturant>(Arrays.asList(mapper.readValue(foodPartyJson, Resturant[].class)));
-            for(Resturant resturant: discountRestaurants) {
+            ArrayList<Resturant> disRestaurants;//Remove
+            ArrayList<RestaurantDAO> discountRestaurants;
+            ArrayList<Resturant> foodPartyRestaurants = new ArrayList<Resturant>();//Remove
+            disRestaurants = new ArrayList<Resturant>(Arrays.asList(mapper.readValue(foodPartyJson, Resturant[].class)));
+            discountRestaurants = new ArrayList<RestaurantDAO>(Arrays.asList(mapper.readValue(foodPartyJson, RestaurantDAO[].class)));
+            RestaurantManager.getInstance().save(discountRestaurants, true);
+            for(Resturant resturant: disRestaurants) {
                 Resturant foundRestaurant = findRestaurantById(resturant.getId());
                 if (foundRestaurant == null){
                     resturants.add(resturant);
