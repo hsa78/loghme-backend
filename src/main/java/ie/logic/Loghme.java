@@ -5,9 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import ie.logic.Cart;
 import ie.logic.Delivery;
-import ie.repository.DAO.FoodDAO;
-import ie.repository.DAO.RestaurantDAO;
-import ie.repository.DAO.UserDAO;
+import ie.repository.DAO.*;
 import ie.repository.DataManager;
 import ie.repository.managers.FoodManager;
 import ie.repository.managers.RestaurantManager;
@@ -75,6 +73,24 @@ public class Loghme {
         food.setPrice(foodDAO.getPrice());
         food.setRestaurantId(foodDAO.getRestaurantId());
         return food;
+    }
+
+    public Cart convertDAOToCart(CartDAO cartDAO){
+        Cart cart = new Cart(cartDAO.getId());
+        cart.setRestaurantName(cartDAO.getRestaurantName());
+        cart.setRestaurantId(cartDAO.getRestaurantId());
+        cart.setStatus(cartDAO.getCartStatus());
+        cart.setDeliveryId(cartDAO.getDeliveryId());
+        return cart;
+    }
+
+    public Order covertDAOToOrder(OrderDAO orderDAO){
+        Order order = new Order();
+        order.setId(orderDAO.getId());
+        order.setCartId(orderDAO.getCartId());
+        order.setFoodId(orderDAO.getFoodId());
+        order.setNumOfFoods(orderDAO.getCount());
+        return order;
     }
 
     public ArrayList<Resturant> getNearResturants() {
@@ -147,7 +163,8 @@ public class Loghme {
             return Status.BAD_REQUEST;
         if(! order.isAvailable(count))
             return Status.BAD_REQUEST;
-        return DataManager.getInstance().getUserCurrentCart("").addOrder(order, count);
+        Cart currentCart = convertDAOToCart(DataManager.getInstance().getUserCurrentCart("hsazarmsa@gmail.com"));
+        return currentCart.addOrder(order, count);
     }
 
     public Status deleteFromCart(String foodName, String restaurantId){
@@ -156,7 +173,8 @@ public class Loghme {
             System.out.println("Food with name " + foodName + "in restaurant with id " + restaurantId + " does not exist.");
             return Status.NOT_FOUND;
         }
-        return DataManager.getInstance().getUserCurrentCart("").deleteFromCart(restaurantId, order);
+        Cart currentCart = convertDAOToCart(DataManager.getInstance().getUserCurrentCart("hsazarmsa@gmail.com"));
+        return currentCart.deleteFromCart(restaurantId, order);
     }
 
     public Status finalizeOrder(){
@@ -198,7 +216,8 @@ public class Loghme {
     }
 
     public Cart getLoginnedUserCart() {
-        return DataManager.getInstance().getUserCurrentCart("");
+        CartDAO currentCartDAO = DataManager.getInstance().getUserCurrentCart("hsazarmsa@gmail.com");
+        return convertDAOToCart(currentCartDAO);
     }
 
     public User getLoginnedUser() {

@@ -1,6 +1,7 @@
 package ie.logic;
 
 import ie.repository.DataManager;
+import ie.repository.managers.OrderManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,9 +17,17 @@ public class Cart {
     private Delivery assignedDelivery;
     private CartStatus currentStatus;
     private float timeToDelivery = 0;
+    private String deliveryId;
 
-    public void setStatus(CartStatus cartStatus) {
-        currentStatus = cartStatus;
+    public void setStatus(String status) {
+        if(status.equals("OnProgress"))
+            currentStatus = CartStatus.OnProgress;
+        else if(status.equals("SearchingForDelivery"))
+            currentStatus = CartStatus.SearchingForDelivery;
+        else if(status.equals("DeliveryIsOnTheWay"))
+            currentStatus = CartStatus.DeliveryIsOnTheWay;
+        else
+            currentStatus = CartStatus.Delivered;
     }
 
     public enum CartStatus {OnProgress, SearchingForDelivery, DeliveryIsOnTheWay, Delivered};
@@ -40,7 +49,22 @@ public class Cart {
         return NOT_FOUND;
     }
 
-    //TODO
+    public void setDeliveryId(String deliveryId) {
+        this.deliveryId = deliveryId;
+    }
+
+    public void setRestaurantName(String restaurantName) {
+        this.restaurantName = restaurantName;
+    }
+
+    public void setRestaurantId(String restaurantId) {
+        this.restaurantId = restaurantId;
+    }
+
+    public void setTimeToDelivery(float timeToDelivery) {
+        this.timeToDelivery = timeToDelivery;
+    }
+
     public Loghme.Status addOrder(Food food, int count){
         if(restaurantId == null){
             restaurantName = DataManager.getInstance().getRestaurantName(food.getRestaurantId());
@@ -72,7 +96,7 @@ public class Cart {
             if (status.equals(Loghme.Status.OK))
                 return status;
         }
-        DataManager.getInstance().changeCartStatus(this, CartStatus.SearchingForDelivery);
+        DataManager.getInstance().changeCartStatus(this, "SearchingForDelivery");
         return Loghme.Status.OK;
     }
 
@@ -111,6 +135,7 @@ public class Cart {
     }
 
     public int getTotalNumOfOrders(){
+//        ArrayList<Order> cartOrders = OrderManager.getInstance().
         int result = 0;
         for(Order order: orders)
             result += order.getNumOfFoods();

@@ -5,12 +5,28 @@ public class Order {
     private int numOfFoods;
     private long orderPrice;
     private int id;
+    private int cartId;
+    private long foodId;
+
+    public Order(){}
 
     public Order(Food food_, int numOfFoods_){
         food = food_;
         numOfFoods = numOfFoods_;
         this.orderPrice = food_.getPrice();
         this.id =0;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setCartId(int cartId) {
+        this.cartId = cartId;
+    }
+
+    public void setFoodId(long foodId) {
+        this.foodId = foodId;
     }
 
     public String getFoodName() {
@@ -31,10 +47,6 @@ public class Order {
 
     public void addNumOfFoods(int numOfFoods){
         this.numOfFoods += numOfFoods;
-    }
-
-    public void setOrderPrice(long orderPrice) {
-        this.orderPrice = orderPrice;
     }
 
     public Food getFood() {

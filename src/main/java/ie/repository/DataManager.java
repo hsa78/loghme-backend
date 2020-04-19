@@ -217,8 +217,8 @@ public class DataManager {
         return findRestaurantById(restaurantId).getName();
     }
 
-    public Cart getUserCurrentCart(String userId){
-        return loginnedUser.getCart();
+    public CartDAO getUserCurrentCart(String userEmail){
+        return CartManager.getInstance().retrieveCurrentCart(userEmail);
     }
 
     public Order findOrder(String foodName, Cart currentCart){
@@ -253,7 +253,7 @@ public class DataManager {
         user.setCurrentCart(cart);
     }
 
-    public void changeCartStatus(Cart cart, Cart.CartStatus cartStatus) {
+    public void changeCartStatus(Cart cart, String cartStatus) {
         cart.setStatus(cartStatus);
     }
 
