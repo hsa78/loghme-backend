@@ -65,6 +65,10 @@ public class Order {
         return food.decreaseCount(numOfFoods);
     }
 
+    public long getFoodId() {
+        return foodId;
+    }
+
     public boolean isValid() {
         return getFood().isAvailable(numOfFoods);
     }

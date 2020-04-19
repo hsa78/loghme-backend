@@ -95,5 +95,3 @@ where food.id = 306;
 
 SELECT *
 FROM User u;
-
-

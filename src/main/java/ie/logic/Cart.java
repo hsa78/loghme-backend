@@ -143,7 +143,13 @@ public class Cart {
             System.out.println("You have ordered from a different restaurant");
             return Loghme.Status.BAD_REQUEST;
         }
-        OrderManager.getInstance().delete(id, food.getId());
+        OrderDAO orderDAO = OrderManager.getInstance().retrieve(id, food.getId());
+        if(orderDAO == null)
+            return Loghme.Status.BAD_REQUEST;
+        if(orderDAO.getCount() == 1)
+            OrderManager.getInstance().delete(id, food.getId());
+        else
+            OrderManager.getInstance().updateCount(orderDAO.getId(), orderDAO.getCount() - 1);
         return Loghme.Status.OK;
     }
 
