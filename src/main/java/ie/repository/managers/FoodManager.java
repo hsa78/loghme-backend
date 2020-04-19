@@ -231,7 +231,7 @@ public class FoodManager {
         try {
             connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(
-                    "delete from Food f where f.type = \'discount\'"
+                    "delete from Food where type = 'discount'"
             );
             statement.executeUpdate();
             statement.close();

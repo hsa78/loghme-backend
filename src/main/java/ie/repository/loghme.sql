@@ -51,7 +51,7 @@ CREATE TABLE Food (
 );
 
 CREATE TABLE Cart (
-	id				int auto_increment NULL,
+	id				int auto_increment NOT NULL,
     userEmail		varchar(255) NOT NULL references User(email),
     restaurantId	VARCHAR(255) references Restaurant(id),
     restaurantName	VARCHAR(255),
