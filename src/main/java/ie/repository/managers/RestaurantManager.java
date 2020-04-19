@@ -124,6 +124,97 @@ public class RestaurantManager {
         return restaurant;
     }
 
+    public ArrayList<RestaurantDAO> searchByName(String restaurantName){
+        ArrayList<RestaurantDAO> restaurants = new ArrayList<>();
+        Connection connection = null;
+        try {
+            connection = dataSource.getConnection();
+            PreparedStatement queryStatement = connection.prepareStatement(
+                    "select * from Restaurant r where r.name = ?"
+            );
+            queryStatement.setNString(1, restaurantName);
+            ResultSet result = queryStatement.executeQuery();
+            while (result.next()){
+                RestaurantDAO restaurant = new RestaurantDAO();
+                HashMap<String, Integer> restaurantLoc = new HashMap<>();
+                restaurant.setId(result.getString("id"));
+                restaurant.setLogo(result.getString("logo"));
+                restaurant.setName(result.getString("name"));
+                restaurantLoc.put("x", result.getInt("x"));
+                restaurantLoc.put("y", result.getInt("y"));
+                restaurant.setLocation(restaurantLoc);
+                restaurants.add(restaurant);
+            }
+            result.close();
+            queryStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return restaurants;
+    }
+
+    public ArrayList<RestaurantDAO> searchByFoodName(String foodName){
+        ArrayList<RestaurantDAO> restaurants = new ArrayList<>();
+        Connection connection = null;
+        try {
+            connection = dataSource.getConnection();
+            PreparedStatement queryStatement = connection.prepareStatement(
+                    "select distinct * from Restaurant r, Food f where f.restaurantId = r.id and f.name = ?"
+            );
+            queryStatement.setNString(1, foodName);
+            ResultSet result = queryStatement.executeQuery();
+            while (result.next()){
+                RestaurantDAO restaurant = new RestaurantDAO();
+                HashMap<String, Integer> restaurantLoc = new HashMap<>();
+                restaurant.setId(result.getString("id"));
+                restaurant.setLogo(result.getString("logo"));
+                restaurant.setName(result.getString("name"));
+                restaurantLoc.put("x", result.getInt("x"));
+                restaurantLoc.put("y", result.getInt("y"));
+                restaurant.setLocation(restaurantLoc);
+                restaurants.add(restaurant);
+            }
+            result.close();
+            queryStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return restaurants;
+    }
+
+    public ArrayList<RestaurantDAO> searchByFoodAndRestaurantName(String restaurantName, String foodName){
+        ArrayList<RestaurantDAO> restaurants = new ArrayList<>();
+        Connection connection = null;
+        try {
+            connection = dataSource.getConnection();
+            PreparedStatement queryStatement = connection.prepareStatement(
+                    "select distinct * from Restaurant r, Food f where f.restaurantId = r.id and r.name = ? and f.name = ?"
+            );
+            queryStatement.setNString(1, restaurantName);
+            queryStatement.setNString(2, foodName);
+            ResultSet result = queryStatement.executeQuery();
+            while (result.next()){
+                RestaurantDAO restaurant = new RestaurantDAO();
+                HashMap<String, Integer> restaurantLoc = new HashMap<>();
+                restaurant.setId(result.getString("id"));
+                restaurant.setLogo(result.getString("logo"));
+                restaurant.setName(result.getString("name"));
+                restaurantLoc.put("x", result.getInt("x"));
+                restaurantLoc.put("y", result.getInt("y"));
+                restaurant.setLocation(restaurantLoc);
+                restaurants.add(restaurant);
+            }
+            result.close();
+            queryStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return restaurants;
+    }
+
     public static void checkUpdateCounts(int[] updateCounts) {
         for (int i = 0; i < updateCounts.length; i++) {
             if (updateCounts[i] >= 0) {

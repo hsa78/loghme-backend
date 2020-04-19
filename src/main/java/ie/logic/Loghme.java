@@ -108,8 +108,6 @@ public class Loghme {
     }
 
     private boolean isNear(HashMap<String, Integer> userLoc, HashMap<String, Integer> restaurantLoc) {
-        System.out.println("X: " + restaurantLoc.get("x"));
-        System.out.println("Y: " + restaurantLoc.get("y"));
         float distance = (float) Math.sqrt(Math.pow(restaurantLoc.get("x") - userLoc.get("x"), 2) +
                                            Math.pow(restaurantLoc.get("y") - userLoc.get("y"), 2));
         return distance < STANDARD_DISTANCE;
@@ -225,6 +223,20 @@ public class Loghme {
 
     public long getFoodPartyRemainingTime(){
         return DataManager.getInstance().getFoodPartyRemainedTime();
+    }
+
+    public ArrayList<Resturant> searchRestaurants(String restaurantName, String foodName){
+        ArrayList<Resturant> foundRestaurants = new ArrayList<>();
+        ArrayList<RestaurantDAO> foundRestaurantsDAO = new ArrayList<>();
+        if(foodName.equals(""))
+            foundRestaurantsDAO = RestaurantManager.getInstance().searchByName(restaurantName);
+        else if(restaurantName.equals(""))
+            foundRestaurantsDAO = RestaurantManager.getInstance().searchByFoodName(foodName);
+        else
+            foundRestaurantsDAO = RestaurantManager.getInstance().searchByFoodAndRestaurantName(restaurantName, foodName);
+        for(RestaurantDAO restaurantDAO: foundRestaurantsDAO)
+            foundRestaurants.add(convertDAOToRestaurant(restaurantDAO));
+        return foundRestaurants;
     }
 
 }
