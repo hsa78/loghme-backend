@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import ie.logic.Food;
 import ie.logic.Loghme;
 import ie.repository.DataManager;
+import ie.repository.managers.FoodManager;
 
 @JsonDeserialize(using = JsonDeserializer.None.class)
 public class DiscountFood extends Food {
@@ -29,7 +30,7 @@ public class DiscountFood extends Food {
     public Loghme.Status decreaseCount(int numOfFoods) {
         if(count < numOfFoods)
             return Loghme.Status.BAD_REQUEST;
-        DataManager.getInstance().setFoodCount(this, count - numOfFoods);
+        FoodManager.getInstance().updateDiscountFoodCount(id, count - numOfFoods);
         return Loghme.Status.OK;
     }
 

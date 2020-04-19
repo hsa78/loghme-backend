@@ -10,6 +10,7 @@ public class FoodDAO {
     private float popularity;
     private int count;
     private String type;
+    private long id;
 
     public String getName() {
         return name;
@@ -45,6 +46,14 @@ public class FoodDAO {
 
     public String getType() {
         return type;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public void setName(String name) {

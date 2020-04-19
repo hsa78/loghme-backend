@@ -63,7 +63,7 @@ CREATE TABLE Cart (
 CREATE TABLE Delivery (
 	id			VARCHAR(255) NOT NULL PRIMARY KEY,
     velocity 	int,
-    timeToDest	float4,
+    timeToDest	float4 default 0,
     x			int,
     y			int,
     foreign key(x, y) references Location(x, y)
@@ -76,6 +76,7 @@ CREATE TABLE CartOrder(
     foodId		BIGINT NOT NULL,
     foreign key (foodId) references Food(id),
     foreign key (cartId) references Cart(id),
+    unique(cartId, foodId),
     PRIMARY KEY(id)
 );
 
@@ -89,7 +90,8 @@ INSERT into Food (foodName, restaurantId, image, price, popularity, description)
 values ("ac", "b", "c", 5, 1, "d");
 
 SELECT *
-FROM Food food;
+FROM Food food
+where food.id = 306;
 
 SELECT *
 FROM User u;

@@ -32,12 +32,14 @@ public class OrderManager {
         try {
             connection = dataSource.getConnection();
             PreparedStatement pStatement = connection.prepareStatement(
-                    "insert ignore into CartOrder (cartId, count, foodId)" +
-                            " values (? ,?, ?)"
+                    "insert into CartOrder (cartId, count, foodId)" +
+                            " values (? ,?, ?)" +
+                            "ON DUPLICATE KEY UPDATE count = ?"
             );
             pStatement.setInt(1, order.getCartId());
             pStatement.setInt(2, order.getCount());
             pStatement.setLong(3, order.getFoodId());
+            pStatement.setInt(4, order.getCount());
             pStatement.executeUpdate();
             pStatement.close();
             connection.close();
@@ -74,6 +76,33 @@ public class OrderManager {
         return orders;
     }
 
+    public OrderDAO retrieve(int cartId, long foodID){
+        OrderDAO order = null;
+        Connection connection = null;
+        try {
+            connection = dataSource.getConnection();
+            PreparedStatement queryStatement = connection.prepareStatement(
+                    "select * from CartOrder c where c.cartId = ? and c.foodId = ?"
+            );
+            queryStatement.setInt(1, cartId);
+            queryStatement.setLong(2, foodID);
+            ResultSet result = queryStatement.executeQuery();
+            if(result.next()){
+                order = new OrderDAO();
+                order.setCartId(cartId);
+                order.setFoodId(result.getLong("foodId"));
+                order.setCount(result.getInt("count"));
+                order.setId(result.getInt("id"));
+            }
+            result.close();
+            queryStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return order;
+    }
+
     public void updateCount(int orderId, int newCount){
         Connection connection = null;
         try {
@@ -91,14 +120,15 @@ public class OrderManager {
         }
     }
 
-    public void delete(int orderId){
+    public void delete(int cartId, long foodId){
         Connection connection = null;
         try {
             connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(
-                    "delete from CartOrder c where c.id = ?"
+                    "delete from CartOrder where cartId = ? and foodId = ?"
             );
-            statement.setInt(1, orderId);
+            statement.setInt(1, cartId);
+            statement.setLong(2, foodId);
             statement.executeUpdate();
             statement.close();
             connection.close();

@@ -11,23 +11,19 @@ import ie.logic.CustomDeserializer;
 //        @JsonSubTypes.Type(value = DiscountFood.class, name = "discountFood"),
 //})
 public abstract class Food {
-    @JsonView(Views.FoodWithoutRestaurantName.class)
     @JsonProperty(required = true)
     private String name;
-    @JsonView(Views.FoodWithoutRestaurantName.class)
     @JsonProperty(required = true)
     private String description;
-    @JsonView(Views.FoodWithoutRestaurantName.class)
     @JsonProperty(required = true)
     private float popularity;
-    @JsonView(Views.FoodWithoutRestaurantName.class)
     @JsonProperty(required = true)
     private long price;
     @JsonProperty
     private String restaurantId;
-    @JsonView(Views.FoodWithoutRestaurantName.class)
     @JsonProperty(required = true)
     private String image;
+    protected long id;
 
 
     public float getPopularity() {
@@ -52,6 +48,14 @@ public abstract class Food {
 
     public String getImage() {
         return image;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public void setDescription(String description) {

@@ -20,10 +20,6 @@ public class DataManager {
 
     private static DataManager instance;
 
-    private static final int NOT_FOUND = -1;
-    private ArrayList<Resturant> resturants;
-    private ArrayList<Delivery> deliveries;//REMOVE
-    private User loginnedUser;
     static public ObjectMapper mapper;
     private static ComboPooledDataSource dataSource;
     private Date foodPartyStartTime;
@@ -45,7 +41,7 @@ public class DataManager {
         dataSource = new ComboPooledDataSource();
         dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/loghme");
         dataSource.setUser("root");
-        dataSource.setPassword("hena1378");
+        dataSource.setPassword("MFfm3722119@");
 
         dataSource.setInitialPoolSize(5);
         dataSource.setMinPoolSize(5);
@@ -53,37 +49,14 @@ public class DataManager {
         dataSource.setMaxPoolSize(20);
         dataSource.setMaxStatements(100);
 
-        resturants = new ArrayList<Resturant>();
-        deliveries = new ArrayList<Delivery>();
         mapper = new ObjectMapper();
-        loginnedUser = new User("Hosna","Azarmsa", "hsazarmsa@gmail.com", "09123456789");
         UserDAO loggedUser = new UserDAO("Hosna","Azarmsa", "hsazarmsa@gmail.com", "09123456789","1234");
         UserManager.getInstance().save(loggedUser);
         CartManager.getInstance().save(new CartDAO("hsazarmsa@gmail.com"));
     }
 
-    public static void setAssignedDelivery(User loggedUser, Cart cart, Delivery assignedDelivery) {
-        loggedUser.assignDeliveryToCart(assignedDelivery, cart);
-    }
-
     public static ComboPooledDataSource getDataSource() {
         return dataSource;
-    }
-
-    public ArrayList<Delivery> getDeliveries() {
-        return deliveries;
-    }
-
-    public User getLoginnedUser() {
-        return loginnedUser;
-    }
-
-    public Resturant findRestaurantById(String restaurantId){
-        for(int i = 0; i < resturants.size(); i++){
-            if(resturants.get(i).getId().equals(restaurantId))
-                return resturants.get(i);
-        }
-        return null;
     }
 
     public String loadRestaurantsJson(){
@@ -108,21 +81,13 @@ public class DataManager {
     public void setListOfRestaurants(){
         String restaurantsJson = loadRestaurantsJson();
         ArrayList<RestaurantDAO> newRestaurants = new ArrayList<RestaurantDAO>();
-        ArrayList<Resturant> rest = new ArrayList<Resturant>();//REMOVE
         try {
             newRestaurants.addAll(new ArrayList<RestaurantDAO>(Arrays.asList(mapper.readValue(restaurantsJson, RestaurantDAO[].class))));
-            rest.addAll(new ArrayList<Resturant>(Arrays.asList(mapper.readValue(restaurantsJson, Resturant[].class))));//REMOVE
-
         } catch (Exception  e) {
             System.out.println("Exception in set list of restaurants");
         }
 
         RestaurantManager.getInstance().save(newRestaurants, false);
-
-        for(Resturant resturant: rest){//REMOVE
-            if(findRestaurantById(resturant.getId()) == null)
-                resturants.add(resturant);
-        }
     }
 
     public String loadDeliveriesJson(){
@@ -147,7 +112,6 @@ public class DataManager {
     public void setListOfDeliveries(){
         String deliveriesJson = loadDeliveriesJson();
         try {
-            deliveries = new ArrayList<Delivery>(Arrays.asList(mapper.readValue(deliveriesJson, Delivery[].class)));//REMOVE
             ArrayList<DeliveryDAO> deliveries;
             deliveries = new ArrayList<DeliveryDAO>(Arrays.asList(mapper.readValue(deliveriesJson, DeliveryDAO[].class)));
             DeliveryManager.getInstance().save(deliveries);
@@ -187,90 +151,6 @@ public class DataManager {
             System.out.println("Exception in start foodParty");
         }
         foodPartyStartTime = new Date();
-    }
-
-    public HashMap<String, Integer> getRestaurantLocation(String restaurantId){
-        return findRestaurantById(restaurantId).getLocation();
-    }
-
-    public Food findFood(String foodName, String restaurantId, boolean isFoodParty){
-        Resturant resturant = findRestaurantById(restaurantId);
-        Food food = null;
-        if(isFoodParty){
-            food = resturant.getDiscountFood(foodName);
-            return food;
-        }else{
-            food = resturant.getOrdinaryFood(foodName);
-            if(food == null)
-                System.out.println("Food with name " + foodName + "in restaurant with id " + restaurantId +" does not exist.");
-            return food;
-        }
-    }
-
-    public Food findFoodAllType(String foodName, String restaurantId){
-        Resturant resturant = findRestaurantById(restaurantId);
-        Food food = resturant.hasFood(foodName);
-        return food;
-    }
-
-    public String getRestaurantName(String restaurantId){
-        return findRestaurantById(restaurantId).getName();
-    }
-
-    public CartDAO getUserCurrentCart(String userEmail){
-        return CartManager.getInstance().retrieveCurrentCart(userEmail);
-    }
-
-    public Order findOrder(String foodName, Cart currentCart){
-        ArrayList<Order> orders = currentCart.getOrders();
-        for(Order order: orders){
-            if(order.getFoodName().equals(foodName))
-                return order;
-        }
-        return null;
-    }
-
-    public void addOrder(Order order, Cart currentCart){
-        currentCart.getOrders().add(order);
-    }
-
-    public void changeOrderCount(Order order, int count){
-        order.addNumOfFoods(count);
-    }
-
-    public void deleteFromCart(Order order, Cart currentCart){
-        if (order.getNumOfFoods() == 1)
-            currentCart.getOrders().remove(order);
-        else
-            order.decreaseNumOfFoods();
-    }
-
-    public void addCartToHistory(Cart currentCart, User user) {
-        user.getCartsHistory().add(currentCart);
-    }
-
-    public void addNewCart(Cart cart, User user) {
-        user.setCurrentCart(cart);
-    }
-
-    public void changeCartStatus(Cart cart, String cartStatus) {
-        cart.setStatus(cartStatus);
-    }
-
-    public void setFoodCount(Food food, int count) {
-        food.setCount(count);
-    }
-
-    public void setTimeForDelivery(Delivery delivery, float timeToDelivery) {
-        delivery.setTimeToDest(timeToDelivery);
-    }
-
-    public ArrayList<Cart> getUserCartHistory() {
-        return loginnedUser.getCartsHistory();
-    }
-
-    public Cart getCart(int id) {
-        return loginnedUser.findCartById(id);
     }
 
     public long getFoodPartyRemainedTime() {

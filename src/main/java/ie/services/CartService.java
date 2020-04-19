@@ -29,7 +29,9 @@ public class CartService {
 
     @RequestMapping(value = "/user/cart", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Cart> getCurrentCart(){
-        return new ResponseEntity<Cart>(Loghme.getInstance().getLoginnedUserCart(), HttpStatus.ACCEPTED);
+        Cart currentCart = Loghme.getInstance().getLoginnedUserCart();
+        currentCart.setOrders(currentCart.getOrders());
+        return new ResponseEntity<Cart>(currentCart, HttpStatus.ACCEPTED);
     }
 
     @RequestMapping(value = "/user/cartHistory", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -43,21 +45,21 @@ public class CartService {
 
     @RequestMapping(value = "/user/cartHistory/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Cart> getPastCart(@PathVariable(value = "id") String id){
-        return new ResponseEntity<Cart>(Loghme.getInstance().getUserPastCartById(Integer.parseInt(id)), HttpStatus.ACCEPTED);
+        Cart cart = Loghme.getInstance().getUserPastCartById(Integer.parseInt(id));
+        cart.setOrders(cart.getOrders());
+        return new ResponseEntity<Cart>(cart, HttpStatus.ACCEPTED);
     }
 
     @RequestMapping(value = "/user/cart", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<StatusCode> addToCart(@RequestParam(value = "foodName") String foodName,
-                                @RequestParam(value = "restaurantId") String restaurantId,
+    public ResponseEntity<StatusCode> addToCart(@RequestParam(value = "foodId") long foodId,
                                 @RequestParam(value = "count") int count){
-        Loghme.Status result = Loghme.getInstance().addToCart("{\"foodName\":\"" + foodName + "\", \"restaurantId\":\"" + restaurantId + "\"}", false, count);
+        Loghme.Status result = Loghme.getInstance().addToCart(foodId , count);
         return resultDecoder(result);
     }
 
     @RequestMapping(value = "/user/deleteFromCart", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<StatusCode> deleteFromCart(@RequestParam(value = "foodName") String foodName,
-                                     @RequestParam(value = "restaurantId") String restaurantId){
-        Loghme.Status result = Loghme.getInstance().deleteFromCart(foodName, restaurantId);
+    public ResponseEntity<StatusCode> deleteFromCart(@RequestParam(value = "foodId") long foodId){
+        Loghme.Status result = Loghme.getInstance().deleteFromCart(foodId);
         return resultDecoder(result);
     }
 

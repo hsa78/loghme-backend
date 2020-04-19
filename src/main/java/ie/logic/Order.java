@@ -1,5 +1,9 @@
 package ie.logic;
 
+import ie.repository.DAO.FoodDAO;
+import ie.repository.managers.FoodManager;
+import ie.repository.managers.OrderManager;
+
 public class Order {
     private Food food;
     private int numOfFoods;
@@ -26,11 +30,12 @@ public class Order {
     }
 
     public void setFoodId(long foodId) {
+
         this.foodId = foodId;
     }
 
     public String getFoodName() {
-        return food.getName();
+        return getFood().getName();
     }
 
     public int getNumOfFoods() {
@@ -38,28 +43,33 @@ public class Order {
     }
 
     public long getOrderPrice() {
-        return orderPrice * numOfFoods;
+        return getFood().getPrice() * numOfFoods;
     }
 
     public void setNumOfFoods(int numOfFoods) {
         this.numOfFoods = numOfFoods;
     }
 
-    public void addNumOfFoods(int numOfFoods){
-        this.numOfFoods += numOfFoods;
+    public void addNumOfFoods(int plusCount){
+        OrderManager.getInstance().updateCount(id, numOfFoods + plusCount);
     }
 
     public Food getFood() {
-        return food;
+        FoodDAO foodDAO = FoodManager.getInstance().retrieveFood(foodId);
+        return Loghme.getInstance().convertDAOToFood(foodDAO);
     }
 
     public Loghme.Status finalizeOrder() {
+        FoodDAO foodDAO = FoodManager.getInstance().retrieveFood(foodId);
+        Food food = Loghme.getInstance().convertDAOToFood(foodDAO);
         return food.decreaseCount(numOfFoods);
     }
 
     public boolean isValid() {
-        return food.isAvailable(numOfFoods);
+        return getFood().isAvailable(numOfFoods);
     }
 
-    public void decreaseNumOfFoods() { numOfFoods -= 1; }
+    public void decreaseNumOfFoods() {
+        OrderManager.getInstance().updateCount(id, numOfFoods - 1);
+    }
 }

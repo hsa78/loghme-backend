@@ -72,6 +72,31 @@ public class CartManager {
         return cart;
     }
 
+    public CartDAO retrieveCartById(int cartID){
+        CartDAO cart = null;
+        Connection connection = null;
+        try {
+            connection = dataSource.getConnection();
+            PreparedStatement queryStatement = connection.prepareStatement(
+                    "select * from Cart c where c.id = ?"
+            );
+            queryStatement.setInt(1, cartID);
+            ResultSet result = queryStatement.executeQuery();
+            if(result.next()){
+                cart = new CartDAO(result.getString("userEmail"));
+                cart.setRestaurantId(result.getString("restaurantId"));
+                cart.setId(result.getInt("id"));
+                cart.setRestaurantName(result.getNString("restaurantName"));
+            }
+            result.close();
+            queryStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return cart;
+    }
+
     public ArrayList<CartDAO> retrieveCartHistory(String userEmail){
         ArrayList<CartDAO> carts = new ArrayList<>();
         Connection connection = null;
@@ -126,6 +151,24 @@ public class CartManager {
             );
             statement.setString(1, deliveryId);
             statement.setInt(2, cartId);
+            statement.executeUpdate();
+            statement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateRestaurant(int cartId, String restaurantName, String restaurantId){
+        Connection connection = null;
+        try {
+            connection = dataSource.getConnection();
+            PreparedStatement statement = connection.prepareStatement(
+                    "update Cart set restaurantName = ? , restaurantId = ? where id = ?"
+            );
+            statement.setNString(1, restaurantName);
+            statement.setString(2, restaurantId);
+            statement.setInt(3, cartId);
             statement.executeUpdate();
             statement.close();
             connection.close();

@@ -1,5 +1,6 @@
 package ie.services;
 
+import ie.logic.Food;
 import ie.logic.Loghme;
 import ie.logic.Resturant;
 import ie.services.responses.RestaurantInfo;
@@ -32,6 +33,8 @@ public class RestaurantService {
         Resturant resturant = Loghme.getInstance().getRestaurantById(id);
         if(resturant == null)
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        ArrayList<Food> menu = resturant.getMenu();
+        resturant.setMenu(menu);
         return new ResponseEntity<>(resturant, HttpStatus.ACCEPTED);
     }
 

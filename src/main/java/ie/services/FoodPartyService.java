@@ -27,36 +27,13 @@ public class FoodPartyService {
         return new ResponseEntity<ArrayList<DiscountFood>>(foods, HttpStatus.ACCEPTED);
     }
 
-    @RequestMapping(value = "/foodParty/add", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<StatusCode> addToCartFromFoodParty(
-            @RequestParam(value = "foodName") String foodName,
-            @RequestParam(value = "restaurantId") String restaurantId,
-            @RequestParam(value = "count") int count){
-        Loghme.Status result = Loghme.getInstance().addToCart("{\"foodName\":\"" + foodName + "\", \"restaurantId\":\"" + restaurantId + "\"}", true, count);
-        return resultDecoder(result);
-    }
-
     @RequestMapping(value = "/foodParty/time", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<FoodPartyRemainedTime> getFoodPartyRemainedTime(){
+    public ResponseEntity<FoodPartyRemainedTime> getFoodPartyRemainedTime() {
         long diff = Loghme.getInstance().getFoodPartyRemainingTime();
         diff = 5 * 60 - diff;
         int diffMinutes = (int) diff / 60;
         int diffSeconds = (int) diff % 60;
         return new ResponseEntity<FoodPartyRemainedTime>(new FoodPartyRemainedTime(diffSeconds, diffMinutes), HttpStatus.ACCEPTED);
-    }
-
-    private ResponseEntity<StatusCode> resultDecoder(Loghme.Status status){
-        if(status.equals(Loghme.Status.OK))
-            return new ResponseEntity<StatusCode>(new StatusCode(200), HttpStatus.ACCEPTED);
-        else if(status.equals(Loghme.Status.NOT_FOUND))
-            return new ResponseEntity<StatusCode>(new StatusCode(404), HttpStatus.NOT_FOUND);
-        else if(status.equals(Loghme.Status.BAD_REQUEST))
-            return new ResponseEntity<StatusCode>(new StatusCode(400), HttpStatus.BAD_REQUEST);
-        else if(status.equals(Loghme.Status.ACCESS_DENIED))
-            return new ResponseEntity<StatusCode>(new StatusCode(403), HttpStatus.FORBIDDEN);
-        else if(status.equals(Loghme.Status.CONFLICT))
-            return new ResponseEntity<StatusCode>(new StatusCode(409), HttpStatus.CONFLICT);
-        return new ResponseEntity<StatusCode>(new StatusCode(500), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
 

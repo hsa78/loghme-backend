@@ -108,6 +108,7 @@ public class FoodManager {
                 food.setPrice(result.getLong("price"));
                 food.setRestaurantId(result.getString("restaurantId"));
                 food.setType(result.getString("type"));
+                food.setId(result.getLong("id"));
                 if(food.getType().equals("discount")){
                     food.setOldPrice(result.getLong("oldPrice"));
                     food.setCount(result.getInt("count"));
@@ -141,6 +142,7 @@ public class FoodManager {
                 food.setName(result.getString("name"));
                 food.setImage(result.getString("image"));
                 food.setDescription(result.getString("description"));
+                food.setId(result.getLong("id"));
                 if(food.getType().equals("discount")){
                     food.setOldPrice(result.getLong("oldPrice"));
                     food.setCount(result.getInt("count"));
@@ -177,6 +179,7 @@ public class FoodManager {
                 food.setPopularity(result.getFloat("popularity"));
                 food.setName(result.getString("name"));
                 food.setImage(result.getString("image"));
+                food.setId(result.getLong("id"));
                 food.setDescription(result.getString("description"));
                 if(food.getType().equals("discount")){
                     food.setOldPrice(result.getLong("oldPrice"));
@@ -214,6 +217,7 @@ public class FoodManager {
                 food.setRestaurantId(result.getString("restaurantId"));
                 food.setType(result.getString("type"));
                 food.setOldPrice(result.getLong("oldPrice"));
+                food.setId(result.getLong("id"));
                 food.setCount(result.getInt("count"));
                 menu.add(food);
             }
