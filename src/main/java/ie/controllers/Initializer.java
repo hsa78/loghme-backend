@@ -21,6 +21,7 @@ public class Initializer extends HttpServlet {
     public void init() throws ServletException{
         System.out.println("in init");
         DataManager.getInstance().setListOfRestaurants();
+        Loghme.getInstance().checkNotAssignedDeliveriesCarts();
         super.init();
     }
 

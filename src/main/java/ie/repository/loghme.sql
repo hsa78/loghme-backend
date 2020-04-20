@@ -8,6 +8,11 @@ ALTER DATABASE
     COLLATE = utf8_persian_ci;
 
 
+CREATE TABLE Location (
+	x	int,
+    y	int,
+    primary key(x, y)
+);
 
 CREATE table User (
         firstName           VARCHAR(255) NOT NULL,
@@ -21,11 +26,7 @@ CREATE table User (
         foreign key(x, y) references Location(x, y)
 );
 
-CREATE TABLE Location (
-	x	int,
-    y	int,
-    primary key(x, y)
-);
+
 CREATE TABLE Restaurant (
 	id		VARCHAR(255) PRIMARY KEY,
     name	VARCHAR(255) NOT NULL,
@@ -73,10 +74,9 @@ CREATE TABLE CartOrder(
 	id			int auto_increment NOT NULL,
     cartId		int NOT NULL,
     count		int default 0,
-    foodId		BIGINT NOT NULL,
-    foreign key (foodId) references Food(id),
+    foodId		BIGINT,
+    foreign key (foodId) references Food(id) on delete cascade,
     foreign key (cartId) references Cart(id),
-    unique(cartId, foodId),
     PRIMARY KEY(id)
 );
 
@@ -86,12 +86,18 @@ FROM Restaurant res;
 SELECT *
 FROM Location Loc;
 
-INSERT into Food (foodName, restaurantId, image, price, popularity, description)
-values ("ac", "b", "c", 5, 1, "d");
-
-SELECT *
-FROM Food food
-where food.id = 306;
+SELECT count(*)
+FROM Food food;
 
 SELECT *
 FROM User u;
+
+SELECT *
+FROM Delivery;
+
+SELECT *
+FROM Cart c;
+
+SELECT * 
+FROM CartOrder c
+where c.cartId = 4;

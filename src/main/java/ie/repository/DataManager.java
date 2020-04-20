@@ -25,10 +25,17 @@ public class DataManager {
     private Date foodPartyStartTime;
 
     public static DataManager getInstance(){
+
         if(instance == null){
             instance = new DataManager();
         }
+//        System.out.println("time:");
+//        System.out.println(instance.getFoodPartyRemainedTime());
         return instance;
+    }
+
+    public Date getFoodPartyStartTime() {
+        return foodPartyStartTime;
     }
 
     private DataManager(){
@@ -41,8 +48,8 @@ public class DataManager {
         dataSource = new ComboPooledDataSource();
         dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/loghme");
         dataSource.setUser("root");
-//        dataSource.setPassword("hena1378");
-        dataSource.setPassword("MFfm3722119@");
+        dataSource.setPassword("hena1378");
+//        dataSource.setPassword("MFfm3722119@");
 
         dataSource.setInitialPoolSize(5);
         dataSource.setMinPoolSize(5);
@@ -53,7 +60,9 @@ public class DataManager {
         mapper = new ObjectMapper();
         UserDAO loggedUser = new UserDAO("Hosna","Azarmsa", "hsazarmsa@gmail.com", "09123456789","1234");
         UserManager.getInstance().save(loggedUser);
-        CartManager.getInstance().save(new CartDAO("hsazarmsa@gmail.com"));
+        if(CartManager.getInstance().retrieveCartsByStatus("OnProgress").size() == 0)
+            CartManager.getInstance().save(new CartDAO("hsazarmsa@gmail.com"));
+        foodPartyStartTime = new Date();
     }
 
     public static ComboPooledDataSource getDataSource() {
@@ -145,6 +154,7 @@ public class DataManager {
         try {
             System.out.println("start food party");
             FoodManager.getInstance().deleteDiscountFoods();
+            Loghme.getInstance().checkCarts();
             ArrayList<RestaurantDAO> discountRestaurants;
             discountRestaurants = new ArrayList<RestaurantDAO>(Arrays.asList(mapper.readValue(foodPartyJson, RestaurantDAO[].class)));
             RestaurantManager.getInstance().save(discountRestaurants, true);
@@ -154,8 +164,12 @@ public class DataManager {
         foodPartyStartTime = new Date();
     }
 
+
+
     public long getFoodPartyRemainedTime() {
         Date currentTime = new Date();
+//        System.out.println("in get time");
+//        System.out.println(foodPartyStartTime);
         long diffInMilliSec = currentTime.getTime() - foodPartyStartTime.getTime();
         TimeUnit timeUnit = TimeUnit.SECONDS;
         return timeUnit.convert(diffInMilliSec, TimeUnit.MILLISECONDS);

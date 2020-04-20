@@ -68,12 +68,4 @@ public class Order {
     public long getFoodId() {
         return foodId;
     }
-
-    public boolean isValid() {
-        return getFood().isAvailable(numOfFoods);
-    }
-
-    public void decreaseNumOfFoods() {
-        OrderManager.getInstance().updateCount(id, numOfFoods - 1);
-    }
 }

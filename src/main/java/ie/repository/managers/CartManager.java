@@ -176,4 +176,33 @@ public class CartManager {
             e.printStackTrace();
         }
     }
+
+    public ArrayList<CartDAO> retrieveCartsByStatus(String status) {
+        ArrayList<CartDAO> carts = new ArrayList<>();
+        Connection connection = null;
+        try {
+            connection = dataSource.getConnection();
+            PreparedStatement queryStatement = connection.prepareStatement(
+                    "select * from Cart c where c.status = ?"
+            );
+            queryStatement.setString(1, status);
+            ResultSet result = queryStatement.executeQuery();
+            while(result.next()){
+                CartDAO cart = new CartDAO();
+                cart.setRestaurantId(result.getString("restaurantId"));
+                cart.setId(result.getInt("id"));
+                cart.setRestaurantName(result.getNString("restaurantName"));
+                cart.setCartStatus(result.getString("status"));
+                cart.setDeliveryId(result.getString("deliveryId"));
+                cart.setUserEmail(result.getString("userEmail"));
+                carts.add(cart);
+            }
+            result.close();
+            queryStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return  carts;
+    }
 }

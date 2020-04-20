@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class UserManager {
@@ -128,5 +129,36 @@ public class UserManager {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public ArrayList<UserDAO> retrieve() {
+        ArrayList<UserDAO> users = new ArrayList<>();
+        try {
+            Connection connection = dataSource.getConnection();
+            PreparedStatement statement = connection.prepareStatement(
+                    "select * from User u"
+            );
+            ResultSet result = statement.executeQuery();
+            while(result.next()){
+                UserDAO user = new UserDAO();
+                HashMap<String, Integer> loc = new HashMap<>();
+                user.setCredit(result.getLong("credit"));
+                user.setEmail(result.getString("email"));
+                user.setFirstName(result.getNString("firstName"));
+                user.setLastName(result.getNString("lastName"));
+                user.setPhone(result.getString("phone"));
+                user.setPassword(result.getNString("password"));
+                loc.put("x", result.getInt("x"));
+                loc.put("y", result.getInt("y"));
+                user.setLocation(loc);
+                users.add(user);
+            }
+            result.close();
+            statement.close();
+            connection.close();
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return users;
     }
 }

@@ -160,43 +160,6 @@ public class FoodManager {
         return food;
     }
 
-    public FoodDAO retrieveFood(String restaurantId, String foodName, String foodType){
-        FoodDAO food = new FoodDAO();
-        Connection connection = null;
-        try {
-            connection = dataSource.getConnection();
-            PreparedStatement queryStatement = connection.prepareStatement(
-                    "select * from Food f where f.restaurantId = ? and f.name = ? and f.type = ?"
-            );
-            queryStatement.setString(1, restaurantId);
-            queryStatement.setString(2, foodName);
-            queryStatement.setString(3, foodType);
-            ResultSet result = queryStatement.executeQuery();
-            if(result.next()){
-                food.setType(result.getString("type"));
-                food.setRestaurantId(result.getString("restaurantId"));
-                food.setPrice(result.getLong("price"));
-                food.setPopularity(result.getFloat("popularity"));
-                food.setName(result.getString("name"));
-                food.setImage(result.getString("image"));
-                food.setId(result.getLong("id"));
-                food.setDescription(result.getString("description"));
-                if(food.getType().equals("discount")){
-                    food.setOldPrice(result.getLong("oldPrice"));
-                    food.setCount(result.getInt("count"));
-                }
-            }
-            else{
-                food = null;
-            }
-            result.close();
-            queryStatement.close();
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return food;
-    }
 
     public ArrayList<FoodDAO> retrieveDiscountFood(){
         ArrayList<FoodDAO> menu = new ArrayList<>();

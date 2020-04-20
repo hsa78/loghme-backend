@@ -20,6 +20,7 @@
 /home/hosna/IdeaProjects/IE/CA6_backend/src/main/java/ie/services/responses/StatusCode.java
 /home/hosna/IdeaProjects/IE/CA6_backend/src/main/java/ie/controllers/Initializer.java
 /home/hosna/IdeaProjects/IE/CA6_backend/src/main/java/ie/services/responses/FoodPartyRemainedTime.java
+/home/hosna/IdeaProjects/IE/CA6_backend/src/main/java/ie/logic/AssignDeliveryTask.java
 /home/hosna/IdeaProjects/IE/CA6_backend/src/main/java/ie/services/responses/CartHistory.java
 /home/hosna/IdeaProjects/IE/CA6_backend/src/main/java/ie/logic/User.java
 /home/hosna/IdeaProjects/IE/CA6_backend/src/main/java/ie/logic/Views.java
@@ -29,6 +30,7 @@
 /home/hosna/IdeaProjects/IE/CA6_backend/src/main/java/ie/logic/Resturant.java
 /home/hosna/IdeaProjects/IE/CA6_backend/src/main/java/ie/Filter/CORSFilter.java
 /home/hosna/IdeaProjects/IE/CA6_backend/src/main/java/ie/services/RestaurantService.java
+/home/hosna/IdeaProjects/IE/CA6_backend/src/main/java/ie/services/SearchService.java
 /home/hosna/IdeaProjects/IE/CA6_backend/src/main/java/ie/repository/DAO/FoodDAO.java
 /home/hosna/IdeaProjects/IE/CA6_backend/src/main/java/ie/services/responses/RestaurantInfo.java
 /home/hosna/IdeaProjects/IE/CA6_backend/src/main/java/ie/repository/managers/DeliveryManager.java

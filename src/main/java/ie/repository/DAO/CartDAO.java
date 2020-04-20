@@ -16,6 +16,10 @@ public class CartDAO {
         this.deliveryId = null;
     }
 
+    public CartDAO() {
+
+    }
+
     public int getId() {
         return id;
     }

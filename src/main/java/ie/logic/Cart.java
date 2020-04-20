@@ -80,7 +80,10 @@ public class Cart {
         newOrder.setCount(previousCount + count);
         newOrder.setFoodId(food.getId());
         newOrder.setCartId(id);
-        OrderManager.getInstance().save(newOrder);
+        if(orderDAO == null)
+            OrderManager.getInstance().save(newOrder);
+        else
+            OrderManager.getInstance().updateCount(orderDAO.getId(), previousCount + count);
         return Loghme.Status.OK;
     }
 
@@ -146,8 +149,10 @@ public class Cart {
         OrderDAO orderDAO = OrderManager.getInstance().retrieve(id, food.getId());
         if(orderDAO == null)
             return Loghme.Status.BAD_REQUEST;
-        if(orderDAO.getCount() == 1)
+        if(orderDAO.getCount() == 1){
             OrderManager.getInstance().delete(id, food.getId());
+            Loghme.getInstance().checkCart(id);
+        }
         else
             OrderManager.getInstance().updateCount(orderDAO.getId(), orderDAO.getCount() - 1);
         return Loghme.Status.OK;

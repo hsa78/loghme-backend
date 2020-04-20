@@ -32,17 +32,29 @@ public class DeliveryManager {
         try {
             connection = dataSource.getConnection();
             connection.setAutoCommit(false);
+            PreparedStatement pStatLoc = connection.prepareStatement(
+                    "insert into Location (x, y)" +
+                            " values (?, ?)"
+            );
             PreparedStatement pStatDelivery = connection.prepareStatement(
-                    "insert ignore into Delivery (id, velocity, x, y)" +
+                    "insert into Delivery (id, velocity, x, y)" +
                             " values (?, ?, ?, ?)"
             );
             for(DeliveryDAO delivery: deliveries) {
+                pStatLoc.setInt(1, delivery.getLocation().get("x"));
+                pStatLoc.setInt(2, delivery.getLocation().get("y"));
+                pStatLoc.addBatch();
+
                 pStatDelivery.setString(1, delivery.getId());
                 pStatDelivery.setInt(2, delivery.getVelocity());
                 pStatDelivery.setInt(3, delivery.getLocation().get("x"));
                 pStatDelivery.setInt(4, delivery.getLocation().get("y"));
                 pStatDelivery.addBatch();
             }
+            pStatLoc.executeBatch();
+            connection.commit();
+            pStatLoc.close();
+
             pStatDelivery.executeBatch();
             connection.commit();
             pStatDelivery.close();

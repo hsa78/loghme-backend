@@ -33,13 +33,11 @@ public class OrderManager {
             connection = dataSource.getConnection();
             PreparedStatement pStatement = connection.prepareStatement(
                     "insert into CartOrder (cartId, count, foodId)" +
-                            " values (? ,?, ?)" +
-                            "ON DUPLICATE KEY UPDATE count = ?"
+                            " values (? ,?, ?)"
             );
             pStatement.setInt(1, order.getCartId());
             pStatement.setInt(2, order.getCount());
             pStatement.setLong(3, order.getFoodId());
-            pStatement.setInt(4, order.getCount());
             pStatement.executeUpdate();
             pStatement.close();
             connection.close();

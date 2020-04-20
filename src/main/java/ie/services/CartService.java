@@ -1,5 +1,6 @@
 package ie.services;
 
+import ie.logic.AssignDeliveryTask;
 import ie.logic.Cart;
 import ie.logic.Loghme;
 import java.util.Timer;
@@ -70,7 +71,7 @@ public class CartService {
         if(result.equals(Loghme.Status.OK)){
             Timer newTimer = new Timer();
             TimerTask scheduledTask = new AssignDeliveryTask(currentCart, newTimer);
-            newTimer.schedule(scheduledTask, 0, (30 * 1000));
+            newTimer.schedule(scheduledTask, 0, (5 * 1000));
         }
         return resultDecoder(result);
     }
@@ -89,34 +90,7 @@ public class CartService {
         return new ResponseEntity<StatusCode>(new StatusCode(500), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    class AssignDeliveryTask extends TimerTask {
-        private Cart cart;
-        private Timer timer;
-        public AssignDeliveryTask(Cart cart, Timer timer){
-            this.cart = cart;
-            this.timer = timer;
-        }
-        @Override
-        public void run() {
-            try {
-                Loghme.Status addDeliveriesStatus = Loghme.getInstance().loadDeliveries();
-                if (addDeliveriesStatus.equals(Loghme.Status.INTERNAL_ERROR))
-                    return;
-                Loghme.Status assignDeliveryStatus = Loghme.getInstance().assignDeliveriesToCart(cart);
-                if (assignDeliveryStatus.equals(Loghme.Status.OK)) {
-                    cart.startDelivering();
-                    System.out.println("Found Delivery!");
-                    timer.cancel();
-                    timer.purge();
-                }
-                else{
-                    System.out.println("Delivery not found. Retry after 30 seconds...");
-                }
-            }catch (Exception e){
-                System.out.println("Exception in timer");
-            }
-        }
-    }
+
 }
 
 

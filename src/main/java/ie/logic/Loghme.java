@@ -12,6 +12,16 @@ public class Loghme {
 
     private static final float STANDARD_DISTANCE = 170;
     public static final int NOT_FOUND = -1;
+
+    public void checkNotAssignedDeliveriesCarts() {
+        ArrayList<CartDAO> searchingCarts = CartManager.getInstance().retrieveCartsByStatus("SearchingForDelivery");
+        for(CartDAO cart: searchingCarts){
+            Timer newTimer = new Timer();
+            TimerTask scheduledTask = new AssignDeliveryTask(convertDAOToCart(cart), newTimer);
+            newTimer.schedule(scheduledTask, 0, (5 * 1000));
+        }
+    }
+
     public static enum Status {INTERNAL_ERROR, NOT_FOUND, ACCESS_DENIED,OK, BAD_REQUEST, CONFLICT};
 
     static public ObjectMapper mapper;
@@ -238,5 +248,23 @@ public class Loghme {
             foundRestaurants.add(convertDAOToRestaurant(restaurantDAO));
         return foundRestaurants;
     }
+
+    public void checkCarts() {
+        ArrayList<UserDAO> users = UserManager.getInstance().retrieve();
+        for(UserDAO user: users){
+            CartDAO currentCart = CartManager.getInstance().retrieveCurrentCart(user.getEmail());
+            if(currentCart.getRestaurantId() != null){
+                checkCart(currentCart.getId());
+            }
+        }
+    }
+
+    public void checkCart(int cartId){
+        ArrayList<OrderDAO> orders = OrderManager.getInstance().retrieveCartOrders(cartId);
+        if(orders.size() == 0)
+            CartManager.getInstance().updateRestaurant(cartId, null, null);
+    }
+
+
 
 }
