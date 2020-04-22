@@ -71,7 +71,7 @@ public class CartService {
         if(result.equals(Loghme.Status.OK)){
             Timer newTimer = new Timer();
             TimerTask scheduledTask = new AssignDeliveryTask(currentCart, newTimer);
-            newTimer.schedule(scheduledTask, 0, (5 * 1000));
+            newTimer.schedule(scheduledTask, 0, (30 * 1000));
         }
         return resultDecoder(result);
     }

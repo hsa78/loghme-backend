@@ -18,7 +18,7 @@ public class Loghme {
         for(CartDAO cart: searchingCarts){
             Timer newTimer = new Timer();
             TimerTask scheduledTask = new AssignDeliveryTask(convertDAOToCart(cart), newTimer);
-            newTimer.schedule(scheduledTask, 0, (5 * 1000));
+            newTimer.schedule(scheduledTask, 0, (30 * 1000));
         }
     }
 
@@ -109,11 +109,7 @@ public class Loghme {
         ArrayList<Resturant> nearRestaurants = new ArrayList<Resturant>();
         int startIndex = (pageNum - 1) * numOfItems;
         ArrayList<RestaurantDAO> allRestaurants = RestaurantManager.getInstance().retrieve(startIndex, numOfItems);
-//        HashMap<String, Integer> userLoc = UserManager.getInstance().retrieveLocation("hsazarmsa@gmail.com");
-//        HashMap<String, Integer> restaurantLoc;
         for(RestaurantDAO restaurant: allRestaurants){
-//            restaurantLoc = restaurant.getLocation();
-//            if(isNear(userLoc,restaurantLoc))
             nearRestaurants.add(convertDAOToRestaurant(restaurant));
         }
         return nearRestaurants;
