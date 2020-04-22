@@ -48,6 +48,7 @@ CREATE TABLE Food (
     count			int default null,
     unique (name, restaurantId, type),
     id				bigint auto_increment,
+    active			bool default true,
     PRIMARY KEY		(id)
 );
 

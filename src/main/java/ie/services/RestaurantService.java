@@ -7,10 +7,7 @@ import ie.services.responses.RestaurantInfo;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -38,10 +35,12 @@ public class RestaurantService {
         return new ResponseEntity<>(resturant, HttpStatus.ACCEPTED);
     }
 
-    @RequestMapping(value = "/restaurant/all", method = RequestMethod.GET,
+    @RequestMapping(value = "/restaurant/all", method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ArrayList<RestaurantInfo>> getAllRestaurantsInfo(){
-        ArrayList<Resturant> allRestaurants = Loghme.getInstance().getNearResturants();
+    public ResponseEntity<ArrayList<RestaurantInfo>> getAllRestaurantsInfo(@RequestParam(value = "page") int pageNum,
+                                                                           @RequestParam(value = "numOfItems") int numOfItems)
+    {
+        ArrayList<Resturant> allRestaurants = Loghme.getInstance().getNearResturants(pageNum, numOfItems);
         ArrayList<RestaurantInfo> allRestaurantsInfo = new ArrayList<RestaurantInfo>();
         for(Resturant resturant: allRestaurants)
             allRestaurantsInfo.add(new RestaurantInfo(resturant));

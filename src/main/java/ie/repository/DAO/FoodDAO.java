@@ -11,6 +11,11 @@ public class FoodDAO {
     private int count;
     private String type;
     private long id;
+    private boolean active;
+
+    public boolean isActive() {
+        return active;
+    }
 
     public String getName() {
         return name;
@@ -90,5 +95,9 @@ public class FoodDAO {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }

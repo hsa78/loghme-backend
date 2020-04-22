@@ -67,15 +67,17 @@ public class RestaurantManager {
         }
     }
 
-    public ArrayList<RestaurantDAO> retrieve(){
+    public ArrayList<RestaurantDAO> retrieve(int startIndex, int numOfItems){
         ArrayList<RestaurantDAO> restaurants = new ArrayList<>();
         Connection connection = null;
         try {
             connection = dataSource.getConnection();
-            Statement queryStatement = connection.createStatement();
-            ResultSet result = queryStatement.executeQuery(
-                    "select * from Restaurant"
+            PreparedStatement queryStatement = connection.prepareStatement(
+                    "select * from Restaurant r order by r.id limit ?,?"
             );
+            queryStatement.setInt(1, startIndex);
+            queryStatement.setInt(2, numOfItems);
+            ResultSet result = queryStatement.executeQuery();
             while (result.next()){
                 RestaurantDAO restaurant = new RestaurantDAO();
                 HashMap<String, Integer> restaurantLoc = new HashMap<>();
@@ -124,15 +126,18 @@ public class RestaurantManager {
         return restaurant;
     }
 
-    public ArrayList<RestaurantDAO> searchByName(String restaurantName){
+    public ArrayList<RestaurantDAO> searchByName(String restaurantName, int startIndex, int numOfItems){
         ArrayList<RestaurantDAO> restaurants = new ArrayList<>();
         Connection connection = null;
         try {
             connection = dataSource.getConnection();
+
             PreparedStatement queryStatement = connection.prepareStatement(
-                    "select * from Restaurant r where r.name = ?"
+                    "select * from Restaurant r where r.name = ? order by r.id limit ?,?"
             );
             queryStatement.setNString(1, restaurantName);
+            queryStatement.setInt(2, startIndex);
+            queryStatement.setInt(3, numOfItems);
             ResultSet result = queryStatement.executeQuery();
             while (result.next()){
                 RestaurantDAO restaurant = new RestaurantDAO();
@@ -154,15 +159,18 @@ public class RestaurantManager {
         return restaurants;
     }
 
-    public ArrayList<RestaurantDAO> searchByFoodName(String foodName){
+    public ArrayList<RestaurantDAO> searchByFoodName(String foodName, int startIndex, int numOfItems){
         ArrayList<RestaurantDAO> restaurants = new ArrayList<>();
         Connection connection = null;
         try {
             connection = dataSource.getConnection();
             PreparedStatement queryStatement = connection.prepareStatement(
-                    "select distinct * from Restaurant r, Food f where f.restaurantId = r.id and f.name = ?"
+                    "select distinct * from Restaurant r, Food f where f.restaurantId = r.id and f.name = ? " +
+                            "order by r.id limit ?,?"
             );
             queryStatement.setNString(1, foodName);
+            queryStatement.setInt(2, startIndex);
+            queryStatement.setInt(3, numOfItems);
             ResultSet result = queryStatement.executeQuery();
             while (result.next()){
                 RestaurantDAO restaurant = new RestaurantDAO();
@@ -184,16 +192,20 @@ public class RestaurantManager {
         return restaurants;
     }
 
-    public ArrayList<RestaurantDAO> searchByFoodAndRestaurantName(String restaurantName, String foodName){
+    public ArrayList<RestaurantDAO> searchByFoodAndRestaurantName(String restaurantName, String foodName,
+                                                                  int startIndex, int numOfItems){
         ArrayList<RestaurantDAO> restaurants = new ArrayList<>();
         Connection connection = null;
         try {
             connection = dataSource.getConnection();
             PreparedStatement queryStatement = connection.prepareStatement(
-                    "select distinct * from Restaurant r, Food f where f.restaurantId = r.id and r.name = ? and f.name = ?"
+                    "select distinct * from Restaurant r, Food f where f.restaurantId = r.id and r.name = ? and f.name = ?" +
+                            " order by r.id limit ?,?"
             );
             queryStatement.setNString(1, restaurantName);
             queryStatement.setNString(2, foodName);
+            queryStatement.setInt(3, startIndex);
+            queryStatement.setInt(4, numOfItems);
             ResultSet result = queryStatement.executeQuery();
             while (result.next()){
                 RestaurantDAO restaurant = new RestaurantDAO();
@@ -213,17 +225,5 @@ public class RestaurantManager {
             e.printStackTrace();
         }
         return restaurants;
-    }
-
-    public static void checkUpdateCounts(int[] updateCounts) {
-        for (int i = 0; i < updateCounts.length; i++) {
-            if (updateCounts[i] >= 0) {
-                System.out.println("OK; updateCount=" + updateCounts[i]);
-            } else if (updateCounts[i] == Statement.SUCCESS_NO_INFO) {
-                System.out.println("OK; updateCount=Statement.SUCCESS_NO_INFO");
-            } else if (updateCounts[i] == Statement.EXECUTE_FAILED) {
-                System.out.println("Failure; updateCount=Statement.EXECUTE_FAILED");
-            }
-        }
     }
 }

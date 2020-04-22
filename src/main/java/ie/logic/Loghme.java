@@ -65,6 +65,7 @@ public class Loghme {
         food.setPrice(foodDAO.getPrice());
         food.setRestaurantId(foodDAO.getRestaurantId());
         food.setId(foodDAO.getId());
+        food.setActive(foodDAO.isActive());
         return food;
     }
 
@@ -104,15 +105,16 @@ public class Loghme {
         return cart;
     }
 
-    public ArrayList<Resturant> getNearResturants() {
+    public ArrayList<Resturant> getNearResturants(int pageNum, int numOfItems) {
         ArrayList<Resturant> nearRestaurants = new ArrayList<Resturant>();
-        ArrayList<RestaurantDAO> allRestaurants = RestaurantManager.getInstance().retrieve();
-        HashMap<String, Integer> userLoc = UserManager.getInstance().retrieveLocation("hsazarmsa@gmail.com");
-        HashMap<String, Integer> restaurantLoc;
+        int startIndex = (pageNum - 1) * numOfItems;
+        ArrayList<RestaurantDAO> allRestaurants = RestaurantManager.getInstance().retrieve(startIndex, numOfItems);
+//        HashMap<String, Integer> userLoc = UserManager.getInstance().retrieveLocation("hsazarmsa@gmail.com");
+//        HashMap<String, Integer> restaurantLoc;
         for(RestaurantDAO restaurant: allRestaurants){
-            restaurantLoc = restaurant.getLocation();
-            if(isNear(userLoc,restaurantLoc))
-                nearRestaurants.add(convertDAOToRestaurant(restaurant));
+//            restaurantLoc = restaurant.getLocation();
+//            if(isNear(userLoc,restaurantLoc))
+            nearRestaurants.add(convertDAOToRestaurant(restaurant));
         }
         return nearRestaurants;
     }
@@ -235,15 +237,18 @@ public class Loghme {
         return DataManager.getInstance().getFoodPartyRemainedTime();
     }
 
-    public ArrayList<Resturant> searchRestaurants(String restaurantName, String foodName){
+    public ArrayList<Resturant> searchRestaurants(String restaurantName, String foodName, int pageNum, int numOfItems){
+        System.out.println("page:"+pageNum);
         ArrayList<Resturant> foundRestaurants = new ArrayList<>();
         ArrayList<RestaurantDAO> foundRestaurantsDAO = new ArrayList<>();
+        int startIndex = (pageNum - 1) * numOfItems;
         if(foodName.equals(""))
-            foundRestaurantsDAO = RestaurantManager.getInstance().searchByName(restaurantName);
+            foundRestaurantsDAO = RestaurantManager.getInstance().searchByName(restaurantName, startIndex, numOfItems);
         else if(restaurantName.equals(""))
-            foundRestaurantsDAO = RestaurantManager.getInstance().searchByFoodName(foodName);
+            foundRestaurantsDAO = RestaurantManager.getInstance().searchByFoodName(foodName, startIndex, numOfItems);
         else
-            foundRestaurantsDAO = RestaurantManager.getInstance().searchByFoodAndRestaurantName(restaurantName, foodName);
+            foundRestaurantsDAO = RestaurantManager.getInstance().searchByFoodAndRestaurantName(restaurantName, foodName,
+                                                                                                startIndex, numOfItems);
         for(RestaurantDAO restaurantDAO: foundRestaurantsDAO)
             foundRestaurants.add(convertDAOToRestaurant(restaurantDAO));
         return foundRestaurants;
@@ -264,7 +269,4 @@ public class Loghme {
         if(orders.size() == 0)
             CartManager.getInstance().updateRestaurant(cartId, null, null);
     }
-
-
-
 }

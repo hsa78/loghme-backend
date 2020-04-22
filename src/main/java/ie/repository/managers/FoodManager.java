@@ -62,7 +62,7 @@ public class FoodManager {
             connection = dataSource.getConnection();
             connection.setAutoCommit(false);
             PreparedStatement pStatFood = connection.prepareStatement(
-                    "insert ignore into Food (name, restaurantId, image, price, description, popularity, type, oldPrice, count)" +
+                    "replace into Food (name, restaurantId, image, price, description, popularity, type, oldPrice, count)" +
                             " values (?, ?, ?, ?, ?, ?, ?, ?, ?)"
             );
             for(FoodDAO food: foods) {
@@ -110,6 +110,7 @@ public class FoodManager {
                 food.setType(result.getString("type"));
                 food.setId(result.getLong("id"));
                 if(food.getType().equals("discount")){
+                    food.setActive(result.getBoolean("active"));
                     food.setOldPrice(result.getLong("oldPrice"));
                     food.setCount(result.getInt("count"));
                 }
@@ -144,6 +145,7 @@ public class FoodManager {
                 food.setDescription(result.getString("description"));
                 food.setId(result.getLong("id"));
                 if(food.getType().equals("discount")){
+                    food.setActive(result.getBoolean("active"));
                     food.setOldPrice(result.getLong("oldPrice"));
                     food.setCount(result.getInt("count"));
                 }
@@ -171,18 +173,21 @@ public class FoodManager {
             );
             ResultSet result = queryStatement.executeQuery();
             while (result.next()){
-                FoodDAO food = new FoodDAO();
-                food.setDescription(result.getString("description"));
-                food.setImage(result.getString("image"));
-                food.setName(result.getString("name"));
-                food.setPopularity(result.getFloat("popularity"));
-                food.setPrice(result.getLong("price"));
-                food.setRestaurantId(result.getString("restaurantId"));
-                food.setType(result.getString("type"));
-                food.setOldPrice(result.getLong("oldPrice"));
-                food.setId(result.getLong("id"));
-                food.setCount(result.getInt("count"));
-                menu.add(food);
+                if(result.getBoolean("active")){
+                    FoodDAO food = new FoodDAO();
+                    food.setDescription(result.getString("description"));
+                    food.setImage(result.getString("image"));
+                    food.setName(result.getString("name"));
+                    food.setPopularity(result.getFloat("popularity"));
+                    food.setPrice(result.getLong("price"));
+                    food.setRestaurantId(result.getString("restaurantId"));
+                    food.setType(result.getString("type"));
+                    food.setOldPrice(result.getLong("oldPrice"));
+                    food.setId(result.getLong("id"));
+                    food.setCount(result.getInt("count"));
+                    food.setActive(true);
+                    menu.add(food);
+                }
             }
             result.close();
             queryStatement.close();
@@ -198,7 +203,7 @@ public class FoodManager {
         try {
             connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(
-                    "delete from Food where type = 'discount'"
+                    "update Food set active = false where type = 'discount'"
             );
             statement.executeUpdate();
             statement.close();

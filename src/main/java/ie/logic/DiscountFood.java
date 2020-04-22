@@ -12,6 +12,7 @@ import ie.repository.managers.FoodManager;
 public class DiscountFood extends Food {
     private long oldPrice;
     private int count;
+    private boolean active;
 
     public long getOldPrice() {
         return oldPrice;
@@ -21,6 +22,10 @@ public class DiscountFood extends Food {
         return count;
     }
 
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
     public void setOldPrice(long oldPrice) {
         this.oldPrice = oldPrice;
     }
@@ -28,7 +33,7 @@ public class DiscountFood extends Food {
 
     @Override
     public Loghme.Status decreaseCount(int numOfFoods) {
-        if(count < numOfFoods)
+        if(!active || count < numOfFoods)
             return Loghme.Status.BAD_REQUEST;
         FoodManager.getInstance().updateDiscountFoodCount(id, count - numOfFoods);
         return Loghme.Status.OK;

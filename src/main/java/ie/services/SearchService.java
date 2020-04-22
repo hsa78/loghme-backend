@@ -20,8 +20,12 @@ public class SearchService {
     @RequestMapping(value = "/search", method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ArrayList<RestaurantInfo>> search(@RequestParam(value = "foodName") String foodName,
-                                                 @RequestParam(value = "restaurantName") String restaurantName){
-        ArrayList<Resturant> foundRestaurants = Loghme.getInstance().searchRestaurants(restaurantName, foodName);
+                                                            @RequestParam(value = "restaurantName") String restaurantName,
+                                                            @RequestParam(value = "page") int pageNumber,
+                                                            @RequestParam(value = "numOfItems") int numOfItems)
+    {
+        ArrayList<Resturant> foundRestaurants = Loghme.getInstance().searchRestaurants(restaurantName, foodName, pageNumber, numOfItems);
+        System.out.println("size:" + foundRestaurants.size());
         ArrayList<RestaurantInfo> restaurantsInfo = new ArrayList<RestaurantInfo>();
         for(Resturant resturant: foundRestaurants)
             restaurantsInfo.add(new RestaurantInfo(resturant));
