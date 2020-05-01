@@ -58,8 +58,8 @@ public class DataManager {
         dataSource.setMaxStatements(100);
 
         mapper = new ObjectMapper();
-        UserDAO loggedUser = new UserDAO("Hosna","Azarmsa", "hsazarmsa@gmail.com", "09123456789","1234");
-        UserManager.getInstance().save(loggedUser);
+//        UserDAO loggedUser = new UserDAO("Hosna","Azarmsa", "hsazarmsa@gmail.com", "09123456789","1234");
+//        UserManager.getInstance().save(loggedUser);
         if(CartManager.getInstance().retrieveCartsByStatus("OnProgress").size() == 0)
             CartManager.getInstance().save(new CartDAO("hsazarmsa@gmail.com"));
         foodPartyStartTime = new Date();

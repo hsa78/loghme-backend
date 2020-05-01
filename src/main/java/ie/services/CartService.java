@@ -3,6 +3,8 @@ package ie.services;
 import ie.logic.AssignDeliveryTask;
 import ie.logic.Cart;
 import ie.logic.Loghme;
+
+import java.text.ParseException;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.net.HttpURLConnection;
@@ -46,9 +48,14 @@ public class CartService {
 
     @RequestMapping(value = "/user/cartHistory/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Cart> getPastCart(@PathVariable(value = "id") String id){
-        Cart cart = Loghme.getInstance().getUserPastCartById(Integer.parseInt(id));
-        cart.setOrders(cart.getOrders());
-        return new ResponseEntity<Cart>(cart, HttpStatus.ACCEPTED);
+        try {
+            int cartId = Integer.parseInt(id);
+            Cart cart = Loghme.getInstance().getUserPastCartById(cartId);
+            cart.setOrders(cart.getOrders());
+            return new ResponseEntity<Cart>(cart, HttpStatus.ACCEPTED);
+        }catch (Exception e){
+            return new ResponseEntity<Cart>((Cart) null, HttpStatus.BAD_REQUEST);
+        }
     }
 
     @RequestMapping(value = "/user/cart", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)

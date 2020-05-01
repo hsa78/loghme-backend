@@ -22,6 +22,27 @@ public class Loghme {
         }
     }
 
+    public Status register(String firstName, String lastName, String email, String phoneNumber, String password) {
+        String hashPassword = Base64.getEncoder().encodeToString(password.getBytes());
+        UserDAO newUser = new UserDAO(firstName, lastName, email, phoneNumber, hashPassword);
+        boolean isRegistered = UserManager.getInstance().save(newUser);
+        if(isRegistered)
+            return Status.OK;
+        else
+            return Status.CONFLICT;
+    }
+
+    public String login(String email, String password) {
+        UserDAO user = UserManager.getInstance().retrieve(email);
+        if(user == null)
+            return null;
+        String userPassword = new String(Base64.getDecoder().decode(user.getPassword()));
+        if(userPassword.equals(password))
+            return JwtUtil.getInstance().generateToken(user);
+        else
+            return null;
+    }
+
     public static enum Status {INTERNAL_ERROR, NOT_FOUND, ACCESS_DENIED,OK, BAD_REQUEST, CONFLICT};
 
     static public ObjectMapper mapper;

@@ -29,12 +29,12 @@ public class UserManager {
         return instance;
     }
 
-    public void save(UserDAO user){
+    public boolean save(UserDAO user){
         Connection connection = null;
         try {
             connection = dataSource.getConnection();
             PreparedStatement pStatUser = connection.prepareStatement(
-                    "insert ignore into User (firstName, lastName, email, phone, credit, x, y, password)" +
+                    "insert into User (firstName, lastName, email, phone, credit, x, y, password)" +
                             " values (?, ?, ?, ?, ?, ?, ?, ?)"
             );
             PreparedStatement pStatLoc = connection.prepareStatement(
@@ -56,9 +56,11 @@ public class UserManager {
             pStatUser.executeUpdate();
             pStatUser.close();
             connection.close();
+            return true;
 
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
     }
 

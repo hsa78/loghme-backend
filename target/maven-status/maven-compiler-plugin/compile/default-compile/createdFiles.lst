@@ -12,6 +12,7 @@ ie/services/RestaurantService.class
 ie/services/responses/TestResponse.class
 ie/services/ProfileService.class
 ie/Filter/CORSFilter.class
+ie/services/responses/JwtResponse.class
 ie/logic/Loghme$Status.class
 ie/controllers/Initializer.class
 ie/repository/DAO/UserDAO.class
@@ -24,6 +25,7 @@ ie/logic/Views$FoodWithoutRestaurantName.class
 ie/logic/OrdinaryFood.class
 ie/services/FoodPartyService.class
 ie/repository/managers/UserManager.class
+ie/logic/JwtUtil.class
 ie/repository/managers/RestaurantManager.class
 ie/services/responses/CartInfo.class
 ie/services/CartService.class
@@ -31,6 +33,7 @@ ie/controllers/FoodPartyTimerListener$StartFoodPartyTask.class
 ie/services/SearchService.class
 ie/repository/DAO/CartDAO.class
 ie/logic/Views$RestaurantWithoutPopularity.class
+ie/services/SignService.class
 ie/logic/Cart$ChangeStatusToDeliveredTask.class
 ie/logic/Loghme.class
 ie/logic/CustomDeserializer.class
