@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="CA6_backend" />
+        <module name="CA7_backend" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="CA6_backend" target="1.8" />
+      <module name="CA7_backend" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

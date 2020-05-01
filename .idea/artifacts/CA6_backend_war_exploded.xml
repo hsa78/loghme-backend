@@ -11,7 +11,7 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="CA6_backend" />
+          <element id="module-output" name="CA7_backend" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.11" />
@@ -37,7 +37,7 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/CA6_backend/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="CA6_backend/web/Web" />
+      <element id="javaee-facet-resources" facet="CA7_backend/web/Web" />
     </root>
   </artifact>
 </component>
