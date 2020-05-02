@@ -72,15 +72,16 @@ public class CartManager {
         return cart;
     }
 
-    public CartDAO retrieveCartById(int cartID){
+    public CartDAO retrieveCartById(String userEmail, int cartID){
         CartDAO cart = null;
         Connection connection = null;
         try {
             connection = dataSource.getConnection();
             PreparedStatement queryStatement = connection.prepareStatement(
-                    "select * from Cart c where c.id = ?"
+                    "select * from Cart c where c.id = ? and c.userEmail = ?"
             );
             queryStatement.setInt(1, cartID);
+            queryStatement.setString(2, userEmail);
             ResultSet result = queryStatement.executeQuery();
             if(result.next()){
                 cart = new CartDAO(result.getString("userEmail"));

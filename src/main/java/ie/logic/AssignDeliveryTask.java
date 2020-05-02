@@ -6,9 +6,11 @@ import java.util.TimerTask;
 public class AssignDeliveryTask extends TimerTask {
     private Cart cart;
     private Timer timer;
-    public AssignDeliveryTask(Cart cart, Timer timer){
+    private String userEmail;
+    public AssignDeliveryTask(String email, Cart cart, Timer timer){
         this.cart = cart;
         this.timer = timer;
+        this.userEmail = email;
     }
     @Override
     public void run() {
@@ -16,7 +18,7 @@ public class AssignDeliveryTask extends TimerTask {
             Loghme.Status addDeliveriesStatus = Loghme.getInstance().loadDeliveries();
             if (addDeliveriesStatus.equals(Loghme.Status.INTERNAL_ERROR))
                 return;
-            Loghme.Status assignDeliveryStatus = Loghme.getInstance().assignDeliveriesToCart(cart);
+            Loghme.Status assignDeliveryStatus = Loghme.getInstance().assignDeliveriesToCart(userEmail, cart);
             if (assignDeliveryStatus.equals(Loghme.Status.OK)) {
                 cart.startDelivering();
                 System.out.println("Found Delivery!");

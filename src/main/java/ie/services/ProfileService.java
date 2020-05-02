@@ -15,20 +15,21 @@ public class ProfileService {
 
     @RequestMapping(value = "/user/info", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<UserInfo> getUserInfo() {
-        return new ResponseEntity<UserInfo>(new UserInfo(Loghme.getInstance().getLoginnedUser()), HttpStatus.ACCEPTED);
+    public ResponseEntity<UserInfo> getUserInfo(@RequestAttribute("email") String email) {
+        return new ResponseEntity<UserInfo>(new UserInfo(Loghme.getInstance().getLoginnedUser(email)), HttpStatus.ACCEPTED);
     }
 
     @RequestMapping(value = "/user/credit", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CreditInfo> getUserCredit(){
-        return new ResponseEntity<CreditInfo>(new CreditInfo(Loghme.getInstance().getLoginnedUser().getCredit()), HttpStatus.ACCEPTED);
+    public ResponseEntity<CreditInfo> getUserCredit(@RequestAttribute("email") String email){
+        return new ResponseEntity<CreditInfo>(new CreditInfo(Loghme.getInstance().getLoginnedUser(email).getCredit()), HttpStatus.ACCEPTED);
     }
 
     @RequestMapping(value = "/user/credit", method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<StatusCode> increaseCredit(@RequestParam(value = "value") long value){
-        Loghme.Status result = Loghme.getInstance().increaseCredit(value);
+    public ResponseEntity<StatusCode> increaseCredit(@RequestParam(value = "value") long value,
+                                                     @RequestAttribute("email") String email){
+        Loghme.Status result = Loghme.getInstance().increaseCredit(email, value);
         if(result.equals(Loghme.Status.OK))
             return new ResponseEntity<StatusCode>(new StatusCode(200), HttpStatus.ACCEPTED);
         else

@@ -30,6 +30,7 @@ ie/repository/managers/RestaurantManager.class
 ie/services/responses/CartInfo.class
 ie/services/CartService.class
 ie/controllers/FoodPartyTimerListener$StartFoodPartyTask.class
+ie/Filter/AuthenticationFilter.class
 ie/services/SearchService.class
 ie/repository/DAO/CartDAO.class
 ie/logic/Views$RestaurantWithoutPopularity.class

@@ -27,6 +27,7 @@
 /home/hosna/IdeaProjects/IE/CA7_backend/src/main/java/ie/logic/User.java
 /home/hosna/IdeaProjects/IE/CA7_backend/src/main/java/ie/logic/CustomDeserializer.java
 /home/hosna/IdeaProjects/IE/CA7_backend/src/main/java/ie/services/responses/CreditInfo.java
+/home/hosna/IdeaProjects/IE/CA7_backend/src/main/java/ie/Filter/AuthenticationFilter.java
 /home/hosna/IdeaProjects/IE/CA7_backend/src/main/java/ie/services/SearchService.java
 /home/hosna/IdeaProjects/IE/CA7_backend/src/main/java/ie/repository/DAO/RestaurantDAO.java
 /home/hosna/IdeaProjects/IE/CA7_backend/src/main/java/ie/services/ProfileService.java

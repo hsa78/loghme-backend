@@ -28,7 +28,7 @@ public class User {
     }
 
     public Loghme.Status finalizeOrder(){
-        Cart currentCart = Loghme.getInstance().getLoginnedUserCart();
+        Cart currentCart = Loghme.getInstance().getLoginnedUserCart(email);
         long totalPrice = currentCart.getTotalPrice();
         if(credit < totalPrice) {
             System.out.println("Your credit is not enough");

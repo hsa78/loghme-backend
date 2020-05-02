@@ -26,31 +26,31 @@ import java.util.ArrayList;
 public class CartService {
 
     @RequestMapping(value = "/user/cartBadge", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CartInfo> getCurrentCartInfo(){
-        return new ResponseEntity<CartInfo>(new CartInfo(Loghme.getInstance().getLoginnedUserCart()), HttpStatus.ACCEPTED);
+    public ResponseEntity<CartInfo> getCurrentCartInfo(@RequestAttribute("email") String email){
+        return new ResponseEntity<CartInfo>(new CartInfo(Loghme.getInstance().getLoginnedUserCart(email)), HttpStatus.ACCEPTED);
     }
 
     @RequestMapping(value = "/user/cart", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Cart> getCurrentCart(){
-        Cart currentCart = Loghme.getInstance().getLoginnedUserCart();
+    public ResponseEntity<Cart> getCurrentCart(@RequestAttribute("email") String email){
+        Cart currentCart = Loghme.getInstance().getLoginnedUserCart(email);
         currentCart.setOrders(currentCart.getOrders());
         return new ResponseEntity<Cart>(currentCart, HttpStatus.ACCEPTED);
     }
 
     @RequestMapping(value = "/user/cartHistory", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CartHistory> getCartHistory(){
+    public ResponseEntity<CartHistory> getCartHistory(@RequestAttribute("email") String email){
         ArrayList<CartInfo> response = new ArrayList<CartInfo>();
-        ArrayList<Cart> cartHistory = Loghme.getInstance().getLoginnedUserCartHistory();
+        ArrayList<Cart> cartHistory = Loghme.getInstance().getLoginnedUserCartHistory(email);
         for(Cart cart: cartHistory)
             response.add(new CartInfo(cart));
         return new ResponseEntity<CartHistory>(new CartHistory(response), HttpStatus.ACCEPTED);
     }
 
     @RequestMapping(value = "/user/cartHistory/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Cart> getPastCart(@PathVariable(value = "id") String id){
+    public ResponseEntity<Cart> getPastCart(@PathVariable(value = "id") String id, @RequestAttribute("email") String email){
         try {
             int cartId = Integer.parseInt(id);
-            Cart cart = Loghme.getInstance().getUserPastCartById(cartId);
+            Cart cart = Loghme.getInstance().getUserPastCartById(email, cartId);
             cart.setOrders(cart.getOrders());
             return new ResponseEntity<Cart>(cart, HttpStatus.ACCEPTED);
         }catch (Exception e){
@@ -60,24 +60,26 @@ public class CartService {
 
     @RequestMapping(value = "/user/cart", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<StatusCode> addToCart(@RequestParam(value = "foodId") long foodId,
-                                @RequestParam(value = "count") int count){
-        Loghme.Status result = Loghme.getInstance().addToCart(foodId , count);
+                                                @RequestParam(value = "count") int count,
+                                                @RequestAttribute("email") String email){
+        Loghme.Status result = Loghme.getInstance().addToCart(email, foodId , count);
         return resultDecoder(result);
     }
 
     @RequestMapping(value = "/user/deleteFromCart", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<StatusCode> deleteFromCart(@RequestParam(value = "foodId") long foodId){
-        Loghme.Status result = Loghme.getInstance().deleteFromCart(foodId);
+    public ResponseEntity<StatusCode> deleteFromCart(@RequestParam(value = "foodId") long foodId,
+                                                     @RequestAttribute("email") String email){
+        Loghme.Status result = Loghme.getInstance().deleteFromCart(email, foodId);
         return resultDecoder(result);
     }
 
     @RequestMapping(value = "/user/finalizeOrder", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<StatusCode> finalizeCart(){
-        Cart currentCart = Loghme.getInstance().getLoginnedUserCart();
-        Loghme.Status result = Loghme.getInstance().finalizeOrder();
+    public ResponseEntity<StatusCode> finalizeCart(@RequestAttribute("email") String email){
+        Cart currentCart = Loghme.getInstance().getLoginnedUserCart(email);
+        Loghme.Status result = Loghme.getInstance().finalizeOrder(email);
         if(result.equals(Loghme.Status.OK)){
             Timer newTimer = new Timer();
-            TimerTask scheduledTask = new AssignDeliveryTask(currentCart, newTimer);
+            TimerTask scheduledTask = new AssignDeliveryTask(email, currentCart, newTimer);
             newTimer.schedule(scheduledTask, 0, (30 * 1000));
         }
         return resultDecoder(result);
