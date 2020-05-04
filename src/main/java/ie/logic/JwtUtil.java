@@ -24,6 +24,8 @@ public class JwtUtil {
     }
 
     public UserDAO parseToken(String token) {
+        if(token == null || token.equals(""))
+            return null;
         try {
             Claims body = Jwts.parser()
                     .setSigningKey(secret)

@@ -38,7 +38,11 @@ public class AuthenticationFilter implements Filter{
                 response.setStatus(403);
                 return;
             }
-
+            if(path.equals("/jwtValidation")){
+                HttpServletResponse response = (HttpServletResponse) servletResponse;
+                response.setStatus(200);
+                return;
+            }
             request.setAttribute("email", user.getEmail());
             chain.doFilter(request, servletResponse);
         }
