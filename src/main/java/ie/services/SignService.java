@@ -38,6 +38,17 @@ public class SignService {
             return new ResponseEntity<JwtResponse>(new JwtResponse(jwtToken), HttpStatus.ACCEPTED);
     }
 
+    @RequestMapping(value = "/googleLogin", method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<JwtResponse> loginUserWithGoogle(@RequestParam(value = "email") String email)
+    {
+        String jwtToken = Loghme.getInstance().loginWithGoogle(email);
+        if(jwtToken == null)
+            return new ResponseEntity<JwtResponse>(new JwtResponse(jwtToken), HttpStatus.CONFLICT);
+        else
+            return new ResponseEntity<JwtResponse>(new JwtResponse(jwtToken), HttpStatus.ACCEPTED);
+    }
+
     private ResponseEntity<StatusCode> resultDecoder(Loghme.Status status){
         if(status.equals(Loghme.Status.OK))
             return new ResponseEntity<StatusCode>(new StatusCode(200), HttpStatus.ACCEPTED);

@@ -45,6 +45,13 @@ public class Loghme {
             return null;
     }
 
+    public String loginWithGoogle(String email) {
+        UserDAO user = UserManager.getInstance().retrieve(email);
+        if(user == null)
+            return null;
+        return JwtUtil.getInstance().generateToken(user);
+    }
+
     public static enum Status {INTERNAL_ERROR, NOT_FOUND, ACCESS_DENIED,OK, BAD_REQUEST, CONFLICT};
 
     public static Loghme getInstance(){
