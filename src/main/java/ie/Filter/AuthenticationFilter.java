@@ -20,7 +20,7 @@ public class AuthenticationFilter implements Filter{
             throws IOException, ServletException {
 
         String path = ((HttpServletRequest) servletRequest).getRequestURI();
-        if (path.equals("/registration") || path.equals("/login") || path.equals("/googleLogin")) {
+        if (path.equals("/CA7_backend/registration") || path.equals("/CA7_backend/login") || path.equals("/CA7_backend/googleLogin")) {
             chain.doFilter(servletRequest, servletResponse); // Just continue chain.
         } else {
             HttpServletRequest request = (HttpServletRequest) servletRequest;
