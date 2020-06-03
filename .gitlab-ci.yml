@@ -5,10 +5,10 @@ docker-build-master:
   #services:
   #  - docker:dind
   before_script:
-    - sudo docker login -u "hsazarmsa" -p "hena78705044" $CI_REGISTRY
+    - docker login -u "hsazarmsa" -p "hena78705044" $CI_REGISTRY
   script:
-    - sudo docker build -t myapp .
-    - sudo docker push hsazarmsa/ie_backend
+    - docker build -t myapp .
+    - docker push hsazarmsa/ie_backend
   only:
     - master
 
