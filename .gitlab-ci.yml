@@ -1,16 +1,13 @@
 docker-build-master:
   # Official docker image.
-  image: docker
+  image: docker:latest
   stage: build
-  #services:
-  #  - docker:dind
+  services:
+    - docker:dind
   before_script:
-#    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin
+    - docker login -u "hsazarmsa" -p "hena78705044"
   script:
     - docker build -t myapp .
-    - docker push index.docker.io/hsazarmsa/ie_backend
-  after_script:
-#    - docker logout
+    - docker push hsazarmsa/ie_backend
   only:
     - master
-
