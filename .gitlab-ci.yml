@@ -9,5 +9,7 @@ docker-build-master:
   script:
     - docker build -t hsazarmsa/ie_backend .
     - docker push hsazarmsa/ie_backend
+  after_script:
+    - docker logout
   only:
     - master
