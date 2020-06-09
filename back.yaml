@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+spec:
+  selector:
+    app: loghme-backend
+  type: NodePort
+  ports:
+    - name: loghme-backend
+      port: 8080
+      nodePort: 30721
+      protocol: TCP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loghme-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: loghme-backend
+  template:
+    metadata:
+      labels:
+        app: loghme-backend
+    spec:
+      containers:
+        - name: loghme-backend
+          image: hub.docker.com/repository/docker/hsazarmsa/ie_backend:latest
+          imagePullPolicy: "Always"
+          resources:
+            requests:
+              memory: "300Mi"
+              cpu: "0.3"
+            limits:
+              cpu: "0.3"
+              memory: "301Mi"
+          ports:
+            - containerPort: 8080

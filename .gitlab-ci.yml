@@ -9,6 +9,8 @@ docker-build-master:
   script:
     - docker build -t hsazarmsa/ie_backend .
     - docker push hsazarmsa/ie_backend
+    - docker build -t hsazarmsa/ie_database ./my-sql
+    - docker push hsazarmsa/ie_database
   after_script:
     - docker logout
   only:
