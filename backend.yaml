@@ -1,13 +1,3 @@
-#apiVersion: v1
-#kind: Secret
-#metadata:
-#  name: myregistrykey
-#  namespace: hosna-fatemeh-ns
-#data:
-#  .dockerconfigjson: ewoJImF1dGhzIjogewoJCSJodHRwczovL2luZGV4LmRvY2tlci5pby92MS8iOiB7CgkJCSJhdXRoIjogImFITmhlbUZ5YlhOaE9taGxibUUzT0Rjd05UQTBOQT09IgoJCX0KCX0sCgkiSHR0cEhlYWRlcnMiOiB7CgkJIlVzZXItQWdlbnQiOiAiRG9ja2VyLUNsaWVudC8xOS4wMy42IChsaW51eCkiCgl9Cn0=
-#type: kubernetes.io/dockerconfigjson
-#
-#---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -28,8 +18,8 @@ spec:
           image: hsazarmsa/ie_backend:latest
           resources:
             limits:
-              memory: "300Mi"
-              cpu: "0.4"
+              memory: "250Mi"
+              cpu: "0.3"
 ---
 apiVersion: v1
 kind: Service
@@ -44,17 +34,3 @@ spec:
     - port: 8080
       targetPort: 8080
       nodePort: 30005
-#---
-#apiVersion: v1
-#kind: Pod
-#metadata:
-#  name: backend-pod
-#  namespace: hosna-fatemeh-ns
-#spec:
-#  containers:
-#    - name: backend-container
-#      image: hsazarmsa/ie_backend:latest
-#      resources:
-#        limits:
-#          memory: "1024Mi"
-#          cpu: "1"

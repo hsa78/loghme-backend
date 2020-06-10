@@ -1,0 +1,9 @@
+total 110612
+drwxr-xr-x    4 999      root          4096 Jun  9 13:50 .
+drwxrwxr-x    1 root     root          4096 Jun 10 04:59 ..
+-rw-rw----    1 999      999             56 Jun  9 13:50 auto.cnf
+-rw-rw----    1 999      999       50331648 Jun  9 13:51 ib_logfile0
+-rw-rw----    1 999      999       50331648 Jun  9 13:50 ib_logfile1
+-rw-rw----    1 999      999       12582912 Jun  9 13:51 ibdata1
+drwx------    2 999      999           4096 Jun 10 04:55 mysql
+drwx------    2 999      999           4096 Jun  9 13:50 performance_schema

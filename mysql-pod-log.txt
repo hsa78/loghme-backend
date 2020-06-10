@@ -1,0 +1,10 @@
+2020-06-10 04:57:41+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.0.20-1debian10 started.
+2020-06-10 04:57:42+00:00 [Note] [Entrypoint]: Switching to dedicated user 'mysql'
+2020-06-10 04:57:42+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.0.20-1debian10 started.
+2020-06-10 04:57:43+00:00 [Note] [Entrypoint]: Initializing database files
+2020-06-10T04:57:43.235925Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+2020-06-10T04:57:43.236052Z 0 [System] [MY-013169] [Server] /usr/sbin/mysqld (mysqld 8.0.20) initializing of server in progress as process 43
+2020-06-10T04:57:43.238455Z 0 [ERROR] [MY-010457] [Server] --initialize specified but the data directory has files in it. Aborting.
+2020-06-10T04:57:43.238465Z 0 [ERROR] [MY-013236] [Server] The designated data directory /var/lib/mysql/ is unusable. You can remove all files that the server added to it.
+2020-06-10T04:57:43.238565Z 0 [ERROR] [MY-010119] [Server] Aborting
+2020-06-10T04:57:43.238687Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.20)  MySQL Community Server - GPL.
