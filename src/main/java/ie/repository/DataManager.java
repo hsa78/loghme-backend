@@ -141,6 +141,7 @@ public class DataManager {
             return content.toString();
         }catch (Exception e){
             System.out.println("Exception in loadFoodPartyJson");
+            e.printStackTrace();
             return "";
         }
     }

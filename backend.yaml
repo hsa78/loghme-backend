@@ -18,7 +18,7 @@ spec:
           image: hsazarmsa/ie_backend:latest
           resources:
             limits:
-              memory: "250Mi"
+              memory: "200Mi"
               cpu: "0.3"
 ---
 apiVersion: v1

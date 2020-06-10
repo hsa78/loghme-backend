@@ -42,3 +42,8 @@ sudo docker exec -it my-mysql bash
 kubectl delete deployment backend
 kubectl delete deployment mysql-deployment
 kubectl delete persistentvolumeclaim mysql-data-disk
+kubectl apply -f database.yaml
+kubectl apply -f backend.yaml
+
+kubectl get resourcequota mem-cpu-demo --namespace=hosna-fatemeh-ns --output=yaml
+
