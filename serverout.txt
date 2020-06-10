@@ -1,43 +1,42 @@
-10-Jun-2020 15:02:23.144 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.20
-10-Jun-2020 15:02:23.146 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          May 3 2019 22:26:00 UTC
-10-Jun-2020 15:02:23.146 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.20.0
-10-Jun-2020 15:02:23.146 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
-10-Jun-2020 15:02:23.146 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            4.15.0-101-generic
-10-Jun-2020 15:02:23.146 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
-10-Jun-2020 15:02:23.146 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-8-openjdk-amd64/jre
-10-Jun-2020 15:02:23.146 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_212-8u212-b01-1~deb9u1-b01
-10-Jun-2020 15:02:23.146 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
-10-Jun-2020 15:02:23.146 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
-10-Jun-2020 15:02:23.146 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
-10-Jun-2020 15:02:23.235 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
-10-Jun-2020 15:02:23.235 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
-10-Jun-2020 15:02:23.235 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
-10-Jun-2020 15:02:23.235 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
-10-Jun-2020 15:02:23.235 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
-10-Jun-2020 15:02:23.235 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
-10-Jun-2020 15:02:23.235 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
-10-Jun-2020 15:02:23.235 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
-10-Jun-2020 15:02:23.235 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
-10-Jun-2020 15:02:23.236 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.21] using APR version [1.5.2].
-10-Jun-2020 15:02:23.236 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-10-Jun-2020 15:02:23.236 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-10-Jun-2020 15:02:23.240 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.0j  20 Nov 2018]
-10-Jun-2020 15:02:25.145 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
-10-Jun-2020 15:02:25.336 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
-10-Jun-2020 15:02:25.338 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [3,597] milliseconds
-10-Jun-2020 15:02:25.638 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
-10-Jun-2020 15:02:25.638 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.20]
-10-Jun-2020 15:02:25.750 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/CA7_backend.war]
-10-Jun-2020 15:02:38.242 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+10-Jun-2020 15:13:11.138 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.20
+10-Jun-2020 15:13:11.139 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          May 3 2019 22:26:00 UTC
+10-Jun-2020 15:13:11.139 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.20.0
+10-Jun-2020 15:13:11.139 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+10-Jun-2020 15:13:11.140 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            4.15.0-101-generic
+10-Jun-2020 15:13:11.140 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+10-Jun-2020 15:13:11.140 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-8-openjdk-amd64/jre
+10-Jun-2020 15:13:11.140 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_212-8u212-b01-1~deb9u1-b01
+10-Jun-2020 15:13:11.140 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+10-Jun-2020 15:13:11.140 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+10-Jun-2020 15:13:11.140 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+10-Jun-2020 15:13:11.141 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+10-Jun-2020 15:13:11.141 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+10-Jun-2020 15:13:11.142 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+10-Jun-2020 15:13:11.142 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+10-Jun-2020 15:13:11.142 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+10-Jun-2020 15:13:11.142 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+10-Jun-2020 15:13:11.142 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+10-Jun-2020 15:13:11.142 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+10-Jun-2020 15:13:11.142 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+10-Jun-2020 15:13:11.142 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.21] using APR version [1.5.2].
+10-Jun-2020 15:13:11.142 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+10-Jun-2020 15:13:11.143 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+10-Jun-2020 15:13:11.237 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.0j  20 Nov 2018]
+10-Jun-2020 15:13:12.847 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+10-Jun-2020 15:13:13.138 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+10-Jun-2020 15:13:13.141 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [3,205] milliseconds
+10-Jun-2020 15:13:13.443 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+10-Jun-2020 15:13:13.443 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.20]
+10-Jun-2020 15:13:13.549 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/CA7_backend.war]
+10-Jun-2020 15:13:24.841 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
 Food Party Listener initialized.
-10-Jun-2020 15:02:38.639 WARNING [main] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [196] milliseconds.
 Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
 in init
-10-Jun-2020 15:02:38.943 INFO [MLog-Init-Reporter] com.mchange.v2.log.MLog. MLog clients using java 1.4+ standard logging.
-10-Jun-2020 15:02:39.438 INFO [Timer-0] com.mchange.v2.c3p0.C3P0Registry. Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+10-Jun-2020 15:13:25.534 INFO [MLog-Init-Reporter] com.mchange.v2.log.MLog. MLog clients using java 1.4+ standard logging.
+10-Jun-2020 15:13:25.939 INFO [Timer-0] com.mchange.v2.c3p0.C3P0Registry. Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
 start food party
-10-Jun-2020 15:02:42.639 INFO [Timer-0] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource. Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 1hgf2cyaa181r6olff4ya|477fa30f, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 1hgf2cyaa181r6olff4ya|477fa30f, idleConnectionTestPeriod -> 0, initialPoolSize -> 5, jdbcUrl -> jdbc:mysql://mysql-service:3306/loghme, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 100, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
-10-Jun-2020 15:03:14.585 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2cyaa181r6olff4ya|477fa30f]-HelperThread-#2] com.mchange.v2.resourcepool.BasicResourcePool. com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask@43846c5c -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+10-Jun-2020 15:13:28.341 INFO [Timer-0] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource. Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 1hgf2byaa18251l91ycfjim|69abeb14, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 1hgf2byaa18251l91ycfjim|69abeb14, idleConnectionTestPeriod -> 0, initialPoolSize -> 5, jdbcUrl -> jdbc:mysql://10.96.65.126:3306/loghme, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 100, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+10-Jun-2020 15:14:00.291 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2byaa18251l91ycfjim|69abeb14]-HelperThread-#2] com.mchange.v2.resourcepool.BasicResourcePool. com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask@2a9a1ad1 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
 	com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
@@ -59,7 +58,7 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 	Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-		at sun.reflect.GeneratedConstructorAccessor11.newInstance(Unknown Source)
+		at sun.reflect.GeneratedConstructorAccessor12.newInstance(Unknown Source)
 		at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 		at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
 		at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:59)
@@ -81,7 +80,7 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 		at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:173)
 		at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:66)
 		... 15 more
-10-Jun-2020 15:03:14.585 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2cyaa181r6olff4ya|477fa30f]-HelperThread-#0] com.mchange.v2.resourcepool.BasicResourcePool. com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask@382e720b -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+10-Jun-2020 15:14:00.291 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2byaa18251l91ycfjim|69abeb14]-HelperThread-#0] com.mchange.v2.resourcepool.BasicResourcePool. com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask@56e86c0d -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
 	com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
@@ -103,7 +102,7 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 	Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-		at sun.reflect.GeneratedConstructorAccessor11.newInstance(Unknown Source)
+		at sun.reflect.GeneratedConstructorAccessor12.newInstance(Unknown Source)
 		at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 		at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
 		at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:59)
@@ -125,7 +124,7 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 		at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:173)
 		at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:66)
 		... 15 more
-10-Jun-2020 15:03:14.585 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2cyaa181r6olff4ya|477fa30f]-HelperThread-#1] com.mchange.v2.resourcepool.BasicResourcePool. com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask@22f9755a -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+10-Jun-2020 15:14:00.291 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2byaa18251l91ycfjim|69abeb14]-HelperThread-#1] com.mchange.v2.resourcepool.BasicResourcePool. com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask@9f31fa7 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
 	com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
@@ -147,7 +146,7 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 	Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-		at sun.reflect.GeneratedConstructorAccessor11.newInstance(Unknown Source)
+		at sun.reflect.GeneratedConstructorAccessor12.newInstance(Unknown Source)
 		at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 		at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
 		at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:59)
@@ -169,110 +168,20 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 		at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:173)
 		at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:66)
 		... 15 more
-10-Jun-2020 15:03:14.587 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2cyaa181r6olff4ya|477fa30f]-HelperThread-#2] com.mchange.v2.resourcepool.BasicResourcePool. Having failed to acquire a resource, com.mchange.v2.resourcepool.BasicResourcePool@2d3ead9d is interrupting all Threads waiting on a resource to check out. Will try again in response to new client requests.
-10-Jun-2020 15:03:14.590 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2cyaa181r6olff4ya|477fa30f]-HelperThread-#0] com.mchange.v2.resourcepool.BasicResourcePool. Having failed to acquire a resource, com.mchange.v2.resourcepool.BasicResourcePool@2d3ead9d is interrupting all Threads waiting on a resource to check out. Will try again in response to new client requests.
-10-Jun-2020 15:03:14.590 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2cyaa181r6olff4ya|477fa30f]-HelperThread-#1] com.mchange.v2.resourcepool.BasicResourcePool. Having failed to acquire a resource, com.mchange.v2.resourcepool.BasicResourcePool@2d3ead9d is interrupting all Threads waiting on a resource to check out. Will try again in response to new client requests.
-10-Jun-2020 15:03:14.594 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2cyaa181r6olff4ya|477fa30f]-HelperThread-#0] com.mchange.v2.resourcepool.BasicResourcePool. com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask@7ce604f2 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
-	com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-		at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:172)
-		at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
-		at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862)
-		at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444)
-		at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230)
-		at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226)
-		at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:175)
-		at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:220)
-		at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:206)
-		at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:203)
-		at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1176)
-		at com.mchange.v2.resourcepool.BasicResourcePool.doAcquireAndDecrementPendingAcquiresWithinLockOnSuccess(BasicResourcePool.java:1163)
-		at com.mchange.v2.resourcepool.BasicResourcePool.access$700(BasicResourcePool.java:44)
-		at com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask.run(BasicResourcePool.java:1908)
-		at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:696)
-	Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-		at sun.reflect.GeneratedConstructorAccessor11.newInstance(Unknown Source)
-		at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-		at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-		at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:59)
-		at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:103)
-		at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:149)
-		at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:165)
-		at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:92)
-		at com.mysql.cj.NativeSession.connect(NativeSession.java:152)
-		at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:982)
-		at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:852)
-		... 12 more
-	Caused by: java.net.ConnectException: Connection refused (Connection refused)
-		at java.net.PlainSocketImpl.socketConnect(Native Method)
-		at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
-		at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
-		at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
-		at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-		at java.net.Socket.connect(Socket.java:589)
-		at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:173)
-		at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:66)
-		... 15 more
-10-Jun-2020 15:03:14.594 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2cyaa181r6olff4ya|477fa30f]-HelperThread-#0] com.mchange.v2.resourcepool.BasicResourcePool. Having failed to acquire a resource, com.mchange.v2.resourcepool.BasicResourcePool@2d3ead9d is interrupting all Threads waiting on a resource to check out. Will try again in response to new client requests.
+10-Jun-2020 15:14:00.293 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2byaa18251l91ycfjim|69abeb14]-HelperThread-#2] com.mchange.v2.resourcepool.BasicResourcePool. Having failed to acquire a resource, com.mchange.v2.resourcepool.BasicResourcePool@22f3a2ff is interrupting all Threads waiting on a resource to check out. Will try again in response to new client requests.
+10-Jun-2020 15:14:00.295 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2byaa18251l91ycfjim|69abeb14]-HelperThread-#1] com.mchange.v2.resourcepool.BasicResourcePool. Having failed to acquire a resource, com.mchange.v2.resourcepool.BasicResourcePool@22f3a2ff is interrupting all Threads waiting on a resource to check out. Will try again in response to new client requests.
+10-Jun-2020 15:14:00.299 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2byaa18251l91ycfjim|69abeb14]-HelperThread-#0] com.mchange.v2.resourcepool.BasicResourcePool. Having failed to acquire a resource, com.mchange.v2.resourcepool.BasicResourcePool@22f3a2ff is interrupting all Threads waiting on a resource to check out. Will try again in response to new client requests.
 java.sql.SQLException: Connections could not be acquired from the underlying database!
 	at com.mchange.v2.sql.SqlUtils.toSQLException(SqlUtils.java:118)
 	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:692)
 	at com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getConnection(AbstractPoolBackedDataSource.java:140)
 	at ie.repository.managers.FoodManager.deleteDiscountFoods(FoodManager.java:204)
 	at ie.repository.DataManager.startFoodParty(DataManager.java:152)
-10-Jun-2020 15:03:14.594 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2cyaa181r6olff4ya|477fa30f]-HelperThread-#1] com.mchange.v2.resourcepool.BasicResourcePool. com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask@3fea8d5c -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
-	com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-		at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:172)
-		at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
-		at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862)
-		at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444)
-		at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230)
-		at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226)
-		at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:175)
-		at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:220)
-		at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:206)
-		at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:203)
-		at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1176)
-		at com.mchange.v2.resourcepool.BasicResourcePool.doAcquireAndDecrementPendingAcquiresWithinLockOnSuccess(BasicResourcePool.java:1163)
-		at com.mchange.v2.resourcepool.BasicResourcePool.access$700(BasicResourcePool.java:44)
-		at com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask.run(BasicResourcePool.java:1908)
-		at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:696)
-	Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-		at sun.reflect.GeneratedConstructorAccessor11.newInstance(Unknown Source)
-		at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-		at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-		at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:59)
-		at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:103)
-		at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:149)
-		at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:165)
-		at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:92)
-		at com.mysql.cj.NativeSession.connect(NativeSession.java:152)
-		at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:982)
-		at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:852)
-		... 12 more
-	Caused by: java.net.ConnectException: Connection refused (Connection refused)
-		at java.net.PlainSocketImpl.socketConnect(Native Method)
-		at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
-		at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
-		at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
-		at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-		at java.net.Socket.connect(Socket.java:589)
-		at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:173)
-		at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:66)
-		... 15 more
 	at ie.controllers.FoodPartyTimerListener$StartFoodPartyTask.run(FoodPartyTimerListener.java:39)
 	at java.util.TimerThread.mainLoop(Timer.java:555)
 	at java.util.TimerThread.run(Timer.java:505)
 Caused by: com.mchange.v2.resourcepool.CannotAcquireResourceException: A ResourcePool could not acquire a resource from its primary factory or source.
 	at com.mchange.v2.resourcepool.BasicResourcePool.awaitAvailable(BasicResourcePool.java:1507)
-10-Jun-2020 15:03:14.636 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2cyaa181r6olff4ya|477fa30f]-HelperThread-#1] com.mchange.v2.resourcepool.BasicResourcePool. Having failed to acquire a resource, com.mchange.v2.resourcepool.BasicResourcePool@2d3ead9d is interrupting all Threads waiting on a resource to check out. Will try again in response to new client requests.
 	at com.mchange.v2.resourcepool.BasicResourcePool.prelimCheckoutResource(BasicResourcePool.java:644)
 	at com.mchange.v2.resourcepool.BasicResourcePool.checkoutResource(BasicResourcePool.java:554)
 	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutAndMarkConnectionInUse(C3P0PooledConnectionPool.java:758)
@@ -299,7 +208,7 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at sun.reflect.GeneratedConstructorAccessor11.newInstance(Unknown Source)
+	at sun.reflect.GeneratedConstructorAccessor12.newInstance(Unknown Source)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
 	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:59)
@@ -401,7 +310,7 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at sun.reflect.GeneratedConstructorAccessor11.newInstance(Unknown Source)
+	at sun.reflect.GeneratedConstructorAccessor12.newInstance(Unknown Source)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
 	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:59)
@@ -423,7 +332,7 @@ Caused by: java.net.ConnectException: Connection refused (Connection refused)
 	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:173)
 	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:66)
 	... 15 more
-10-Jun-2020 15:03:44.689 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2cyaa181r6olff4ya|477fa30f]-HelperThread-#2] com.mchange.v2.resourcepool.BasicResourcePool. com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask@347702c7 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+10-Jun-2020 15:14:00.389 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2byaa18251l91ycfjim|69abeb14]-HelperThread-#2] com.mchange.v2.resourcepool.BasicResourcePool. com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask@35d2fffb -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
 	com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
@@ -445,7 +354,7 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 	Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-		at sun.reflect.GeneratedConstructorAccessor11.newInstance(Unknown Source)
+		at sun.reflect.GeneratedConstructorAccessor12.newInstance(Unknown Source)
 		at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 		at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
 		at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:59)
@@ -467,7 +376,7 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 		at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:173)
 		at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:66)
 		... 15 more
-10-Jun-2020 15:03:44.689 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2cyaa181r6olff4ya|477fa30f]-HelperThread-#0] com.mchange.v2.resourcepool.BasicResourcePool. com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask@490e05d3 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+10-Jun-2020 15:14:00.389 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2byaa18251l91ycfjim|69abeb14]-HelperThread-#0] com.mchange.v2.resourcepool.BasicResourcePool. com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask@38884fe5 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
 	com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
@@ -489,7 +398,7 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 	Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-		at sun.reflect.GeneratedConstructorAccessor11.newInstance(Unknown Source)
+		at sun.reflect.GeneratedConstructorAccessor12.newInstance(Unknown Source)
 		at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 		at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
 		at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:59)
@@ -511,113 +420,7 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 		at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:173)
 		at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:66)
 		... 15 more
-10-Jun-2020 15:03:44.689 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2cyaa181r6olff4ya|477fa30f]-HelperThread-#1] com.mchange.v2.resourcepool.BasicResourcePool. com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask@4e93ef3e -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
-	com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-		at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:172)
-		at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
-		at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862)
-		at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444)
-		at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230)
-		at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226)
-		at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:175)
-		at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:220)
-		at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:206)
-		at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:203)
-		at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1176)
-		at com.mchange.v2.resourcepool.BasicResourcePool.doAcquireAndDecrementPendingAcquiresWithinLockOnSuccess(BasicResourcePool.java:1163)
-		at com.mchange.v2.resourcepool.BasicResourcePool.access$700(BasicResourcePool.java:44)
-		at com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask.run(BasicResourcePool.java:1908)
-		at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:696)
-	Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-		at sun.reflect.GeneratedConstructorAccessor11.newInstance(Unknown Source)
-		at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-		at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-		at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:59)
-		at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:103)
-		at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:149)
-		at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:165)
-		at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:92)
-		at com.mysql.cj.NativeSession.connect(NativeSession.java:152)
-		at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:982)
-		at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:852)
-		... 12 more
-	Caused by: java.net.ConnectException: Connection refused (Connection refused)
-		at java.net.PlainSocketImpl.socketConnect(Native Method)
-		at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
-		at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
-		at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
-		at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-		at java.net.Socket.connect(Socket.java:589)
-		at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:173)
-		at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:66)
-		... 15 more
-10-Jun-2020 15:03:44.690 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2cyaa181r6olff4ya|477fa30f]-HelperThread-#2] com.mchange.v2.resourcepool.BasicResourcePool. Having failed to acquire a resource, com.mchange.v2.resourcepool.BasicResourcePool@2d3ead9d is interrupting all Threads waiting on a resource to check out. Will try again in response to new client requests.
-java.sql.SQLException: Connections could not be acquired from the underlying database!
-10-Jun-2020 15:03:44.692 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2cyaa181r6olff4ya|477fa30f]-HelperThread-#1] com.mchange.v2.resourcepool.BasicResourcePool. Having failed to acquire a resource, com.mchange.v2.resourcepool.BasicResourcePool@2d3ead9d is interrupting all Threads waiting on a resource to check out. Will try again in response to new client requests.
-	at com.mchange.v2.sql.SqlUtils.toSQLException(SqlUtils.java:118)
-	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:692)
-	at com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getConnection(AbstractPoolBackedDataSource.java:140)
-	at ie.repository.managers.UserManager.retrieve(UserManager.java:139)
-	at ie.logic.Loghme.checkCarts(Loghme.java:284)
-	at ie.repository.DataManager.startFoodParty(DataManager.java:153)
-	at ie.controllers.FoodPartyTimerListener$StartFoodPartyTask.run(FoodPartyTimerListener.java:39)
-	at java.util.TimerThread.mainLoop(Timer.java:555)
-	at java.util.TimerThread.run(Timer.java:505)
-10-Jun-2020 15:03:44.692 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2cyaa181r6olff4ya|477fa30f]-HelperThread-#0] com.mchange.v2.resourcepool.BasicResourcePool. Having failed to acquire a resource, com.mchange.v2.resourcepool.BasicResourcePool@2d3ead9d is interrupting all Threads waiting on a resource to check out. Will try again in response to new client requests.
-Caused by: com.mchange.v2.resourcepool.CannotAcquireResourceException: A ResourcePool could not acquire a resource from its primary factory or source.
-	at com.mchange.v2.resourcepool.BasicResourcePool.awaitAvailable(BasicResourcePool.java:1507)
-	at com.mchange.v2.resourcepool.BasicResourcePool.prelimCheckoutResource(BasicResourcePool.java:644)
-	at com.mchange.v2.resourcepool.BasicResourcePool.checkoutResource(BasicResourcePool.java:554)
-	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutAndMarkConnectionInUse(C3P0PooledConnectionPool.java:758)
-	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:685)
-	... 7 more
-Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:172)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862)
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444)
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230)
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226)
-	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:175)
-	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:220)
-	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:206)
-	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:203)
-	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1176)
-	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquireAndDecrementPendingAcquiresWithinLockOnSuccess(BasicResourcePool.java:1163)
-	at com.mchange.v2.resourcepool.BasicResourcePool.access$700(BasicResourcePool.java:44)
-	at com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask.run(BasicResourcePool.java:1908)
-	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:696)
-Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at sun.reflect.GeneratedConstructorAccessor11.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:59)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:103)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:149)
-	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:165)
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:92)
-	at com.mysql.cj.NativeSession.connect(NativeSession.java:152)
-	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:982)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:852)
-	... 12 more
-Caused by: java.net.ConnectException: Connection refused (Connection refused)
-	at java.net.PlainSocketImpl.socketConnect(Native Method)
-	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
-	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
-	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-	at java.net.Socket.connect(Socket.java:589)
-	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:173)
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:66)
-	... 15 more
+10-Jun-2020 15:14:00.390 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2byaa18251l91ycfjim|69abeb14]-HelperThread-#2] com.mchange.v2.resourcepool.BasicResourcePool. Having failed to acquire a resource, com.mchange.v2.resourcepool.BasicResourcePool@22f3a2ff is interrupting all Threads waiting on a resource to check out. Will try again in response to new client requests.
 java.sql.SQLException: Connections could not be acquired from the underlying database!
 	at com.mchange.v2.sql.SqlUtils.toSQLException(SqlUtils.java:118)
 	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:692)
@@ -648,50 +451,6 @@ java.sql.SQLException: Connections could not be acquired from the underlying dat
 	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:123)
 	at org.apache.catalina.util.LifecycleBase.setStateInternal(LifecycleBase.java:423)
 	at org.apache.catalina.util.LifecycleBase.setState(LifecycleBase.java:366)
-10-Jun-2020 15:03:44.693 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2cyaa181r6olff4ya|477fa30f]-HelperThread-#1] com.mchange.v2.resourcepool.BasicResourcePool. com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask@27291013 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
-	com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-		at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:172)
-		at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
-		at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862)
-		at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444)
-		at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230)
-		at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226)
-		at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:175)
-		at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:220)
-		at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:206)
-		at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:203)
-		at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1176)
-		at com.mchange.v2.resourcepool.BasicResourcePool.doAcquireAndDecrementPendingAcquiresWithinLockOnSuccess(BasicResourcePool.java:1163)
-		at com.mchange.v2.resourcepool.BasicResourcePool.access$700(BasicResourcePool.java:44)
-		at com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask.run(BasicResourcePool.java:1908)
-		at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:696)
-	Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-		at sun.reflect.GeneratedConstructorAccessor11.newInstance(Unknown Source)
-		at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-		at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-		at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:59)
-		at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:103)
-		at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:149)
-		at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:165)
-		at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:92)
-		at com.mysql.cj.NativeSession.connect(NativeSession.java:152)
-		at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:982)
-		at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:852)
-		... 12 more
-	Caused by: java.net.ConnectException: Connection refused (Connection refused)
-		at java.net.PlainSocketImpl.socketConnect(Native Method)
-		at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
-		at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
-		at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
-		at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-		at java.net.Socket.connect(Socket.java:589)
-		at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:173)
-		at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:66)
-		... 15 more
 	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:929)
 	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:841)
 	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
@@ -704,50 +463,6 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:262)
 	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
 	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:421)
-10-Jun-2020 15:03:44.693 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2cyaa181r6olff4ya|477fa30f]-HelperThread-#0] com.mchange.v2.resourcepool.BasicResourcePool. com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask@380ed8b9 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
-	com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-		at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:172)
-		at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
-		at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862)
-		at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444)
-		at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230)
-		at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226)
-		at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:175)
-		at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:220)
-		at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:206)
-		at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:203)
-		at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1176)
-		at com.mchange.v2.resourcepool.BasicResourcePool.doAcquireAndDecrementPendingAcquiresWithinLockOnSuccess(BasicResourcePool.java:1163)
-		at com.mchange.v2.resourcepool.BasicResourcePool.access$700(BasicResourcePool.java:44)
-		at com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask.run(BasicResourcePool.java:1908)
-		at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:696)
-	Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-		at sun.reflect.GeneratedConstructorAccessor11.newInstance(Unknown Source)
-		at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-		at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-		at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:59)
-		at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:103)
-		at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:149)
-		at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:165)
-		at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:92)
-		at com.mysql.cj.NativeSession.connect(NativeSession.java:152)
-		at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:982)
-		at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:852)
-		... 12 more
-	Caused by: java.net.ConnectException: Connection refused (Connection refused)
-		at java.net.PlainSocketImpl.socketConnect(Native Method)
-		at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
-		at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
-		at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
-		at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-		at java.net.Socket.connect(Socket.java:589)
-		at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:173)
-		at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:66)
-		... 15 more
 	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
 	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:932)
 	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
@@ -758,8 +473,6 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:344)
 	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:475)
-10-Jun-2020 15:03:44.695 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2cyaa181r6olff4ya|477fa30f]-HelperThread-#1] com.mchange.v2.resourcepool.BasicResourcePool. Having failed to acquire a resource, com.mchange.v2.resourcepool.BasicResourcePool@2d3ead9d is interrupting all Threads waiting on a resource to check out. Will try again in response to new client requests.
-10-Jun-2020 15:03:44.735 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2cyaa181r6olff4ya|477fa30f]-HelperThread-#0] com.mchange.v2.resourcepool.BasicResourcePool. Having failed to acquire a resource, com.mchange.v2.resourcepool.BasicResourcePool@2d3ead9d is interrupting all Threads waiting on a resource to check out. Will try again in response to new client requests.
 Caused by: com.mchange.v2.resourcepool.CannotAcquireResourceException: A ResourcePool could not acquire a resource from its primary factory or source.
 	at com.mchange.v2.resourcepool.BasicResourcePool.awaitAvailable(BasicResourcePool.java:1507)
 	at com.mchange.v2.resourcepool.BasicResourcePool.prelimCheckoutResource(BasicResourcePool.java:644)
@@ -788,7 +501,7 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at sun.reflect.GeneratedConstructorAccessor11.newInstance(Unknown Source)
+	at sun.reflect.GeneratedConstructorAccessor12.newInstance(Unknown Source)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
 	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:59)
@@ -814,8 +527,9 @@ java.sql.SQLException: Connections could not be acquired from the underlying dat
 	at com.mchange.v2.sql.SqlUtils.toSQLException(SqlUtils.java:118)
 	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:692)
 	at com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getConnection(AbstractPoolBackedDataSource.java:140)
-	at ie.repository.managers.RestaurantManager.save(RestaurantManager.java:32)
-	at ie.repository.DataManager.startFoodParty(DataManager.java:156)
+	at ie.repository.managers.UserManager.retrieve(UserManager.java:139)
+	at ie.logic.Loghme.checkCarts(Loghme.java:284)
+	at ie.repository.DataManager.startFoodParty(DataManager.java:153)
 	at ie.controllers.FoodPartyTimerListener$StartFoodPartyTask.run(FoodPartyTimerListener.java:39)
 	at java.util.TimerThread.mainLoop(Timer.java:555)
 	at java.util.TimerThread.run(Timer.java:505)
@@ -825,7 +539,7 @@ Caused by: com.mchange.v2.resourcepool.CannotAcquireResourceException: A Resourc
 	at com.mchange.v2.resourcepool.BasicResourcePool.checkoutResource(BasicResourcePool.java:554)
 	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutAndMarkConnectionInUse(C3P0PooledConnectionPool.java:758)
 	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:685)
-	... 6 more
+	... 7 more
 Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
@@ -847,7 +561,7 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at sun.reflect.GeneratedConstructorAccessor11.newInstance(Unknown Source)
+	at sun.reflect.GeneratedConstructorAccessor12.newInstance(Unknown Source)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
 	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:59)
@@ -869,42 +583,43 @@ Caused by: java.net.ConnectException: Connection refused (Connection refused)
 	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:173)
 	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:66)
 	... 15 more
-10-Jun-2020 15:03:45.943 INFO [main] org.springframework.web.servlet.DispatcherServlet.initServletBean FrameworkServlet 'dispatcher': initialization started
-10-Jun-2020 15:03:46.142 INFO [main] org.springframework.web.context.support.XmlWebApplicationContext.prepareRefresh Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Wed Jun 10 15:03:46 UTC 2020]; root of context hierarchy
-10-Jun-2020 15:03:46.442 INFO [main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions Loading XML bean definitions from ServletContext resource [/no-name.xml]
-10-Jun-2020 15:03:50.340 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/cart],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.StatusCode> ie.services.CartService.addToCart(long,int,java.lang.String)
-10-Jun-2020 15:03:50.342 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/deleteFromCart],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.StatusCode> ie.services.CartService.deleteFromCart(long,java.lang.String)
-10-Jun-2020 15:03:50.343 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/cartBadge],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.CartInfo> ie.services.CartService.getCurrentCartInfo(java.lang.String)
-10-Jun-2020 15:03:50.344 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/cart],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.logic.Cart> ie.services.CartService.getCurrentCart(java.lang.String)
-10-Jun-2020 15:03:50.345 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/cartHistory],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.CartHistory> ie.services.CartService.getCartHistory(java.lang.String)
-10-Jun-2020 15:03:50.345 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/cartHistory/{id}],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.logic.Cart> ie.services.CartService.getPastCart(java.lang.String,java.lang.String)
-10-Jun-2020 15:03:50.434 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/finalizeOrder],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.StatusCode> ie.services.CartService.finalizeCart(java.lang.String)
-10-Jun-2020 15:03:50.437 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/foodParty/time],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.FoodPartyRemainedTime> ie.services.FoodPartyService.getFoodPartyRemainedTime()
-10-Jun-2020 15:03:50.437 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/foodParty/view],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<java.util.ArrayList<ie.logic.DiscountFood>> ie.services.FoodPartyService.getFoodPartyData()
-10-Jun-2020 15:03:50.439 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/credit],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.StatusCode> ie.services.ProfileService.increaseCredit(long,java.lang.String)
-10-Jun-2020 15:03:50.439 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/credit],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.CreditInfo> ie.services.ProfileService.getUserCredit(java.lang.String)
-10-Jun-2020 15:03:50.440 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/info],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.UserInfo> ie.services.ProfileService.getUserInfo(java.lang.String)
-10-Jun-2020 15:03:50.442 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/restaurant/brief/{id}],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.RestaurantInfo> ie.services.RestaurantService.getRestaurantSummaryInfo(java.lang.String)
-10-Jun-2020 15:03:50.442 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/restaurant/detail/{id}],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.logic.Resturant> ie.services.RestaurantService.getRestaurantCompleteInfo(java.lang.String)
-10-Jun-2020 15:03:50.443 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/restaurant/all],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<java.util.ArrayList<ie.services.responses.RestaurantInfo>> ie.services.RestaurantService.getAllRestaurantsInfo(int,int)
-10-Jun-2020 15:03:50.537 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/search],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<java.util.ArrayList<ie.services.responses.RestaurantInfo>> ie.services.SearchService.search(java.lang.String,java.lang.String,int,int)
-10-Jun-2020 15:03:50.541 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/registration],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.StatusCode> ie.services.SignService.registerUser(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
-10-Jun-2020 15:03:50.541 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/login],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.JwtResponse> ie.services.SignService.loginUser(java.lang.String,java.lang.String)
-10-Jun-2020 15:03:50.542 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/googleLogin],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.JwtResponse> ie.services.SignService.loginUserWithGoogle(java.lang.String,java.lang.String)
-10-Jun-2020 15:03:51.947 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Wed Jun 10 15:03:46 UTC 2020]; root of context hierarchy
-10-Jun-2020 15:03:52.337 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Wed Jun 10 15:03:46 UTC 2020]; root of context hierarchy
-10-Jun-2020 15:03:53.249 INFO [main] org.springframework.web.servlet.DispatcherServlet.initServletBean FrameworkServlet 'dispatcher': initialization completed in 7306 ms
-10-Jun-2020 15:03:53.345 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/CA7_backend.war] has finished in [87,595] ms
-10-Jun-2020 15:03:53.345 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/host-manager]
-10-Jun-2020 15:03:53.542 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/host-manager] has finished in [197] ms
-10-Jun-2020 15:03:53.542 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/ROOT]
-10-Jun-2020 15:03:53.735 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/ROOT] has finished in [193] ms
-10-Jun-2020 15:03:53.736 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/docs]
-10-Jun-2020 15:03:53.838 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/docs] has finished in [102] ms
-10-Jun-2020 15:03:53.838 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/manager]
-10-Jun-2020 15:03:54.037 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/manager] has finished in [199] ms
-10-Jun-2020 15:03:54.037 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/examples]
-10-Jun-2020 15:03:55.044 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/examples] has finished in [1,007] ms
-10-Jun-2020 15:03:55.137 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
-10-Jun-2020 15:03:55.146 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
-10-Jun-2020 15:03:55.237 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [89,898] milliseconds
+10-Jun-2020 15:14:00.434 WARNING [C3P0PooledConnectionPoolManager[identityToken->1hgf2byaa18251l91ycfjim|69abeb14]-HelperThread-#0] com.mchange.v2.resourcepool.BasicResourcePool. Having failed to acquire a resource, com.mchange.v2.resourcepool.BasicResourcePool@22f3a2ff is interrupting all Threads waiting on a resource to check out. Will try again in response to new client requests.
+10-Jun-2020 15:14:01.447 INFO [main] org.springframework.web.servlet.DispatcherServlet.initServletBean FrameworkServlet 'dispatcher': initialization started
+10-Jun-2020 15:14:01.734 INFO [main] org.springframework.web.context.support.XmlWebApplicationContext.prepareRefresh Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Wed Jun 10 15:14:01 UTC 2020]; root of context hierarchy
+10-Jun-2020 15:14:02.039 INFO [main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions Loading XML bean definitions from ServletContext resource [/no-name.xml]
+10-Jun-2020 15:14:05.945 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/cart],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.StatusCode> ie.services.CartService.addToCart(long,int,java.lang.String)
+10-Jun-2020 15:14:05.947 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/deleteFromCart],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.StatusCode> ie.services.CartService.deleteFromCart(long,java.lang.String)
+10-Jun-2020 15:14:05.948 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/cart],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.logic.Cart> ie.services.CartService.getCurrentCart(java.lang.String)
+10-Jun-2020 15:14:05.948 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/cartHistory],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.CartHistory> ie.services.CartService.getCartHistory(java.lang.String)
+10-Jun-2020 15:14:05.949 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/cartHistory/{id}],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.logic.Cart> ie.services.CartService.getPastCart(java.lang.String,java.lang.String)
+10-Jun-2020 15:14:05.949 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/finalizeOrder],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.StatusCode> ie.services.CartService.finalizeCart(java.lang.String)
+10-Jun-2020 15:14:06.034 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/cartBadge],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.CartInfo> ie.services.CartService.getCurrentCartInfo(java.lang.String)
+10-Jun-2020 15:14:06.037 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/foodParty/time],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.FoodPartyRemainedTime> ie.services.FoodPartyService.getFoodPartyRemainedTime()
+10-Jun-2020 15:14:06.037 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/foodParty/view],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<java.util.ArrayList<ie.logic.DiscountFood>> ie.services.FoodPartyService.getFoodPartyData()
+10-Jun-2020 15:14:06.038 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/credit],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.StatusCode> ie.services.ProfileService.increaseCredit(long,java.lang.String)
+10-Jun-2020 15:14:06.039 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/credit],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.CreditInfo> ie.services.ProfileService.getUserCredit(java.lang.String)
+10-Jun-2020 15:14:06.040 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/info],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.UserInfo> ie.services.ProfileService.getUserInfo(java.lang.String)
+10-Jun-2020 15:14:06.042 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/restaurant/brief/{id}],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.RestaurantInfo> ie.services.RestaurantService.getRestaurantSummaryInfo(java.lang.String)
+10-Jun-2020 15:14:06.042 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/restaurant/detail/{id}],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.logic.Resturant> ie.services.RestaurantService.getRestaurantCompleteInfo(java.lang.String)
+10-Jun-2020 15:14:06.043 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/restaurant/all],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<java.util.ArrayList<ie.services.responses.RestaurantInfo>> ie.services.RestaurantService.getAllRestaurantsInfo(int,int)
+10-Jun-2020 15:14:06.136 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/search],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<java.util.ArrayList<ie.services.responses.RestaurantInfo>> ie.services.SearchService.search(java.lang.String,java.lang.String,int,int)
+10-Jun-2020 15:14:06.141 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/registration],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.StatusCode> ie.services.SignService.registerUser(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+10-Jun-2020 15:14:06.142 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/login],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.JwtResponse> ie.services.SignService.loginUser(java.lang.String,java.lang.String)
+10-Jun-2020 15:14:06.142 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/googleLogin],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.JwtResponse> ie.services.SignService.loginUserWithGoogle(java.lang.String,java.lang.String)
+10-Jun-2020 15:14:07.945 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Wed Jun 10 15:14:01 UTC 2020]; root of context hierarchy
+10-Jun-2020 15:14:08.443 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Wed Jun 10 15:14:01 UTC 2020]; root of context hierarchy
+10-Jun-2020 15:14:09.640 INFO [main] org.springframework.web.servlet.DispatcherServlet.initServletBean FrameworkServlet 'dispatcher': initialization completed in 8193 ms
+10-Jun-2020 15:14:09.736 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/CA7_backend.war] has finished in [56,186] ms
+10-Jun-2020 15:14:09.737 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/host-manager]
+10-Jun-2020 15:14:09.935 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/host-manager] has finished in [199] ms
+10-Jun-2020 15:14:09.935 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/ROOT]
+10-Jun-2020 15:14:10.035 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/ROOT] has finished in [100] ms
+10-Jun-2020 15:14:10.035 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/docs]
+10-Jun-2020 15:14:10.144 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/docs] has finished in [109] ms
+10-Jun-2020 15:14:10.144 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/manager]
+10-Jun-2020 15:14:10.248 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/manager] has finished in [103] ms
+10-Jun-2020 15:14:10.248 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/examples]
+10-Jun-2020 15:14:11.235 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/examples] has finished in [987] ms
+10-Jun-2020 15:14:11.238 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+10-Jun-2020 15:14:11.245 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+10-Jun-2020 15:14:11.336 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [58,195] milliseconds

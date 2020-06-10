@@ -41,3 +41,4 @@ sudo docker exec -it my-mysql bash
 
 kubectl delete deployment backend
 kubectl delete deployment mysql-deployment
+kubectl delete persistentvolumeclaim mysql-data-disk
