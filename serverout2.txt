@@ -1,4 +1,4 @@
-10-Jun-2020 16:03:15.838 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.20
+kub10-Jun-2020 16:03:15.838 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.20
 10-Jun-2020 16:03:15.840 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          May 3 2019 22:26:00 UTC
 10-Jun-2020 16:03:15.840 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.20.0
 10-Jun-2020 16:03:15.840 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
