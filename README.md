@@ -39,4 +39,5 @@ sudo docker exec -it my-mysql bash
 	use loghme;
 	show tables;
 
-
+kubectl delete deployment backend
+kubectl delete deployment mysql-deployment
