@@ -52,9 +52,9 @@ public class DataManager {
 //        dataSource.setPassword("MFfm3722119@");
 
         dataSource.setInitialPoolSize(5);
-        dataSource.setMinPoolSize(5);
-        dataSource.setAcquireIncrement(5);
-        dataSource.setMaxPoolSize(20);
+        dataSource.setMinPoolSize(3);
+        dataSource.setAcquireIncrement(3);
+        dataSource.setMaxPoolSize(10);
         dataSource.setMaxStatements(100);
 
         mapper = new ObjectMapper();
