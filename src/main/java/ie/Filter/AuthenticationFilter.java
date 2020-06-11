@@ -39,7 +39,7 @@ public class AuthenticationFilter implements Filter{
                 response.setStatus(403);
                 return;
             }
-            if(path.equals("/jwtValidation")){
+            if(path.equals("/CA7_backend/jwtValidation")){
                 HttpServletResponse response = (HttpServletResponse) servletResponse;
                 response.setStatus(200);
                 return;
