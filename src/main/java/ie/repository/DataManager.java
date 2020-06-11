@@ -80,6 +80,7 @@ public class DataManager {
             return content.toString();
         }catch (Exception e){
             System.out.println("Exception in loadRestaurantJson");
+            e.printStackTrace();
         }
         return "";
     }
@@ -91,6 +92,7 @@ public class DataManager {
             newRestaurants.addAll(new ArrayList<RestaurantDAO>(Arrays.asList(mapper.readValue(restaurantsJson, RestaurantDAO[].class))));
         } catch (Exception  e) {
             System.out.println("Exception in set list of restaurants");
+            e.printStackTrace();
         }
 
         RestaurantManager.getInstance().save(newRestaurants, false);
@@ -111,6 +113,7 @@ public class DataManager {
             return content.toString();
         }catch(Exception e) {
             System.out.println("Exception in adding deliveriesJson");
+            e.printStackTrace();
             return "";
         }
     }
@@ -123,6 +126,7 @@ public class DataManager {
             DeliveryManager.getInstance().save(deliveries);
         } catch (Exception  e) {
             System.out.println("Exception in addDeliveries");
+            e.printStackTrace();
         }
     }
 
@@ -157,6 +161,7 @@ public class DataManager {
             RestaurantManager.getInstance().save(discountRestaurants, true);
         } catch (Exception  e) {
             System.out.println("Exception in start foodParty");
+            e.printStackTrace();
         }
         foodPartyStartTime = new Date();
     }
