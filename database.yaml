@@ -6,7 +6,9 @@ metadata:
   namespace: hosna-fatemeh-ns
 type: Opaque
 data:
-  ROOT_PASSWORD: c3VwZXJzZWNyZXQK
+#  mysql-password: c3VwZXJzZWNyZXQ=
+  mysql-root-password: cGFzcw==
+#  mysql-user: cm9vdA==
 
 ---
 apiVersion: v1
@@ -64,7 +66,17 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: mysql-secrets
-                  key: ROOT_PASSWORD
+                  key: mysql-root-password
+#            - name: MYSQL_USER
+#              valueFrom:
+#                secretKeyRef:
+#                  name: mysql-secrets
+#                  key: mysql-user
+#            - name: MYSQL_PASSWORD
+#              valueFrom:
+#                secretKeyRef:
+#                  name: mysql-secrets
+#                  key: mysql-password
           resources:
             limits:
               memory: "500Mi"

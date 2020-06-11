@@ -48,7 +48,7 @@ public class DataManager {
         dataSource = new ComboPooledDataSource();
         dataSource.setJdbcUrl("jdbc:mysql://mysql-service:3306/loghme");
         dataSource.setUser("root");
-        dataSource.setPassword("supersecret");
+        dataSource.setPassword("pass");
 //        dataSource.setPassword("MFfm3722119@");
 
         dataSource.setInitialPoolSize(5);
