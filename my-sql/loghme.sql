@@ -1,6 +1,6 @@
 -- CREATE DATABASE loghme;
 --
--- USE loghme;
+USE loghme;
 
 ALTER DATABASE
     loghme
