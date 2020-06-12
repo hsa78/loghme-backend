@@ -25,15 +25,6 @@ spec:
   storageClassName: manual
 
 ---
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: init-script
-data:
-  test.sh: |
-    #!/bin/bash
-    mysql -psupersecret </docker-entrypoint-initdb.d/loghme.sql
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -52,16 +43,6 @@ spec:
         app: mysql
     spec:
       containers:
-#        - name: init
-#          image: "k8s.gcr.io/busybox"
-#          command: ["/bin/sh","-c","mysql -psupersecret </docker-entrypoint-initdb.d/loghme.sql"]
-#          volumeMounts:
-#            - name: mysql-data
-#              mountPath: "/var/lib/mysql"
-#          resources:
-#              limits:
-#                memory: "20Mi"
-#                cpu: "0.01"
         - name: mysql
           image: hsazarmsa/ie_database:latest
           ports:
@@ -70,9 +51,8 @@ spec:
             - mountPath: "/var/lib/mysql"
               subPath: "mysql"
               name: mysql-data
-            - name: init-script
-              mountPath: /script/test.sh
-              subPath: test.sh
+#            - name: mysql-initdb
+#              mountPath: /docker-entrypoint-initdb.d
           env:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
@@ -97,9 +77,7 @@ spec:
         - name: mysql-data
           persistentVolumeClaim:
             claimName: mysql-data-disk
-        - name: init-script
-          configMap:
-            name: init-script
+
 ---
 apiVersion: v1
 kind: Service

@@ -39,12 +39,25 @@ sudo docker exec -it my-mysql bash
 	use loghme;
 	show tables;
 
-kubectl delete deployment backend
-kubectl delete deployment mysql-deployment
-kubectl delete secret mysql-secrets
-kubectl delete persistentvolumeclaim mysql-data-disk
-kubectl apply -f database.yaml
-kubectl apply -f backend.yaml
+for deploying server on kubernetes:
+    if you want to delete previous deployments and PVCs:
+        kubectl delete deployment backend
+        kubectl delete deployment mysql-deployment
+        kubectl delete secret mysql-secrets  //this is for mysql password you can omit it
+        kubectl delete persistentvolumeclaim mysql-data-disk
+    for deploying database:
+        kubectl apply -f database.yaml
+        kubectl -n hosna-fatemeh-ns exec -it $mysql-pod-name -- /bin/bash
+        in pod bash run this command:
+                mysql -p </docker-entrypoint-initdb.d/loghme.sql //password = supersecret
+        CTRL+d
+    for deploying backend: 
+        kubectl apply -f backend.yaml
+        
+for debugging:
+    kubectl describe pod $pod-name
+    kubectl logs $pod-name $container-name
 
-kubectl get resourcequota mem-cpu-demo --namespace=hosna-fatemeh-ns --output=yaml
+for getting resourcequota:
+    kubectl get resourcequota mem-cpu-demo --namespace=hosna-fatemeh-ns --output=yaml
 
