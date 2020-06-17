@@ -1,229 +1,86 @@
-11-Jun-2020 07:09:19.347 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.20
-11-Jun-2020 07:09:19.348 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          May 3 2019 22:26:00 UTC
-11-Jun-2020 07:09:19.349 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.20.0
-11-Jun-2020 07:09:19.349 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
-11-Jun-2020 07:09:19.349 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            4.15.0-101-generic
-11-Jun-2020 07:09:19.349 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
-11-Jun-2020 07:09:19.349 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-8-openjdk-amd64/jre
-11-Jun-2020 07:09:19.349 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_212-8u212-b01-1~deb9u1-b01
-11-Jun-2020 07:09:19.349 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
-11-Jun-2020 07:09:19.349 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
-11-Jun-2020 07:09:19.349 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
-11-Jun-2020 07:09:19.350 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
-11-Jun-2020 07:09:19.350 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
-11-Jun-2020 07:09:19.351 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
-11-Jun-2020 07:09:19.351 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
-11-Jun-2020 07:09:19.351 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
-11-Jun-2020 07:09:19.351 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
-11-Jun-2020 07:09:19.351 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
-11-Jun-2020 07:09:19.351 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
-11-Jun-2020 07:09:19.351 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
-11-Jun-2020 07:09:19.351 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.21] using APR version [1.5.2].
-11-Jun-2020 07:09:19.351 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-11-Jun-2020 07:09:19.351 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-11-Jun-2020 07:09:19.355 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.0j  20 Nov 2018]
-11-Jun-2020 07:09:20.947 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
-11-Jun-2020 07:09:21.053 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
-11-Jun-2020 07:09:21.054 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [2,901] milliseconds
-11-Jun-2020 07:09:21.264 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
-11-Jun-2020 07:09:21.265 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.20]
-11-Jun-2020 07:09:21.454 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/CA7_backend.war]
-11-Jun-2020 07:09:32.253 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+17-Jun-2020 01:51:05.752 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.20
+17-Jun-2020 01:51:05.754 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          May 3 2019 22:26:00 UTC
+17-Jun-2020 01:51:05.754 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.20.0
+17-Jun-2020 01:51:05.754 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+17-Jun-2020 01:51:05.754 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            4.15.0-101-generic
+17-Jun-2020 01:51:05.754 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+17-Jun-2020 01:51:05.754 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-8-openjdk-amd64/jre
+17-Jun-2020 01:51:05.754 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_212-8u212-b01-1~deb9u1-b01
+17-Jun-2020 01:51:05.754 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+17-Jun-2020 01:51:05.755 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+17-Jun-2020 01:51:05.755 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+17-Jun-2020 01:51:05.846 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+17-Jun-2020 01:51:05.847 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+17-Jun-2020 01:51:05.847 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+17-Jun-2020 01:51:05.847 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+17-Jun-2020 01:51:05.847 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+17-Jun-2020 01:51:05.847 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+17-Jun-2020 01:51:05.847 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+17-Jun-2020 01:51:05.847 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+17-Jun-2020 01:51:05.847 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+17-Jun-2020 01:51:05.847 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.21] using APR version [1.5.2].
+17-Jun-2020 01:51:05.847 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+17-Jun-2020 01:51:05.847 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+17-Jun-2020 01:51:05.851 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.0j  20 Nov 2018]
+17-Jun-2020 01:51:07.547 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+17-Jun-2020 01:51:07.649 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+17-Jun-2020 01:51:07.652 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [2,999] milliseconds
+17-Jun-2020 01:51:07.947 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+17-Jun-2020 01:51:07.948 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.20]
+17-Jun-2020 01:51:08.047 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/CA7_backend.war]
+17-Jun-2020 01:51:17.855 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
 Food Party Listener initialized.
 Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
-11-Jun-2020 07:09:32.551 WARNING [main] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [102] milliseconds.
+17-Jun-2020 01:51:18.246 WARNING [main] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [101] milliseconds.
 in init
-11-Jun-2020 07:09:32.855 INFO [MLog-Init-Reporter] com.mchange.v2.log.MLog. MLog clients using java 1.4+ standard logging.
-11-Jun-2020 07:09:33.252 INFO [Timer-0] com.mchange.v2.c3p0.C3P0Registry. Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+17-Jun-2020 01:51:18.357 INFO [MLog-Init-Reporter] com.mchange.v2.log.MLog. MLog clients using java 1.4+ standard logging.
+17-Jun-2020 01:51:18.754 INFO [Timer-0] com.mchange.v2.c3p0.C3P0Registry. Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
 start food party
-11-Jun-2020 07:09:35.946 INFO [Timer-0] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource. Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 1hgfbeuaa190amhx11ugiye|72b53f27, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 1hgfbeuaa190amhx11ugiye|72b53f27, idleConnectionTestPeriod -> 0, initialPoolSize -> 5, jdbcUrl -> jdbc:mysql://mysql-service:3306/loghme, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 10, maxStatements -> 100, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
-Thu Jun 11 07:09:37 UTC 2020 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
-Thu Jun 11 07:09:38 UTC 2020 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
-Thu Jun 11 07:09:38 UTC 2020 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
-Thu Jun 11 07:09:40 UTC 2020 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
-Thu Jun 11 07:09:40 UTC 2020 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
-11-Jun-2020 07:09:44.350 INFO [main] org.springframework.web.servlet.DispatcherServlet.initServletBean FrameworkServlet 'dispatcher': initialization started
-11-Jun-2020 07:09:44.460 INFO [main] org.springframework.web.context.support.XmlWebApplicationContext.prepareRefresh Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Thu Jun 11 07:09:44 UTC 2020]; root of context hierarchy
-11-Jun-2020 07:09:44.661 INFO [main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions Loading XML bean definitions from ServletContext resource [/no-name.xml]
-11-Jun-2020 07:09:48.155 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/cart],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.StatusCode> ie.services.CartService.addToCart(long,int,java.lang.String)
-11-Jun-2020 07:09:48.156 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/deleteFromCart],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.StatusCode> ie.services.CartService.deleteFromCart(long,java.lang.String)
-11-Jun-2020 07:09:48.157 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/cart],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.logic.Cart> ie.services.CartService.getCurrentCart(java.lang.String)
-11-Jun-2020 07:09:48.158 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/cartHistory],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.CartHistory> ie.services.CartService.getCartHistory(java.lang.String)
-11-Jun-2020 07:09:48.158 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/cartHistory/{id}],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.logic.Cart> ie.services.CartService.getPastCart(java.lang.String,java.lang.String)
-11-Jun-2020 07:09:48.159 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/finalizeOrder],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.StatusCode> ie.services.CartService.finalizeCart(java.lang.String)
-11-Jun-2020 07:09:48.159 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/cartBadge],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.CartInfo> ie.services.CartService.getCurrentCartInfo(java.lang.String)
-11-Jun-2020 07:09:48.160 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/foodParty/time],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.FoodPartyRemainedTime> ie.services.FoodPartyService.getFoodPartyRemainedTime()
-11-Jun-2020 07:09:48.161 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/foodParty/view],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<java.util.ArrayList<ie.logic.DiscountFood>> ie.services.FoodPartyService.getFoodPartyData()
-11-Jun-2020 07:09:48.246 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/credit],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.StatusCode> ie.services.ProfileService.increaseCredit(long,java.lang.String)
-11-Jun-2020 07:09:48.247 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/credit],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.CreditInfo> ie.services.ProfileService.getUserCredit(java.lang.String)
-11-Jun-2020 07:09:48.248 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/info],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.UserInfo> ie.services.ProfileService.getUserInfo(java.lang.String)
-11-Jun-2020 07:09:48.250 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/restaurant/brief/{id}],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.RestaurantInfo> ie.services.RestaurantService.getRestaurantSummaryInfo(java.lang.String)
-11-Jun-2020 07:09:48.251 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/restaurant/detail/{id}],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.logic.Resturant> ie.services.RestaurantService.getRestaurantCompleteInfo(java.lang.String)
-11-Jun-2020 07:09:48.251 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/restaurant/all],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<java.util.ArrayList<ie.services.responses.RestaurantInfo>> ie.services.RestaurantService.getAllRestaurantsInfo(int,int)
-11-Jun-2020 07:09:48.254 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/search],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<java.util.ArrayList<ie.services.responses.RestaurantInfo>> ie.services.SearchService.search(java.lang.String,java.lang.String,int,int)
-11-Jun-2020 07:09:48.350 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/registration],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.StatusCode> ie.services.SignService.registerUser(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
-11-Jun-2020 07:09:48.352 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/login],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.JwtResponse> ie.services.SignService.loginUser(java.lang.String,java.lang.String)
-11-Jun-2020 07:09:48.352 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/googleLogin],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.JwtResponse> ie.services.SignService.loginUserWithGoogle(java.lang.String,java.lang.String)
-11-Jun-2020 07:09:49.947 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Thu Jun 11 07:09:44 UTC 2020]; root of context hierarchy
-11-Jun-2020 07:09:50.161 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Thu Jun 11 07:09:44 UTC 2020]; root of context hierarchy
-11-Jun-2020 07:09:51.155 INFO [main] org.springframework.web.servlet.DispatcherServlet.initServletBean FrameworkServlet 'dispatcher': initialization completed in 6804 ms
-11-Jun-2020 07:09:51.248 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/CA7_backend.war] has finished in [29,794] ms
-11-Jun-2020 07:09:51.249 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/host-manager]
-11-Jun-2020 07:09:51.357 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/host-manager] has finished in [108] ms
-11-Jun-2020 07:09:51.357 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/ROOT]
-11-Jun-2020 07:09:51.455 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/ROOT] has finished in [98] ms
-11-Jun-2020 07:09:51.456 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/docs]
-11-Jun-2020 07:09:51.554 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/docs] has finished in [98] ms
-11-Jun-2020 07:09:51.555 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/manager]
-11-Jun-2020 07:09:51.657 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/manager] has finished in [103] ms
-11-Jun-2020 07:09:51.658 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/examples]
-11-Jun-2020 07:09:52.660 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/examples] has finished in [1,003] ms
-11-Jun-2020 07:09:52.748 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
-11-Jun-2020 07:09:52.754 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
-11-Jun-2020 07:09:52.848 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [31,793] milliseconds
-CORSFilter HTTP Request: POST
-PATH: /CA7_backend/registration
-
-
-requested path = /CA7_backend/registration
-CORSFilter HTTP Request: POST
-PATH: /CA7_backend/login
-
-
-requested path = /CA7_backend/login
-start food party
-start food party
-start food party
-start food party
-start food party
-start food party
-start food party
-start food party
-start food party
-start food party
-CORSFilter HTTP Request: GET
-PATH: /CA7_backend/jwtValidation
-
-
-requested path = /CA7_backend/jwtValidation
-CORSFilter HTTP Request: OPTIONS
-PATH: /CA7_backend/jwtValidation
-CORSFilter HTTP Request: GET
-PATH: /CA7_backend/jwtValidation
-
-
-requested path = /CA7_backend/jwtValidation
-start food party
-start food party
-start food party
-start food party
-start food party
-CORSFilter HTTP Request: POST
-PATH: /CA7_backend/login
-
-
-requested path = /CA7_backend/login
-CORSFilter HTTP Request: OPTIONS
-PATH: /CA7_backend/jwtValidation
-CORSFilter HTTP Request: GET
-PATH: /CA7_backend/jwtValidation
-
-
-requested path = /CA7_backend/jwtValidation
-CORSFilter HTTP Request: POST
-PATH: /CA7_backend/registration
-
-
-requested path = /CA7_backend/registration
-CORSFilter HTTP Request: OPTIONS
-PATH: /CA7_backend/jwtValidation
-CORSFilter HTTP Request: GET
-PATH: /CA7_backend/jwtValidation
-
-
-requested path = /CA7_backend/jwtValidation
-CORSFilter HTTP Request: POST
-PATH: /CA7_backend/login
-
-
-requested path = /CA7_backend/login
-CORSFilter HTTP Request: OPTIONS
-PATH: /CA7_backend/jwtValidation
-CORSFilter HTTP Request: GET
-PATH: /CA7_backend/jwtValidation
-
-
-requested path = /CA7_backend/jwtValidation
-11-Jun-2020 08:28:21.854 WARNING [http-nio-8080-exec-10] org.springframework.web.servlet.PageNotFound.noHandlerFound No mapping found for HTTP request with URI [/CA7_backend/jwtValidation] in DispatcherServlet with name 'dispatcher'
-CORSFilter HTTP Request: POST
-PATH: /CA7_backend/login
-
-
-requested path = /CA7_backend/login
-CORSFilter HTTP Request: OPTIONS
-PATH: /CA7_backend/jwtValidation
-CORSFilter HTTP Request: GET
-PATH: /CA7_backend/jwtValidation
-
-
-requested path = /CA7_backend/jwtValidation
-11-Jun-2020 08:28:29.974 WARNING [http-nio-8080-exec-3] org.springframework.web.servlet.PageNotFound.noHandlerFound No mapping found for HTTP request with URI [/CA7_backend/jwtValidation] in DispatcherServlet with name 'dispatcher'
-CORSFilter HTTP Request: OPTIONS
-PATH: /CA7_backend/jwtValidation
-CORSFilter HTTP Request: GET
-PATH: /CA7_backend/jwtValidation
-
-
-requested path = /CA7_backend/jwtValidation
-11-Jun-2020 08:28:36.458 WARNING [http-nio-8080-exec-5] org.springframework.web.servlet.PageNotFound.noHandlerFound No mapping found for HTTP request with URI [/CA7_backend/jwtValidation] in DispatcherServlet with name 'dispatcher'
-CORSFilter HTTP Request: OPTIONS
-PATH: /CA7_backend/jwtValidation
-CORSFilter HTTP Request: GET
-PATH: /CA7_backend/jwtValidation
-
-
-requested path = /CA7_backend/jwtValidation
-11-Jun-2020 08:29:25.994 WARNING [http-nio-8080-exec-8] org.springframework.web.servlet.PageNotFound.noHandlerFound No mapping found for HTTP request with URI [/CA7_backend/jwtValidation] in DispatcherServlet with name 'dispatcher'
-start food party
-CORSFilter HTTP Request: POST
-PATH: /CA7_backend/registration
-
-
-requested path = /CA7_backend/registration
-CORSFilter HTTP Request: OPTIONS
-PATH: /CA7_backend/jwtValidation
-CORSFilter HTTP Request: GET
-PATH: /CA7_backend/jwtValidation
-
-
-requested path = /CA7_backend/jwtValidation
-11-Jun-2020 08:29:53.556 WARNING [http-nio-8080-exec-2] org.springframework.web.servlet.PageNotFound.noHandlerFound No mapping found for HTTP request with URI [/CA7_backend/jwtValidation] in DispatcherServlet with name 'dispatcher'
-CORSFilter HTTP Request: POST
-PATH: /CA7_backend/login
-
-
-requested path = /CA7_backend/login
-CORSFilter HTTP Request: OPTIONS
-PATH: /CA7_backend/jwtValidation
-CORSFilter HTTP Request: GET
-PATH: /CA7_backend/jwtValidation
-
-
-requested path = /CA7_backend/jwtValidation
-11-Jun-2020 08:30:04.964 WARNING [http-nio-8080-exec-5] org.springframework.web.servlet.PageNotFound.noHandlerFound No mapping found for HTTP request with URI [/CA7_backend/jwtValidation] in DispatcherServlet with name 'dispatcher'
-start food party
-start food party
-start food party
-CORSFilter HTTP Request: POST
-PATH: /CA7_backend/login
-
-
-requested path = /CA7_backend/login
-CORSFilter HTTP Request: OPTIONS
-PATH: /CA7_backend/jwtValidation
-CORSFilter HTTP Request: GET
-PATH: /CA7_backend/jwtValidation
-
-
-requested path = /CA7_backend/jwtValidation
-11-Jun-2020 08:48:45.007 WARNING [http-nio-8080-exec-9] org.springframework.web.servlet.PageNotFound.noHandlerFound No mapping found for HTTP request with URI [/CA7_backend/jwtValidation] in DispatcherServlet with name 'dispatcher'
+17-Jun-2020 01:51:20.857 INFO [Timer-0] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource. Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 1hgfbf5aa1h9kh371p4vd7o|1faf5ec4, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 1hgfbf5aa1h9kh371p4vd7o|1faf5ec4, idleConnectionTestPeriod -> 0, initialPoolSize -> 5, jdbcUrl -> jdbc:mysql://mysql-service:3306/loghme, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 10, maxStatements -> 100, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+Wed Jun 17 01:51:22 UTC 2020 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+Wed Jun 17 01:51:22 UTC 2020 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+Wed Jun 17 01:51:22 UTC 2020 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+Wed Jun 17 01:51:25 UTC 2020 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+Wed Jun 17 01:51:25 UTC 2020 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+Wed Jun 17 01:51:26 UTC 2020 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+Wed Jun 17 01:51:26 UTC 2020 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+Wed Jun 17 01:51:26 UTC 2020 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+17-Jun-2020 01:51:30.449 INFO [main] org.springframework.web.servlet.DispatcherServlet.initServletBean FrameworkServlet 'dispatcher': initialization started
+17-Jun-2020 01:51:30.554 INFO [main] org.springframework.web.context.support.XmlWebApplicationContext.prepareRefresh Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Wed Jun 17 01:51:30 UTC 2020]; root of context hierarchy
+17-Jun-2020 01:51:30.753 INFO [main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions Loading XML bean definitions from ServletContext resource [/no-name.xml]
+17-Jun-2020 01:51:34.047 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/cart],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.StatusCode> ie.services.CartService.addToCart(long,int,java.lang.String)
+17-Jun-2020 01:51:34.048 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/deleteFromCart],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.StatusCode> ie.services.CartService.deleteFromCart(long,java.lang.String)
+17-Jun-2020 01:51:34.049 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/cart],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.logic.Cart> ie.services.CartService.getCurrentCart(java.lang.String)
+17-Jun-2020 01:51:34.049 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/cartHistory],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.CartHistory> ie.services.CartService.getCartHistory(java.lang.String)
+17-Jun-2020 01:51:34.050 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/cartHistory/{id}],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.logic.Cart> ie.services.CartService.getPastCart(java.lang.String,java.lang.String)
+17-Jun-2020 01:51:34.050 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/finalizeOrder],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.StatusCode> ie.services.CartService.finalizeCart(java.lang.String)
+17-Jun-2020 01:51:34.051 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/cartBadge],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.CartInfo> ie.services.CartService.getCurrentCartInfo(java.lang.String)
+17-Jun-2020 01:51:34.052 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/foodParty/time],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.FoodPartyRemainedTime> ie.services.FoodPartyService.getFoodPartyRemainedTime()
+17-Jun-2020 01:51:34.052 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/foodParty/view],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<java.util.ArrayList<ie.logic.DiscountFood>> ie.services.FoodPartyService.getFoodPartyData()
+17-Jun-2020 01:51:34.054 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/credit],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.StatusCode> ie.services.ProfileService.increaseCredit(long,java.lang.String)
+17-Jun-2020 01:51:34.054 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/credit],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.CreditInfo> ie.services.ProfileService.getUserCredit(java.lang.String)
+17-Jun-2020 01:51:34.055 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/user/info],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.UserInfo> ie.services.ProfileService.getUserInfo(java.lang.String)
+17-Jun-2020 01:51:34.056 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/restaurant/brief/{id}],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.RestaurantInfo> ie.services.RestaurantService.getRestaurantSummaryInfo(java.lang.String)
+17-Jun-2020 01:51:34.057 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/restaurant/detail/{id}],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.logic.Resturant> ie.services.RestaurantService.getRestaurantCompleteInfo(java.lang.String)
+17-Jun-2020 01:51:34.057 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/restaurant/all],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<java.util.ArrayList<ie.services.responses.RestaurantInfo>> ie.services.RestaurantService.getAllRestaurantsInfo(int,int)
+17-Jun-2020 01:51:34.148 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/search],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<java.util.ArrayList<ie.services.responses.RestaurantInfo>> ie.services.SearchService.search(java.lang.String,java.lang.String,int,int)
+17-Jun-2020 01:51:34.151 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/registration],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.StatusCode> ie.services.SignService.registerUser(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+17-Jun-2020 01:51:34.152 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/login],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.JwtResponse> ie.services.SignService.loginUser(java.lang.String,java.lang.String)
+17-Jun-2020 01:51:34.152 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.register Mapped "{[/googleLogin],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<ie.services.responses.JwtResponse> ie.services.SignService.loginUserWithGoogle(java.lang.String,java.lang.String)
+17-Jun-2020 01:51:35.057 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Wed Jun 17 01:51:30 UTC 2020]; root of context hierarchy
+17-Jun-2020 01:51:35.457 INFO [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Wed Jun 17 01:51:30 UTC 2020]; root of context hierarchy
+17-Jun-2020 01:51:36.454 INFO [main] org.springframework.web.servlet.DispatcherServlet.initServletBean FrameworkServlet 'dispatcher': initialization completed in 6005 ms
+17-Jun-2020 01:51:36.546 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/CA7_backend.war] has finished in [28,499] ms
+17-Jun-2020 01:51:36.547 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/host-manager]
+17-Jun-2020 01:51:36.655 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/host-manager] has finished in [108] ms
+17-Jun-2020 01:51:36.656 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/ROOT]
+17-Jun-2020 01:51:36.754 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/ROOT] has finished in [98] ms
+17-Jun-2020 01:51:36.754 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/docs]
+17-Jun-2020 01:51:36.853 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/docs] has finished in [99] ms
+17-Jun-2020 01:51:36.854 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/manager]
+17-Jun-2020 01:51:36.955 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/manager] has finished in [102] ms
+17-Jun-2020 01:51:36.955 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/examples]
+17-Jun-2020 01:51:38.147 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/examples] has finished in [1,192] ms
+17-Jun-2020 01:51:38.151 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+17-Jun-2020 01:51:38.251 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+17-Jun-2020 01:51:38.255 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [30,603] milliseconds

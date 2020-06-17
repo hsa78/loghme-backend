@@ -61,3 +61,4 @@ for debugging:
 for getting resourcequota:
     kubectl get resourcequota mem-cpu-demo --namespace=hosna-fatemeh-ns --output=yaml
 
+http address: http://ie.etuts.ir:30756
